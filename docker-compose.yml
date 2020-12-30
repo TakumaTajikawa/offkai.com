@@ -18,6 +18,13 @@ services:
     build: ./infra/mysql
     volumes:
       - db-store:/var/lib/mysql
+  
+  mail:
+    image: mailhog/mailhog
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+
 
 volumes:
   db-store:
