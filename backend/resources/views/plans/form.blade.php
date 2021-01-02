@@ -24,9 +24,11 @@
   <textarea name="body" required class="form-control" rows="16" placeholder="本文">{{ old('body') }}</textarea>
 </div>
 
-<div class="card form-group" style="width: 20rem;margin:10px;">
+<div class="card form-group" style="margin:10px;">
   <div class="card-body">
-    <h4 class="card-title">画像を選んでください。</h4>
-    <input type="file" accept="image/*">
+    <h6 class="card-title">画像</h6>
+    <input type="file" accept="image/*" @change="onFileChange($event)" name="image" >
   </div>
 </div>
+
+<img :src="imageData" v-if="imageData">
