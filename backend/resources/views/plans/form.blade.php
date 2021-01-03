@@ -36,12 +36,12 @@
 
 <div class="md-form">
   <label>募集年齢</label>
-  <input type="text" name="cities" class="form-control" required value="{{ old('cities') }}">
+  <input type="text" name="age" class="form-control" required value="{{ old('age') }}">
 </div>
 
 <div class="md-form">
   <label>ジャンル</label>
-  <input type="text" name="cities" class="form-control" required value="{{ old('cities') }}">
+  <input type="text" name="genre" class="form-control" required value="{{ old('genre') }}">
 </div>
 
 <div class="form-group">

@@ -41,7 +41,7 @@ class PlanRequest extends FormRequest
         return[
             'title' => 'タイトル',
             'body' => '本文',
-            'citis' => '区市町村',
+            'cities' => '区市町村',
             'genre' => 'ジャンル',
             'meeting_date_time' => '開催日時',
             'image' => '画像',
