@@ -24,6 +24,7 @@ class CreatePlansTable extends Migration
             $table->dateTime('meeting_date_time')->nullable(false);
             $table->string('membership_fee')->nullable();
             $table->string('img')->nullable();
+            $table->string('venue')->nullable();
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
