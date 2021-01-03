@@ -1,33 +1,53 @@
 @csrf
 <div class="md-form">
-  <label>タイトル</label>
+  <label>タイトル <span style="font-size: 12px;">※必須</span></label>
   <input type="text" name="title" class="form-control" required value="{{ old('title') }}" style="margin-top: 40px;">
-  <label style="margin-top: 60px;">開催日時</label>
-  <input type="datetime-local" name="meeting_date_time" class="form-control" required value="{{ old('meeting_date_time') }}" format="('Y年m月d日 H時i分')" style="margin-top: 50px;">
-  <label style="margin-top: 150px;">場所（都道府県）</label>
-  <select type="text" class="form-control" name="pref_id" style="margin-top: 55px;" required value="{{ old('pref_id') }}">                          
+</div>
+
+<div class="form-group">
+  <label>開催日時 <span style="font-size: 12px;">※必須</span></label>
+  <input type="datetime-local" name="meeting_date_time" class="form-control" required value="{{ old('meeting_date_time') }}" format="('Y年m月d日 H時i分')">
+</div>
+
+<div class="form-group">
+  <label>場所（都道府県） <span style="font-size: 12px;">※必須</span></label>
+  <select type="text" class="form-control" name="pref_id" required value="{{ old('pref_id') }}">
+    <option disabled selected value>選択してください</option>
     @foreach(config('pref') as $key => $score)
       <option value="{{ $score }}">{{ $score }} </option>
     @endforeach
   </select>
-  <label style="margin-top: 230px;">場所（区市町村）</label>
-  <input type="text" name="cities" class="form-control" required value="{{ old('cities') }}" style="margin-top: 40px;">
-  <label style="margin-top: 310px;">募集年齢</label>
-  <input type="text" name="cities" class="form-control" required value="{{ old('cities') }}" style="margin-top: 40px;">
-  <label style="margin-top: 390px;">ジャンル</label>
-  <input type="text" name="cities" class="form-control" required value="{{ old('cities') }}" style="margin-top: 40px;">
-
-  
 </div>
+
+<div class="md-form">
+  <label>場所（区市町村）</label>
+  <input type="text" name="cities" class="form-control" required value="{{ old('cities') }}">
+</div>
+
+<div class="md-form">
+  <label>会場</label>
+  <input type="text" name="venue" class="form-control" required value="{{ old('venue') }}">
+</div>
+
+<div class="md-form">
+  <label>募集年齢</label>
+  <input type="text" name="cities" class="form-control" required value="{{ old('cities') }}">
+</div>
+
+<div class="md-form">
+  <label>ジャンル</label>
+  <input type="text" name="cities" class="form-control" required value="{{ old('cities') }}">
+</div>
+
 <div class="form-group">
-  <label></label>
-  <textarea name="body" required class="form-control" rows="16" placeholder="本文">{{ old('body') }}</textarea>
+  <label>説明 <span style="font-size: 12px;">※必須</span></label>
+  <textarea name="body" required class="form-control" rows="16" placeholder="【例】：初めまして！私は〇〇県□□市在住の△△と申します。今回は〇〇県□□市で◇◇好きな方同士で集まり情報交換も兼ねてオフ会を開催したいと思います。お酒を飲みながらゆるーく語りましょう！！">{{ old('body') }}</textarea>
 </div>
 
 <div class="card form-group" style="margin:10px;">
   <div class="card-body">
     <h6 class="card-title">画像</h6>
-    <input type="file" accept="image/*" @change="onFileChange($event)" name="image" >
+    <input type="file" accept="image/*" @change="onFileChange($event)" name="image" required value="{{ old('image') }}">
   </div>
 </div>
 
