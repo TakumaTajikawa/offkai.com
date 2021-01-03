@@ -30,6 +30,11 @@
 </div>
 
 <div class="md-form">
+  <label>会費</label>
+  <input type="text" name="membership_fee" class="form-control" required value="{{ old('membership_fee') }}">
+</div>
+
+<div class="md-form">
   <label>募集年齢</label>
   <input type="text" name="cities" class="form-control" required value="{{ old('cities') }}">
 </div>
