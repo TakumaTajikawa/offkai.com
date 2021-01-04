@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand navbar-dark blue-gradient">
+<nav class="navbar navbar-expand navbar-dark" style="background-color: rgb(	0,200,179);">
 
   <a class="navbar-brand" href="/"><i class="far fa-sticky-note mr-1"></i>オフ会.com</a>
 
@@ -15,7 +15,7 @@
 
     @auth
     <li class="nav-item">
-      <a class="nav-link" href=""><i class="fas fa-pen mr-1"></i>オフ会プランを投稿する</a>
+      <a class="nav-link" href="{{ route('plans.create') }}"><i class="fas fa-pen mr-1"></i>オフ会プランを投稿する</a>
     </li>
     @endauth
 

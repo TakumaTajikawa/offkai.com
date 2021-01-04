@@ -17,13 +17,14 @@ class CreatePlansTable extends Migration
             $table->id();
             $table->string('title')->nullable(false);
             $table->text('body')->nullable(false);
-            $table->integer('pref_id')->nullable(false);
+            $table->string('prefecture')->nullable(false);
             $table->string('cities')->nullable();
             $table->string('genre')->nullable();
             $table->string('age')->nullable();
             $table->dateTime('meeting_date_time')->nullable(false);
             $table->string('membership_fee')->nullable();
             $table->string('img')->nullable();
+            $table->string('venue')->nullable();
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
