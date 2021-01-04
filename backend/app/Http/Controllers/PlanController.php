@@ -25,4 +25,9 @@ class PlanController extends Controller
         $plan->save();
         return redirect()->route('plans.index');
     }
+
+    public function edit(Plan $plan)
+    {
+        return view('plans.edit', ['plan' => $plan]);
+    }
 }
