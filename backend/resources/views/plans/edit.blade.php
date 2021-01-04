@@ -1,10 +1,8 @@
 @extends('app')
 
-@section('title', 'オフ会プラン投稿')
+@section('title', 'プラン更新')
 
 @include('nav')
-
-
 
 @section('content')
   <div class="container">
@@ -14,9 +12,10 @@
           <div class="card-body pt-0">
             @include('errors')
             <div class="card-text">
-              <form method="POST" action="{{ route('plans.store') }}">
+              <form method="POST" action="{{ route('plans.update', ['plan' => $plan]) }}">
+                @method('PATCH')
                 @include('plans.form')
-                <button type="submit" class="btn btn-block" style="margin-top: 40px; background-color: rgb(	0,200,179); color: #fff;">投稿する</button>
+                <button type="submit" class="btn btn-block" style="margin-top: 40px; background-color: rgb(	0,200,179); color: #fff;">更新する</button>
               </form>
             </div>
           </div>
