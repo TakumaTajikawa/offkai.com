@@ -24,15 +24,15 @@ class PlanRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required | string | max:50',
+            'title' => 'required|max:50',
             'body' => 'required|max:500',
-            'cities' => 'required|max:20',
-            'genre' => 'required|max:20',
-            'meeting_date_time' => 'required|max:20',
-            'image' => 'required|max:20',
-            'age' => 'required|max:20',
-            'venue' => 'required|max:20',
-            'membership_fee' => 'required|max:20'
+            'prefecture' => 'required|max:10',
+            'cities' => 'max:30',
+            'genre' => 'max:30',
+            'meeting_date_time' => 'max:30',
+            'age' => 'max:20',
+            'venue' => 'max:30',
+            'membership_fee' => 'max:30'
         ];
     }
 
@@ -41,6 +41,7 @@ class PlanRequest extends FormRequest
         return[
             'title' => 'タイトル',
             'body' => '本文',
+            'prefecture' => '都道府県',
             'cities' => '区市町村',
             'genre' => 'ジャンル',
             'meeting_date_time' => '開催日時',

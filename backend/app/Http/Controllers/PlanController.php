@@ -23,11 +23,11 @@ class PlanController extends Controller
         $plan->title = $request->title;
         $plan->body = $request->body;
         $plan->user_id = $request->user()->id;
-        $plan->pref_id = $request->pref_id;
+        $plan->prefecture = $request->prefecture;
         $plan->cities = $request->cities;
         $plan->genre = $request->genre;
         $plan->meeting_date_time = $request->meeting_date_time;
-        $plan->image = $request->image;
+        $plan->image = $request->image->nullable();
         $plan->age = $request->age;
         $plan->venue = $request->venue;
         $plan->membership_fee = $request->membership_fee;

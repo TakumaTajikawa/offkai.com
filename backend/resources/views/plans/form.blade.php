@@ -11,7 +11,7 @@
 
 <div class="form-group">
   <label>場所（都道府県） <span style="font-size: 12px;">※必須</span></label>
-  <select type="integer" required class="form-control" name="pref_id" required value="{{ old('pref_id') }}">
+  <select type="text" required class="form-control" name="prefecture" required value="{{ old('prefecture') }}">
     <option disabled selected value>選択してください</option>
     @foreach(config('pref') as $key => $score)
       <option value="{{ $score }}">{{ $score }} </option>

@@ -17,7 +17,7 @@ class CreatePlansTable extends Migration
             $table->id();
             $table->string('title')->nullable(false);
             $table->text('body')->nullable(false);
-            $table->integer('pref_id')->nullable(false);
+            $table->string('prefecture')->nullable(false);
             $table->string('cities')->nullable();
             $table->string('genre')->nullable();
             $table->string('age')->nullable();
