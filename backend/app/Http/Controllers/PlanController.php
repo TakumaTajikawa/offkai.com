@@ -20,17 +20,8 @@ class PlanController extends Controller
 
     public function store(PlanRequest $request, Plan $plan)
     {
-        $plan->title = $request->title;
-        $plan->body = $request->body;
+        $plan->fill($request->all());
         $plan->user_id = $request->user()->id;
-        $plan->prefecture = $request->prefecture;
-        $plan->cities = $request->cities;
-        $plan->genre = $request->genre;
-        $plan->meeting_date_time = $request->meeting_date_time;
-        $plan->image = $request->image->nullable();
-        $plan->age = $request->age;
-        $plan->venue = $request->venue;
-        $plan->membership_fee = $request->membership_fee;
         $plan->save();
         return redirect()->route('plans.index');
     }
