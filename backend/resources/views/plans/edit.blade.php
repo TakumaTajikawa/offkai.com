@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', 'プラン更新')
+@section('title', 'プラン編集')
 
 @include('nav')
 
