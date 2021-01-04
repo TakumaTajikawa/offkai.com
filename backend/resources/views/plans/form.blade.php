@@ -11,7 +11,7 @@
 
 <div class="form-group">
   <label>場所（都道府県） <span style="font-size: 12px;">※必須</span></label>
-  <select type="text" class="form-control" name="pref_id" required value="{{ old('pref_id') }}">
+  <select type="integer" required class="form-control" name="pref_id" required value="{{ old('pref_id') }}">
     <option disabled selected value>選択してください</option>
     @foreach(config('pref') as $key => $score)
       <option value="{{ $score }}">{{ $score }} </option>
@@ -48,12 +48,3 @@
   <label>説明 <span style="font-size: 12px;">※必須</span></label>
   <textarea name="body" required class="form-control" rows="16" placeholder="【例】：初めまして！私は〇〇県□□市在住の△△と申します。今回は〇〇県□□市で◇◇好きな方同士で集まり情報交換も兼ねてオフ会を開催したいと思います。お酒を飲みながらゆるーく語りましょう！！">{{ old('body') }}</textarea>
 </div>
-
-<div class="card form-group" style="margin:10px;">
-  <div class="card-body">
-    <h6 class="card-title">画像</h6>
-    <input type="file" accept="image/*" @change="onFileChange($event)" name="image" required value="{{ old('image') }}">
-  </div>
-</div>
-
-<img :src="imageData" v-if="imageData">

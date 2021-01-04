@@ -4,8 +4,11 @@
 
 @include('nav')
 
+
+
 @section('content')
   <div class="container">
+    @include('errors')
     <div class="row">
       <div class="col-12">
         <div class="card mt-3">
@@ -13,7 +16,7 @@
             <div class="card-text">
               <form method="POST" action="{{ route('plans.store') }}">
                 @include('plans.form')
-                <button type="submit" class="btn btn-block" style="margin-top: 40px; background-color: rgb(	0,200,179);">投稿する</button>
+                <button type="submit" class="btn btn-block" style="margin-top: 40px; background-color: rgb(	0,200,179); color: #fff;">投稿する</button>
               </form>
             </div>
           </div>

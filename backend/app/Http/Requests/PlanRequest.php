@@ -24,7 +24,7 @@ class PlanRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|max:50',
+            'title' => 'required | string | max:50',
             'body' => 'required|max:500',
             'cities' => 'required|max:20',
             'genre' => 'required|max:20',
@@ -32,7 +32,7 @@ class PlanRequest extends FormRequest
             'image' => 'required|max:20',
             'age' => 'required|max:20',
             'venue' => 'required|max:20',
-            'membership_fee' => 'required|max:20',
+            'membership_fee' => 'required|max:20'
         ];
     }
 
