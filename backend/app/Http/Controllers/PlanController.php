@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class PlanController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->authorizeResource(Plan::class, 'plan');
+    }
+
     public function index() 
     {
         $plans = Plan::all()->sortByDesc('created_at');
