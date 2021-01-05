@@ -6,7 +6,7 @@
 
 <div class="form-group">
   <label>開催日時 <span style="font-size: 12px;">※必須</span></label>
-  <input type="datetime-local" name="meeting_date_time" class="form-control" required value="{{date('Y-m-d\TH:i', strtotime($meeting_date_time))?}}" format="('Y年m月d日 H時i分')">
+  <input type="datetime-local" name="meeting_date_time" class="form-control" required>
 </div>
 
 <div class="form-group">

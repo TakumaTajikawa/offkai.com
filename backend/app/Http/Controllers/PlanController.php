@@ -36,4 +36,10 @@ class PlanController extends Controller
         $plan->fill($request->all())->save();
         return redirect()->route('plans.index');
     }
+
+    public function destroy(Plan $plan)
+    {
+        $plan->delete();
+        return redirect()->route('plans.index');
+    }
 }
