@@ -67,7 +67,9 @@
         </div>
         <div class="card-body pt-0 pb-2">
           <h3 class="h4 card-title">
-            {{ $plan->title }}
+            <a class="text-dark" href="{{ route('plans.show', ['plan' => $plan]) }}">
+              {{ $plan->title }}
+            </a>
           </h3>
           <div class="card-text">
             {!! nl2br(e( $plan->body )) !!}

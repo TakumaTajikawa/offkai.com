@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class PlanController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->authorizeResource(Plan::class, 'plan');
+    }
+
     public function index() 
     {
         $plans = Plan::all()->sortByDesc('created_at');
@@ -42,4 +48,9 @@ class PlanController extends Controller
         $plan->delete();
         return redirect()->route('plans.index');
     }
+
+    public function show(Plan $plan)
+    {
+        return view('plans.show', ['plan' => $plan]);
+    }  
 }

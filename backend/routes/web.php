@@ -17,7 +17,8 @@ use App\Http\Controllers\HomeController;
 
 Auth::routes();
 Route::get('/', [PlanController::class, 'index'])->name('plans.index');
-Route::resource('/plans', PlanController::class)->except(['index'])->middleware('auth'); 
+Route::resource('/plans', PlanController::class)->except(['index', 'show'])->middleware('auth'); 
+Route::resource('/plans', PlanController::class)->only(['show']);
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 

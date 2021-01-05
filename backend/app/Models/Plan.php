@@ -22,6 +22,8 @@ class Plan extends Model
         'membership_fee'
     ];
 
+    protected $dates = ['meeting_date_time'];
+    
     public function user():BelongsTo
     {
         return $this->belongsTo('App\Models\User');

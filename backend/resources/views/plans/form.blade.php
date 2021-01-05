@@ -6,13 +6,13 @@
 
 <div class="form-group">
   <label>開催日時 <span style="font-size: 12px;">※必須</span></label>
-  <input type="datetime-local" name="meeting_date_time" class="form-control" required>
+  <input type="datetime-local" name="meeting_date_time" class="form-control" required value="{{ empty($plan->meeting_date_time) ? null : $plan->meeting_date_time->format('Y-m-d\TH:i') }}" min="2021-01-05T00:00" max="2022-01-01T00:00">
 </div>
 
 <div class="form-group">
   <label>場所（都道府県） <span style="font-size: 12px;">※必須</span></label>
   <select type="text" class="form-control" name="prefecture" required value="{{ $plan->prefecture ?? old('prefecture') }}">
-    <option disabled selected value style="display: none;">選択してください</option>
+    <option disabled selected style="display: none;">選択してください</option>
     @foreach(config('pref') as $key => $value)
       <option value="{{ $value }}" @if ($plan->prefecture == $value) selected @endif>
         {{ $value }}
