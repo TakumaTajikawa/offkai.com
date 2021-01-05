@@ -23,7 +23,7 @@ class Plan extends Model
     ];
 
     protected $dates = ['meeting_date_time'];
-
+    
     public function user():BelongsTo
     {
         return $this->belongsTo('App\Models\User');
