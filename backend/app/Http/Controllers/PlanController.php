@@ -42,4 +42,6 @@ class PlanController extends Controller
         $plan->delete();
         return redirect()->route('plans.index');
     }
+
+    
 }
