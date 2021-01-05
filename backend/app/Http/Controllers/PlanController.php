@@ -43,5 +43,8 @@ class PlanController extends Controller
         return redirect()->route('plans.index');
     }
 
-    
+    public function show(Plan $plan)
+    {
+        return view('plans.show', ['plan' => $plan]);
+    }  
 }
