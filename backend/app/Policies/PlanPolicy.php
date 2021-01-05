@@ -18,7 +18,7 @@ class PlanPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return true;
     }
 
     /**
@@ -30,7 +30,7 @@ class PlanPolicy
      */
     public function view(User $user, Plan $plan)
     {
-        //
+        return true;
     }
 
     /**
@@ -41,7 +41,7 @@ class PlanPolicy
      */
     public function create(User $user)
     {
-        //
+        return true;
     }
 
     /**
@@ -53,7 +53,7 @@ class PlanPolicy
      */
     public function update(User $user, Plan $plan)
     {
-        //
+        return $user->id === $plan->user_id;
     }
 
     /**
@@ -65,7 +65,7 @@ class PlanPolicy
      */
     public function delete(User $user, Plan $plan)
     {
-        //
+        return $user->id === $plan->user_id;
     }
 
     /**
