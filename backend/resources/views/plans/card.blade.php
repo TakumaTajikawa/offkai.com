@@ -60,7 +60,7 @@
       </a>
     </h3>
     <div class="card-text">
-      {{ $plan->body }}
+      {!! nl2br(e( $plan->body )) !!}
     </div>
   </div>
 </div>
