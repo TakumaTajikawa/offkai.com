@@ -30,4 +30,10 @@ class PlanController extends Controller
     {
         return view('plans.edit', ['plan' => $plan]);
     }
+
+    public function update(PlanRequest $request, Plan $plan)
+    {
+        $plan->fill($request->all())->save();
+        return redirect()->route('plans.index');
+    }
 }
