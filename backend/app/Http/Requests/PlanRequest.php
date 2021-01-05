@@ -38,7 +38,7 @@ class PlanRequest extends FormRequest
 
     public function attributes()
     {
-        return[
+        return [
             'title' => 'タイトル',
             'body' => '本文',
             'prefecture' => '都道府県',
@@ -50,5 +50,11 @@ class PlanRequest extends FormRequest
             'venue' => '会場',
             'membership_fee' => '会費'
         ];
+    }
+
+    public function flash()
+    {
+        $request->flashOnly(['prefecture', 'meeting_date_time']);
+        
     }
 }

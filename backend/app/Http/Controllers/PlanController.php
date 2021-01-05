@@ -13,9 +13,9 @@ class PlanController extends Controller
         return view('plans.index', ['plans' => $plans]);
     }
 
-    public function create()
+    public function create(Plan $plan)
     {
-        return view('plans.create');    
+        return view('plans.create', ['plan' => $plan]);    
     }
 
     public function store(PlanRequest $request, Plan $plan)
@@ -23,6 +23,23 @@ class PlanController extends Controller
         $plan->fill($request->all());
         $plan->user_id = $request->user()->id;
         $plan->save();
+        return redirect()->route('plans.index');
+    }
+
+    public function edit(Plan $plan)
+    {
+        return view('plans.edit', ['plan' => $plan]);
+    }
+
+    public function update(PlanRequest $request, Plan $plan)
+    {
+        $plan->fill($request->all())->save();
+        return redirect()->route('plans.index');
+    }
+
+    public function destroy(Plan $plan)
+    {
+        $plan->delete();
         return redirect()->route('plans.index');
     }
 }
