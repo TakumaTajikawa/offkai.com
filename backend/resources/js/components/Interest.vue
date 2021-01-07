@@ -5,7 +5,7 @@
       class="btn m-0 p-1 shadow-none"
     >
       <i class="fas fa-heart mr-1"
-        :class="{'red-text':this.isInterestedBy}"
+        :class="{'red-text':this.isInterestedBy, 'animated rubberBand fast':this.gotToInterest}"
         @click="clickInterest"
       />
       <span :class="{'red-text':this.isInterestedBy}"
@@ -39,6 +39,7 @@
       return {
         isInterestedBy: this.initialIsInterestedBy,
         countInterests: this.initialCountInterests,
+        gotToInterest: false,
       }
     },
     methods: {
@@ -57,12 +58,14 @@
 
         this.isInterestedBy = true
         this.countInterests = response.data.countInterests
+        this.gotToInterest = true
       },
       async uninterest() {
         const response = await axios.delete(this.endpoint)
 
         this.isInterestedBy = false
         this.countInterests = response.data.countInterests
+        this.gotToInterest = false
       },
     },
   }

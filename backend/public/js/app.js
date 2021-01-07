@@ -2049,7 +2049,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       isInterestedBy: this.initialIsInterestedBy,
-      countInterests: this.initialCountInterests
+      countInterests: this.initialCountInterests,
+      gotToInterest: false
     };
   },
   methods: {
@@ -2077,8 +2078,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 response = _context.sent;
                 _this.isInterestedBy = true;
                 _this.countInterests = response.data.countInterests;
+                _this.gotToInterest = true;
 
-              case 5:
+              case 6:
               case "end":
                 return _context.stop();
             }
@@ -2102,8 +2104,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 response = _context2.sent;
                 _this2.isInterestedBy = false;
                 _this2.countInterests = response.data.countInterests;
+                _this2.gotToInterest = false;
 
-              case 5:
+              case 6:
               case "end":
                 return _context2.stop();
             }
@@ -38565,7 +38568,10 @@ var render = function() {
       [
         _c("i", {
           staticClass: "fas fa-heart mr-1",
-          class: { "red-text": this.isInterestedBy },
+          class: {
+            "red-text": this.isInterestedBy,
+            "animated rubberBand fast": this.gotToInterest
+          },
           on: { click: _vm.clickInterest }
         }),
         _vm._v(" "),
