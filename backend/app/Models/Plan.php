@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTO;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Plan extends Model
 {
@@ -27,5 +28,10 @@ class Plan extends Model
     public function user():BelongsTo
     {
         return $this->belongsTo('App\Models\User');
+    }
+
+    public function interests(): BelongsToMany
+    {
+        return $this->belongsToMany('App\Models\User', 'interests')->withTimestamps();
     }
 }
