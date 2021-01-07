@@ -34,4 +34,11 @@ class Plan extends Model
     {
         return $this->belongsToMany('App\Models\User', 'interests')->withTimestamps();
     }
+
+    public function isInterestedBy(?User $user): bool
+    {
+        return $user
+            ? (bool)$this->interests->where('id', $user->id)->count()
+            : false;
+    }
 }
