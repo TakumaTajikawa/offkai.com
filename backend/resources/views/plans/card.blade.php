@@ -63,4 +63,10 @@
       {!! nl2br(e( $plan->body )) !!}
     </div>
   </div>
+  <div class="card-body pt-0 pb-2 pl-3">
+    <div class="card-text">
+      <interest>
+      </interest>
+    </div>
+  </div>
 </div>
