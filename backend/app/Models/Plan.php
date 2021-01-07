@@ -41,4 +41,9 @@ class Plan extends Model
             ? (bool)$this->interests->where('id', $user->id)->count()
             : false;
     }
+
+    public function getCountInterestsAttribute(): int
+    {
+        return $this->interests->count();
+    }
 }
