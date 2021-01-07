@@ -9,11 +9,13 @@
 import './bootstrap'
 import Vue from 'vue'
 import ImagePreview from './components/ImagePreview'
+import Interest from './components/Interest'
 
 const app = new Vue({
     el: '#app',
     components: {
         ImagePreview,
+        Interest,
     }
 });
 

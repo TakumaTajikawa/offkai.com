@@ -14,7 +14,7 @@
             <i class="fas fa-ellipsis-v"></i>
           </a>
           <div class="dropdown-menu dropdown-menu-right">
-            <a class="dropdown-item" href="{{ route("plans.edit", ['plan' => $plan]) }}">
+            <a class="dropdown-item" href="{{ route('plans.edit', ['plan' => $plan]) }}">
               <i class="fas fa-pen mr-1"></i>記事を更新する
             </a>
             <div class="dropdown-divider"></div>
@@ -61,6 +61,17 @@
     </h3>
     <div class="card-text">
       {!! nl2br(e( $plan->body )) !!}
+    </div>
+  </div>
+  <div class="card-body pt-0 pb-2 pl-3">
+    <div class="card-text">
+      <interest
+      :initial-is-interested-by='@json($plan->isInterestedBy(Auth::user()))'
+      :initial-count-interests='@json($plan->count_interests)'
+      :authorized='@json(Auth::check())'
+        endpoint="{{ route('plans.interest', ['plan' => $plan]) }}"
+      >
+      </interest>
     </div>
   </div>
 </div>
