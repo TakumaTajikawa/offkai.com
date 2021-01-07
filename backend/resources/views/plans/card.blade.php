@@ -14,7 +14,7 @@
             <i class="fas fa-ellipsis-v"></i>
           </a>
           <div class="dropdown-menu dropdown-menu-right">
-            <a class="dropdown-item" href="{{ route("plans.edit", ['plan' => $plan]) }}">
+            <a class="dropdown-item" href="{{ route('plans.edit', ['plan' => $plan]) }}">
               <i class="fas fa-pen mr-1"></i>記事を更新する
             </a>
             <div class="dropdown-divider"></div>
