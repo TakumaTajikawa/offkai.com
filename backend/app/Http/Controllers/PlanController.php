@@ -61,7 +61,7 @@ class PlanController extends Controller
 
         return [
             'id' => $plan->id,
-            'countInterests' => $plan->count_likes,
+            'countInterests' => $plan->count_interests,
         ];
     }
 
@@ -71,7 +71,7 @@ class PlanController extends Controller
 
         return [
             'id' => $plan->id,
-            'countInterests' => $plan->count_likes,
+            'countInterests' => $plan->count_interests,
         ];
     }
 }

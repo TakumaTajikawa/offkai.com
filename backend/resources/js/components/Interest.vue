@@ -4,8 +4,13 @@
       type="button"
       class="btn m-0 p-1 shadow-none"
     >
-      <i class="fas fa-heart mr-1"/>
-      興味あり！
+      <i class="fas fa-heart mr-1"
+        :class="{'red-text':this.isInterestedBy}"
+        @click="clickInterest"
+      />
+      <span :class="{'red-text':this.isInterestedBy}"
+        @click="clickInterest"
+      >興味あり！</span>
     </button>
     {{ countInterests }}
   </div>
@@ -18,16 +23,47 @@
         type: Boolean,
         default: false,
       },
-      initialCountLikes: {
+      initialCountInterests: {
         type: Number,
         default: 0,
+      },
+      authorized: {
+        type: Boolean,
+        default: false,
+      },
+      endpoint: {
+        type: String,
       },
     },
     data() {
       return {
         isInterestedBy: this.initialIsInterestedBy,
-        countLikes: this.initialCountLikes,
+        countInterests: this.initialCountInterests,
       }
+    },
+    methods: {
+      clickInterest() {
+        if (!this.authorized) {
+          alert('興味あり！機能はログイン中のみ使用できます')
+          return
+        }
+
+        this.isInterestedBy
+          ? this.uninterest()
+          : this.interest()
+      },
+      async interest() {
+        const response = await axios.put(this.endpoint)
+
+        this.isInterestedBy = true
+        this.countInterests = response.data.countInterests
+      },
+      async uninterest() {
+        const response = await axios.delete(this.endpoint)
+
+        this.isInterestedBy = false
+        this.countInterests = response.data.countInterests
+      },
     },
   }
 </script>

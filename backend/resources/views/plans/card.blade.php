@@ -67,6 +67,9 @@
     <div class="card-text">
       <interest
       :initial-is-interested-by='@json($plan->isInterestedBy(Auth::user()))'
+      :initial-count-interests='@json($plan->count_interests)'
+      :authorized='@json(Auth::check())'
+        endpoint="{{ route('plans.interest', ['plan' => $plan]) }}"
       >
       </interest>
     </div>
