@@ -12,4 +12,17 @@
 </template>
 
 <script>
+  export default {
+    props: {
+      initialIsInterestedBy: {
+        type: Boolean,
+        default: false,
+      },
+    },
+    data() {
+      return {
+        isInterestedBy: this.initialIsInterestedBy,
+      }
+    },
+  }
 </script>
