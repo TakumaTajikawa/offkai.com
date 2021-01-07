@@ -7,7 +7,7 @@
       <i class="fas fa-heart mr-1"/>
       興味あり！
     </button>
-    10
+    {{ countInterests }}
   </div>
 </template>
 
@@ -18,10 +18,15 @@
         type: Boolean,
         default: false,
       },
+      initialCountLikes: {
+        type: Number,
+        default: 0,
+      },
     },
     data() {
       return {
         isInterestedBy: this.initialIsInterestedBy,
+        countLikes: this.initialCountLikes,
       }
     },
   }
