@@ -19,6 +19,11 @@ Auth::routes();
 Route::get('/', [PlanController::class, 'index'])->name('plans.index');
 Route::resource('/plans', PlanController::class)->except(['index', 'show'])->middleware('auth'); 
 Route::resource('/plans', PlanController::class)->only(['show']);
+Route::prefix('plans')->name('plans.')->group(function () {
+  Route::put('/{plan}/interest', [PlanController::class, 'interest'])->name('interest')->middleware('auth');
+  Route::delete('/{plan}/interest', [PlanController::class, 'uninterest'])->name('uninterest')->middleware('auth');
+});
+
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
