@@ -52,5 +52,26 @@ class PlanController extends Controller
     public function show(Plan $plan)
     {
         return view('plans.show', ['plan' => $plan]);
-    }  
+    }
+
+    public function interest(Request $request, Plan $plan)
+    {
+        $plan->interests()->detach($request->user()->id);
+        $plan->interests()->attach($request->user()->id);
+
+        return [
+            'id' => $plan->id,
+            'countInterests' => $plan->count_likes,
+        ];
+    }
+
+    public function uninterest(Request $request, Plan $plan)
+    {
+        $plan->interests()->detach($request->user()->id);
+
+        return [
+            'id' => $plan->id,
+            'countInterests' => $plan->count_likes,
+        ];
+    }
 }
