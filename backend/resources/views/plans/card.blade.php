@@ -65,7 +65,9 @@
   </div>
   <div class="card-body pt-0 pb-2 pl-3">
     <div class="card-text">
-      <interest>
+      <interest
+      :initial-is-interested-by='@json($plan->isInterestedBy(Auth::user()))'
+      >
       </interest>
     </div>
   </div>
