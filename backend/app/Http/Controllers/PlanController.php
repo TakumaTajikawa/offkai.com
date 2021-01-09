@@ -54,6 +54,11 @@ class PlanController extends Controller
     public function update(PlanRequest $request, Plan $plan)
     {
         $plan->fill($request->all())->save();
+        $plan->tags()->detach();
+        $request->tags->each(function ($tagName) use ($plan) {
+            $tag = Tag::firstOrCreate(['name' => $tagName]);
+            $plan->tags()->attach($tag);
+        });
         return redirect()->route('plans.index');
     }
 
