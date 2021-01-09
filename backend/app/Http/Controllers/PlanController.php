@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Plan;
+use App\Models\Tag;
 use App\Http\Requests\PlanRequest;
 use Illuminate\Http\Request;
 
@@ -29,6 +30,12 @@ class PlanController extends Controller
         $plan->fill($request->all());
         $plan->user_id = $request->user()->id;
         $plan->save();
+
+        $request->tags->each(function ($tagName) use ($plan) {
+            $tag = Tag::firstOrCreate(['name' => $tagName]);
+            $plan->tags()->attach($tag);
+        });
+
         return redirect()->route('plans.index');
     }
 
