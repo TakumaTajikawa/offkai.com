@@ -22,7 +22,14 @@ class PlanController extends Controller
 
     public function create(Plan $plan)
     {
-        return view('plans.create', ['plan' => $plan]);    
+        $allTagNames = Tag::all()->map(function ($tag) {
+            return ['text' => $tag->name];
+        });
+
+        return view('plans.create', [
+            'plan' => $plan,
+            'allTagNames' => $allTagNames,
+        ]);
     }
 
     public function store(PlanRequest $request, Plan $plan)
@@ -45,9 +52,14 @@ class PlanController extends Controller
             return ['text' => $tag->name];
         });
 
+        $allTagNames = Tag::all()->map(function ($tag) {
+            return ['text' => $tag->name];
+        });
+
         return view('plans.edit', [
             'plan' => $plan,
             'tagNames' => $tagNames,
+            'allTagNames' => $allTagNames,
         ]);
     }
 
