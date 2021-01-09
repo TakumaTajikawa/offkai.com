@@ -6,6 +6,7 @@
 
 <div class="form-group">
   <plan-tags-input
+    :initial-tags='@json($tagNames ?? [])'
   >
   </plan-tags-input>
 </div>

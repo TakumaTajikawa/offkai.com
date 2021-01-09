@@ -28,11 +28,11 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{{ route('plans.edit', ['plan' => $plan]) }}">
-                    <i class="fas fa-pen mr-1"></i>記事を編集する
+                    <i class="fas fa-pen mr-1"></i>プランを編集する
                   </a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item text-danger" data-toggle="modal" data-target="#modal-delete-{{ $plan->id }}">
-                    <i class="fas fa-trash-alt mr-1"></i>記事を削除する
+                    <i class="fas fa-trash-alt mr-1"></i>プランを削除する
                   </a>
                 </div>
               </div>
