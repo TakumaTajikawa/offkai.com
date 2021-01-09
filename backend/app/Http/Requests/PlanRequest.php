@@ -32,7 +32,8 @@ class PlanRequest extends FormRequest
             'meeting_date_time' => 'max:30',
             'age' => 'max:20',
             'venue' => 'max:30',
-            'membership_fee' => 'max:30'
+            'membership_fee' => 'max:30',
+            'tags' => 'json|regex:/^(?!.*\s).+$/u|regex:/^(?!.*\/).*$/u',
         ];
     }
 
@@ -48,7 +49,8 @@ class PlanRequest extends FormRequest
             'image' => '画像',
             'age' => '年齢',
             'venue' => '会場',
-            'membership_fee' => '会費'
+            'membership_fee' => '会費',
+            'tags' => 'タグ',
         ];
     }
 
