@@ -46,4 +46,9 @@ class Plan extends Model
     {
         return $this->interests->count();
     }
+
+    public function tags(): BelongsToMany
+    {
+        return $this->belongsToMany('App\Models\Tag')->withTimestamps();
+    }
 }
