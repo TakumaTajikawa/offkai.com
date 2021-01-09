@@ -41,7 +41,14 @@ class PlanController extends Controller
 
     public function edit(Plan $plan)
     {
-        return view('plans.edit', ['plan' => $plan]);
+        $tagNames = $plan->tags->map(function ($tag) {
+            return ['text' => $tag->name];
+        });
+
+        return view('plans.edit', [
+            'plan' => $plan,
+            'tagNames' => $tagNames,
+        ]);
     }
 
     public function update(PlanRequest $request, Plan $plan)
