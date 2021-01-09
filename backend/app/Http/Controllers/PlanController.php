@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Plan;
+use App\Models\Tag;
 use App\Http\Requests\PlanRequest;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,14 @@ class PlanController extends Controller
 
     public function create(Plan $plan)
     {
-        return view('plans.create', ['plan' => $plan]);    
+        $allTagNames = Tag::all()->map(function ($tag) {
+            return ['text' => $tag->name];
+        });
+
+        return view('plans.create', [
+            'plan' => $plan,
+            'allTagNames' => $allTagNames,
+        ]);
     }
 
     public function store(PlanRequest $request, Plan $plan)
@@ -29,17 +37,40 @@ class PlanController extends Controller
         $plan->fill($request->all());
         $plan->user_id = $request->user()->id;
         $plan->save();
+
+        $request->tags->each(function ($tagName) use ($plan) {
+            $tag = Tag::firstOrCreate(['name' => $tagName]);
+            $plan->tags()->attach($tag);
+        });
+
         return redirect()->route('plans.index');
     }
 
     public function edit(Plan $plan)
     {
-        return view('plans.edit', ['plan' => $plan]);
+        $tagNames = $plan->tags->map(function ($tag) {
+            return ['text' => $tag->name];
+        });
+
+        $allTagNames = Tag::all()->map(function ($tag) {
+            return ['text' => $tag->name];
+        });
+
+        return view('plans.edit', [
+            'plan' => $plan,
+            'tagNames' => $tagNames,
+            'allTagNames' => $allTagNames,
+        ]);
     }
 
     public function update(PlanRequest $request, Plan $plan)
     {
         $plan->fill($request->all())->save();
+        $plan->tags()->detach();
+        $request->tags->each(function ($tagName) use ($plan) {
+            $tag = Tag::firstOrCreate(['name' => $tagName]);
+            $plan->tags()->attach($tag);
+        });
         return redirect()->route('plans.index');
     }
 

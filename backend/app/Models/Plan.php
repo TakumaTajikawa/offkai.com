@@ -15,7 +15,6 @@ class Plan extends Model
         'body',
         'prefecture',
         'cities',
-        'genre',
         'meeting_date_time',
         'image',
         'age',
@@ -45,5 +44,10 @@ class Plan extends Model
     public function getCountInterestsAttribute(): int
     {
         return $this->interests->count();
+    }
+
+    public function tags(): BelongsToMany
+    {
+        return $this->belongsToMany('App\Models\Tag')->withTimestamps();
     }
 }

@@ -6,8 +6,8 @@
       <div class="font-weight-lighter">{{ $plan->created_at->format('Y/m/d H:i') }}</div>
     </div>
 
-  @if( Auth::id() === $plan->user_id )
-    <!-- dropdown -->
+    @if( Auth::id() === $plan->user_id )
+      <!-- dropdown -->
       <div class="ml-auto card-text">
         <div class="dropdown">
           <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -15,11 +15,11 @@
           </a>
           <div class="dropdown-menu dropdown-menu-right">
             <a class="dropdown-item" href="{{ route('plans.edit', ['plan' => $plan]) }}">
-              <i class="fas fa-pen mr-1"></i>記事を更新する
+              <i class="fas fa-pen mr-1"></i>プランを編集する
             </a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item text-danger" data-toggle="modal" data-target="#modal-delete-{{ $plan->id }}">
-              <i class="fas fa-trash-alt mr-1"></i>記事を削除する
+              <i class="fas fa-trash-alt mr-1"></i>プランを削除する
             </a>
           </div>
         </div>
@@ -74,4 +74,19 @@
       </interest>
     </div>
   </div>
+
+  @foreach($plan->tags as $tag)
+    @if($loop->first)
+      <div class="card-body pt-0 pb-4 pl-3">
+        <div class="card-text line-height">
+    @endif
+          <a href="{{ route('tags.show', ['name' => $tag->name]) }}" class="border p-1 mr-1 mt-1 text-muted">
+            {{ $tag->name }}
+          </a>
+    @if($loop->last)
+        </div>
+      </div>
+    @endif
+  @endforeach
+
 </div>

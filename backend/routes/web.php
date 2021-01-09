@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PlanController;
+use App\Http\Controllers\TagController;
 use App\Http\Controllers\HomeController;
 
 /*
@@ -23,6 +24,7 @@ Route::prefix('plans')->name('plans.')->group(function () {
   Route::put('/{plan}/interest', [PlanController::class, 'interest'])->name('interest')->middleware('auth');
   Route::delete('/{plan}/interest', [PlanController::class, 'uninterest'])->name('uninterest')->middleware('auth');
 });
+Route::get('/tags/{name}', [TagController::class, 'show'])->name('tags.show');
 
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');

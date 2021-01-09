@@ -5,6 +5,15 @@
 </div>
 
 <div class="form-group">
+  <label>ジャンル</label>
+  <plan-tags-input
+    :initial-tags='@json($tagNames ?? [])'
+    :autocomplete-items='@json($allTagNames ?? [])'
+  >
+  </plan-tags-input>
+</div>
+
+<div class="form-group">
   <label>開催日時 <span style="font-size: 12px;">※必須</span></label>
   <input type="datetime-local" name="meeting_date_time" class="form-control" required value="{{ empty($plan->meeting_date_time) ? null : $plan->meeting_date_time->format('Y-m-d\TH:i') }}" min="2021-01-05T00:00" max="2022-01-01T00:00">
 </div>
@@ -41,10 +50,10 @@
   <input type="text" name="age" class="form-control" value="{{ $plan->age ?? old('age') }}">
 </div>
 
-<div class="md-form">
+<!-- <div class="md-form">
   <label>ジャンル</label>
   <input type="text" name="genre" class="form-control" value="{{ $plan->genre ?? old('genre') }}">
-</div>
+</div> -->
 
 <div class="form-group">
   <label>説明 <span style="font-size: 12px;">※必須</span></label>
