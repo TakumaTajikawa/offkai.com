@@ -15,7 +15,6 @@ class Plan extends Model
         'body',
         'prefecture',
         'cities',
-        'genre',
         'meeting_date_time',
         'image',
         'age',

@@ -28,7 +28,6 @@ class PlanRequest extends FormRequest
             'body' => 'required|max:500',
             'prefecture' => 'required|max:10',
             'cities' => 'max:30',
-            'genre' => 'max:30',
             'meeting_date_time' => 'max:30',
             'age' => 'max:20',
             'venue' => 'max:30',
@@ -44,7 +43,6 @@ class PlanRequest extends FormRequest
             'body' => '本文',
             'prefecture' => '都道府県',
             'cities' => '区市町村',
-            'genre' => 'ジャンル',
             'meeting_date_time' => '開催日時',
             'image' => '画像',
             'age' => '年齢',
@@ -57,8 +55,7 @@ class PlanRequest extends FormRequest
     public function passedValidation()
     {
         $this->tags = collect(json_decode($this->tags))
-            ->slice(0, 5)
-            ->map(function ($requestTag) {
+            ->slice(0, 5)->map(function ($requestTag) {
                 return $requestTag->text;
             });
     }

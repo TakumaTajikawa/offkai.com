@@ -47,10 +47,10 @@
   <input type="text" name="age" class="form-control" value="{{ $plan->age ?? old('age') }}">
 </div>
 
-<div class="md-form">
+<!-- <div class="md-form">
   <label>ジャンル</label>
   <input type="text" name="genre" class="form-control" value="{{ $plan->genre ?? old('genre') }}">
-</div>
+</div> -->
 
 <div class="form-group">
   <label>説明 <span style="font-size: 12px;">※必須</span></label>

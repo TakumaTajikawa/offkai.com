@@ -6,11 +6,11 @@
 
 // require('./bootstrap');
 
-import './bootstrap'
-import Vue from 'vue'
-import ImagePreview from './components/ImagePreview'
-import Interest from './components/Interest'
-import PlanTagsInput from './components/PlanTagsInput'
+import './bootstrap';
+import Vue from 'vue';
+import ImagePreview from './components/ImagePreview';
+import Interest from './components/Interest';
+import PlanTagsInput from './components/PlanTagsInput';
 
 const app = new Vue({
     el: '#app',
