@@ -5,6 +5,12 @@
 </div>
 
 <div class="form-group">
+  <plan-tags-input
+  >
+  </plan-tags-input>
+</div>
+
+<div class="form-group">
   <label>開催日時 <span style="font-size: 12px;">※必須</span></label>
   <input type="datetime-local" name="meeting_date_time" class="form-control" required value="{{ empty($plan->meeting_date_time) ? null : $plan->meeting_date_time->format('Y-m-d\TH:i') }}" min="2021-01-05T00:00" max="2022-01-01T00:00">
 </div>

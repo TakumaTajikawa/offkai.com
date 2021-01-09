@@ -21,7 +21,15 @@ export default {
       tag: '',
       tags: [],
       autocompleteItems: [{
-        
+        text: 'Spain',
+      }, {
+        text: 'France',
+      }, {
+        text: 'USA',
+      }, {
+        text: 'Germany',
+      }, {
+        text: 'China',
       }],
     };
   },
