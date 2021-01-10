@@ -25,7 +25,9 @@ Route::prefix('plans')->name('plans.')->group(function () {
   Route::delete('/{plan}/interest', [PlanController::class, 'uninterest'])->name('uninterest')->middleware('auth');
 });
 Route::get('/tags/{name}', [TagController::class, 'show'])->name('tags.show');
-
+Route::prefix('users')->name('users.')->group(function () {
+  Route::get('/{name}', [UserController::class, 'show'])->name('show');
+});
 
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
