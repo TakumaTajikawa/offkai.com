@@ -27,6 +27,7 @@ Route::prefix('plans')->name('plans.')->group(function () {
 Route::get('/tags/{name}', [TagController::class, 'show'])->name('tags.show');
 
 
+
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
