@@ -19,4 +19,16 @@ class UserController extends Controller
             'plans' => $plans,
         ]);
     }
+
+    public function interests(string $name)
+    {
+        $user = User::where('name', $name)->first();
+
+        $plans = $user->interests->sortByDesc('created_at');
+
+        return view('users.interests', [
+            'user' => $user,
+            'plans' => $plans,
+        ]);
+    }
 }
