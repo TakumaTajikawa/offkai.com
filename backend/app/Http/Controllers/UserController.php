@@ -12,8 +12,11 @@ class UserController extends Controller
     {
         $user = User::where('name', $name)->first();
 
+        $plans = $user->plans->sortByDesc('created_at');
+
         return view('users.show', [
             'user' => $user,
+            'plans' => $plans,
         ]);
     }
 }
