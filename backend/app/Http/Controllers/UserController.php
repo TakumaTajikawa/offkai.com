@@ -12,13 +12,29 @@ class UserController extends Controller
     {
         $user = User::where('name', $name)->first();
 
-        $plans = $user->plans->sortByDesc('created_at');
+        $this->authorize('update', $user);
 
         return view('users.show', [
             'user' => $user,
             'plans' => $plans,
         ]);
     }
+
+    public function edit(string $name)
+    {
+        $user = User::where('name', $name)->first();
+        return view('users.edit', [
+            'user' => $user,
+        ]);
+    }
+
+    public function update(UserRequest $request, string $name)
+    {
+        $user = User::where('name', $name)->first();
+        $user->fill($request->all())->save();
+        return redirect()->route('users.show', ['name' => $user->name]);
+    }
+
 
     public function interests(string $name)
     {
