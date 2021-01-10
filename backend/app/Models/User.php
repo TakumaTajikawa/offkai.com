@@ -48,6 +48,10 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Plan');
     }
 
+    public function interests(): BelongsToMany
+    {
+        return $this->belongsToMany('App\Models\Plan', 'interests')->withTimestamps();
+    }
 
 
 }
