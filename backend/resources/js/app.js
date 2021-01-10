@@ -22,6 +22,7 @@ const app = new Vue({
 });
 
 window.Vue = require('vue');
+Vue.config.productionTip = false
 
 /**
  * The following block of code may be used to automatically register your

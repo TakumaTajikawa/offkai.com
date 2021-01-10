@@ -51619,6 +51619,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
   }
 });
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.config.productionTip = false;
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
