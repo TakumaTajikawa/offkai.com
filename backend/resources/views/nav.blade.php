@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand navbar-dark" style="background-color: rgb(	0,200,179);">
 
-  <a class="navbar-brand" href="/"><i class="far fa-sticky-note mr-1"></i>オフ会.com</a>
+  <a class="navbar-brand" href="/">オフ会.com</a>
 
   <ul class="navbar-nav ml-auto">
     @guest
@@ -26,7 +26,7 @@
         <i class="fas fa-user-circle"></i>
       </a>
       <div class="dropdown-menu dropdown-menu-right dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-        <button class="dropdown-item" type="button" onclick="location.href=''">
+        <button class="dropdown-item" type="button" onclick="location.href='{{ route('users.show', ['name' => Auth::user()->name]) }}'">
           マイページ
         </button>
         <div class="dropdown-divider"></div>
