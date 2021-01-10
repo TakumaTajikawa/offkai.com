@@ -28,6 +28,7 @@ Route::prefix('plans')->name('plans.')->group(function () {
 Route::get('/tags/{name}', [TagController::class, 'show'])->name('tags.show');
 Route::prefix('users')->name('users.')->group(function () {
   Route::get('/{name}', [UserController::class, 'show'])->name('show');
+  Route::get('/{name}/interests', [UserController::class, 'interests'])->name('interests');
 });
 
 
