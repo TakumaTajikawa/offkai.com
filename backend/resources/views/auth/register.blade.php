@@ -29,6 +29,23 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
+
+                            <div class="col-md-6" style="padding-top: 8px;">
+                                <input id="gender-m" type="radio" name="gender" value="男">
+                                <label for="gender-m" style="margin-bottom: 0;">男性</label>
+                                <input id="gender-f" type="radio" name="gender" value="女" style="margin-left: 20px">
+                                <label for="gender-f" style="margin-bottom: 0;">女性</label>
+
+                                @if ($errors->has('gender'))
+                                    <span class="invalid-feedback" role="alert" style="display:inline-block; margin-top: 0;">
+                                        <strong>{{ $errors->first('gender') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
@@ -67,7 +84,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                    登録
                                 </button>
                             </div>
                         </div>
