@@ -5,6 +5,7 @@ use App\Http\Controllers\PlanController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +31,7 @@ Route::prefix('users')->name('users.')->group(function () {
   Route::get('/{name}', [UserController::class, 'show'])->name('show');
   Route::get('/{name}/interests', [UserController::class, 'interests'])->name('interests');
 });
-
+Route::get('guest', [LoginController::class, 'guestLogin'])->name('login.guest');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
