@@ -9,12 +9,18 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    private $user;
+
+    public function __construct(User $user) {
+        $this->user = $user;
+    }
+
     public function show(string $name)
     {
         $user = User::where('name', $name)->first();
 
-        $this->authorize('update', $user);
-
+        $plans = $user->plans->sortByDesc('created_at');
+        
         return view('users.show', [
             'user' => $user,
             'plans' => $plans,

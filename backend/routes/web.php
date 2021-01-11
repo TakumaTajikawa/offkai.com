@@ -43,8 +43,8 @@ Route::get('/tags/{name}', [TagController::class, 'show'])->name('tags.show');
 Route::prefix('users')->name('users.')->group(function () {
   Route::get('/{name}', [UserController::class, 'show'])->name('show');
   Route::get('/{name}/interests', [UserController::class, 'interests'])->name('interests');
-  Route::get('/edit', [UserController::class, 'edit'])->name('edit');
-  Route::patch('/update', [UserController::class, 'update'])->name('update');
+  Route::get('/{name}/edit', [UserController::class, 'edit'])->name('edit');
+  Route::patch('/{name}/update', [UserController::class, 'update'])->name('update');
 });
 
 #ゲストログイン
