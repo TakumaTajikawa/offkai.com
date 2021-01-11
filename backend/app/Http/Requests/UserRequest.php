@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UserRequest extends FormRequest
@@ -13,7 +15,7 @@ class UserRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,10 +23,34 @@ class UserRequest extends FormRequest
      *
      * @return array
      */
+
+    private const GUEST_USER_EMAIL = 'guestuser@example.com';
+
     public function rules()
     {
+        if(Auth::user()->email == self::GUEST_USER_EMAIL) {
+            return [
+                'introduction' => 'max:255',
+            ];
+        } else {
+            return [
+                'name' => 'required|min:1|max:15' . Rule::unique('users')->ignore(Auth::id()),
+                'email' => 'required|max:255|email' . Rule::unique('users')->ignore(Auth::id()),
+                'gender' => 'required',
+                'image' => 'file|max:3000',
+                'introduction' => 'max:255',
+            ];
+        }
+    }
+
+    public function attributes()
+    {
         return [
-            //
+            'name' => '名前',
+            'email' => 'メールアドレス',
+            'gender' => 'パスワード',
+            'image' => 'プロフィール画像',
+            'introduction' => '自己紹介文',
         ];
     }
 }
