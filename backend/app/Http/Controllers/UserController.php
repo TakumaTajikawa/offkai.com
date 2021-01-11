@@ -9,11 +9,6 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    private $user;
-
-    public function __construct(User $user) {
-        $this->user = $user;
-    }
 
     public function show(string $name)
     {
@@ -30,6 +25,9 @@ class UserController extends Controller
     public function edit(string $name)
     {
         $user = User::where('name', $name)->first();
+
+        // UserPolicyのupdateメソッドでアクセス制限
+        $this->authorize('update', $user);
         return view('users.edit', [
             'user' => $user,
         ]);
@@ -38,7 +36,12 @@ class UserController extends Controller
     public function update(UserRequest $request, string $name)
     {
         $user = User::where('name', $name)->first();
+
+        // UserPolicyのupdateメソッドでアクセス制限
+        $this->authorize('update', $user);
+
         $user->fill($request->all())->save();
+        
         return redirect()->route('users.show', ['name' => $user->name]);
     }
 

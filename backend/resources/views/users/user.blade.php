@@ -9,6 +9,7 @@
           {{ $user->name }}
         </a>
       </h6>
+      <p>{{ $user->introduction }}</p>
       @if( Auth::id() === $user->id )
         <!-- dropdown -->
         <div class="ml-auto card-text">

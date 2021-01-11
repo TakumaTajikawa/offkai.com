@@ -35,8 +35,7 @@ class UserRequest extends FormRequest
         } else {
             return [
                 'name' => 'required|min:1|max:15' . Rule::unique('users')->ignore(Auth::id()),
-                'email' => 'required|max:255|email' . Rule::unique('users')->ignore(Auth::id()),
-                'gender' => 'required',
+                'email' => 'required|max:255' . Rule::unique('users')->ignore(Auth::id()),
                 'image' => 'file|max:3000',
                 'introduction' => 'max:255',
             ];
@@ -48,9 +47,8 @@ class UserRequest extends FormRequest
         return [
             'name' => '名前',
             'email' => 'メールアドレス',
-            'gender' => 'パスワード',
             'image' => 'プロフィール画像',
-            'introduction' => '自己紹介文',
+            'introduction' => '紹介文',
         ];
     }
 }
