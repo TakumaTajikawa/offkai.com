@@ -42,6 +42,14 @@ class UserController extends Controller
 
         $user->fill($request->all())->save();
         
+        if ($file = $request->image) {
+            $fileName = time() . $file->getClientOriginalName();
+            $target_path = public_path('uploads/');
+            $file->move($target_path, $fileName);
+        } else {
+            $fileName = "";
+        }
+
         return redirect()->route('users.show', ['name' => $user->name]);
     }
 
