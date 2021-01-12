@@ -57,5 +57,10 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Models\Plan', 'interests')->withTimestamps();
     }
 
+    public function comments(): HasMany
+    {
+        return $this->hasMany('App\Models\Comment');
+    }
+
 
 }
