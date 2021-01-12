@@ -9,7 +9,7 @@
           {{ $user->name }}
         </a>
       </h6>
-      <p>{{ $user->introduction }}</p>
+      <p style="line-height: 49px; font-size: 12px; margin-left: 10px;">（{{ $user->gender }}性）</p>
       @if( Auth::id() === $user->id )
         <!-- dropdown -->
         <div class="ml-auto card-text">
@@ -28,14 +28,10 @@
         <!-- dropdown -->
       @endif
     </div>
-    
   </div>
-
-
-
-
   <div class="card-body">
     <div class="card-text">
+      <p style="white-space: pre-wrap;">{{ $user->introduction }}</p>
     </div>
   </div>
 </div>

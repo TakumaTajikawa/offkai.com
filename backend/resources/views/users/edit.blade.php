@@ -45,7 +45,7 @@
                 <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Introduction') }}</label>
 
                 <div class="col-md-6">
-                  <textarea id="introduction" type="introduction" class="form-control @error('introduction') is-invalid @enderror" name="introduction" value="{{ $user->introduction ?? old('introduction') }}" rows="5" placeholder="【例】こんにちは。東京都在住、２５歳、山田太郎です！趣味は〇〇なので〇〇好きな方と仲良くなれたらと思います。よろしくお願いします。" autocomplete="off"></textarea>
+                  <textarea id="introduction" type="introduction" class="form-control @error('introduction') is-invalid @enderror" name="introduction"　rows="5" placeholder="【例】こんにちは。東京都在住、２５歳、山田太郎です！趣味は〇〇なので〇〇好きな方と仲良くなれたらと思います。よろしくお願いします。" autocomplete="off">{{ $user->introduction ?? old('introduction') }}</textarea>
 
                   @error('introduction')
                     <span class="invalid-feedback" role="alert">
@@ -55,12 +55,25 @@
                 </div>
               </div>
 
-              <input type="file" name="image">
+              <div class="form-group row">
+                <label for="email" class="col-md-4 col-form-label text-md-right">プロフィール画像</label>
+
+                <div class="col-md-6">
+                  <input type="file" name="profile_img" value="{{ $user->profile_img ?? old('profile_img') }}" accept="image/png, image/jpeg">
+                  @error('profile_img')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
+                </div>
+              </div>
+
+              
 
               <div class="form-group row mb-0">
                 <div class="col-md-6 offset-md-4">
                   <button type="submit" class="btn btn-primary">
-                    編集を完了する
+                    更新
                   </button>
                 </div>
               </div>

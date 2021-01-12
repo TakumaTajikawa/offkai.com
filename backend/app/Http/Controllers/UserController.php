@@ -40,19 +40,14 @@ class UserController extends Controller
         // UserPolicyのupdateメソッドでアクセス制限
         $this->authorize('update', $user);
 
-        $user->fill($request->all())->save();
-        
-        if ($file = $request->image) {
-            $fileName = time() . $file->getClientOriginalName();
-            $target_path = public_path('uploads/');
-            $file->move($target_path, $fileName);
-        } else {
-            $fileName = "";
-        }
+    
 
+	
+        $user->fill($request->all())->save();
         return redirect()->route('users.show', ['name' => $user->name]);
     }
 
+    
 
     public function interests(string $name)
     {
