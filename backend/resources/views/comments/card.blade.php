@@ -4,7 +4,7 @@
       <a href="{{ route('users.show', ['name' => $comment->user->name]) }}" class="in-link text-dark">
         <i class="fas fa-user-circle fa-3x"></i>
       </a>
-      <div class="ml-3 d-flex flex-column p-2 pr-3" style="background-color: rgb(239,242,245); border-radius: 10px">
+      <div class="ml-3 d-flex flex-column p-2 pr-4  comment-flame" style="background-color: rgb(239,242,245); border-radius: 10px">
         <div class="d-flex">
           <a href="{{ route('users.show', ['name' => $comment->user->name]) }}" class="in-link text-dark">
             <p class="font-weight-bold mb-0" style="font-size: 14px;">
@@ -14,7 +14,7 @@
 
           @if( Auth::id() === $comment->user_id || Auth::id() === $plan->user_id )
             <!-- dropdown -->
-            <div class="ml-auto card-text">
+            <div class="ml-auto card-text hide-d">
               <div class="dropdown">
                 <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="fas fa-ellipsis-v"></i>
