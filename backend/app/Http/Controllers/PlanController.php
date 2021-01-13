@@ -86,11 +86,15 @@ class PlanController extends Controller
     {
         $user = auth()->user();
         $comments = $plan->comments()->orderBy('created_at', 'desc')->get();
-        
+        $w = $plan->meeting_date_time->format("w");
+        $week = ["日", "月", "火", "水", "木", "金", "土"];
+
         return view('plans.show', [
             'plan' => $plan,
             'comments' => $comments,
             'user' => $user,
+            'week' => $week,
+            'w' => $w,
         ]);
     }
 

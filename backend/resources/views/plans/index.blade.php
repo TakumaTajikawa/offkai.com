@@ -18,7 +18,7 @@
               </a>
             </div> 
             <div class="font-weight-lighter">
-              {{ $plan->created_at->format('Y/m/d H:i') }}
+              {{ $plan->created_at->format('Y-m-d H:i') }}
             </div>
           </div>
           @if( Auth::id() === $plan->user_id )

@@ -3,13 +3,13 @@
     <a href="{{ route('users.show', ['name' => $plan->user->name]) }}" class="text-dark">
       <i class="fas fa-user-circle fa-3x mr-1"></i>
     </a>
-    <div>
+    <div class="ml-2">
       <div class="font-weight-bold">
         <a href="{{ route('users.show', ['name' => $plan->user->name]) }}" class="text-dark">
           {{ $plan->user->name }}</div>
         </a>
-      <div class="font-weight-lighter">
-        {{ $plan->created_at->format('Y/m/d H:i') }}
+      <div class="font-weight-lighter"style="font-size: 13px;" >
+        {{ $plan->created_at->format('Y-m-d H:i') }}
       </div>
     </div>
 
@@ -58,15 +58,20 @@
       </div>
       <!-- modal -->
     @endif
-
   </div>
+  <hr class="mt-0">
+
   <div class="card-body pt-0">
-    <h3 class="h4 card-title">
-      <a class="text-dark" href="{{ route('plans.show', ['plan' => $plan]) }}">
-        {{ $plan->title }}
-      </a>
+    <h3 class="card-title mt-3">
+      {{ $plan->title }}
     </h3>
-    <div class="card-text">
+    <h4 class="mt-4">
+      {{ $plan->meeting_date_time->format('Y年n月j日' . "($week[$w])" . 'G:i') }}〜
+    </h4>
+    <table>
+      
+    </table>
+    <div class="card-text mt-4">
       {!! nl2br(e( $plan->body )) !!}
     </div>
   </div>
