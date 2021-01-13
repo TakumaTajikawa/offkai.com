@@ -52,7 +52,7 @@ Route::prefix('users')->name('users.')->group(function () {
 Route::get('guest', [LoginController::class, 'guestLogin'])->name('login.guest');
 
 #コメント
-Route::resource('/comments', CommentController::class)->only(['store']);
+Route::resource('/comments', CommentController::class)->only(['store', 'destroy']);
 
 #ホーム
 Route::get('/home', [HomeController::class, 'index'])->name('home');

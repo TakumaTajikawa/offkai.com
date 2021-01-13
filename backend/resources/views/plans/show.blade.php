@@ -5,7 +5,6 @@
 @section('content')
   @include('nav')
   <div class="container">
-    @include('errors')
     <div class="mb-3">
       @include('plans.card')
     </div>

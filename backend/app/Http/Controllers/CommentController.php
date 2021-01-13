@@ -17,5 +17,10 @@ class CommentController extends Controller
         return back();
     }
 
+    public function destroy(Comment $comment)
+    {
+        $comment->delete();
+        return redirect()->route('plans.show', ['plan' => $comment->plan_id]);
+    }
     
 }
