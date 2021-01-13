@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Models\Plan;
 use App\Models\Tag;
+use App\Models\Comment;
+use App\Models\User;
 use App\Http\Requests\PlanRequest;
 use Illuminate\Http\Request;
 
@@ -80,9 +82,16 @@ class PlanController extends Controller
         return redirect()->route('plans.index');
     }
 
-    public function show(Plan $plan)
+    public function show(Plan $plan, Comment $comment)
     {
-        return view('plans.show', ['plan' => $plan]);
+        $user = auth()->user();
+        $comments = $plan->comments()->orderBy('created_at', 'desc')->get();
+        
+        return view('plans.show', [
+            'plan' => $plan,
+            'comments' => $comments,
+            'user' => $user,
+        ]);
     }
 
     public function interest(Request $request, Plan $plan)
