@@ -8,7 +8,7 @@
         <a href="{{ route('users.show', ['name' => $plan->user->name]) }}" class="text-dark">
           {{ $plan->user->name }}</div>
         </a>
-      <div class="font-weight-lighter"style="font-size: 13px;" >
+      <div class="font-weight-lighter"style="font-size: 13px;">
         {{ $plan->created_at->format('Y-m-d H:i') }}
       </div>
     </div>
@@ -65,13 +65,51 @@
     <h3 class="card-title mt-3">
       {{ $plan->title }}
     </h3>
-    <h4 class="mt-4">
+    <h4 class="my-4">
       {{ $plan->meeting_date_time->format('Y年n月j日' . "($week[$w])" . 'G:i') }}〜
     </h4>
-    <table>
-      
-    </table>
-    <div class="card-text mt-4">
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered" width="100%">
+        <tbody>
+          <tr>
+            <th scorp="row" class="font-weight-bold" width="25%">都道府県</th>
+            <td width="75%">{{ $plan->prefecture }}</td>
+          </tr>
+          <tr>
+            <th scorp="row" class="font-weight-bold" width="25%">区市町村</th>
+            <td width="75%">{{ $plan->cities }}</td>
+          </tr>
+          <tr>
+            <th scorp="row" class="font-weight-bold" width="25%">会場</th>
+            <td width="75%">{{ $plan->venue }}</td>
+          </tr>
+          <tr>
+            <th scorp="row" class="font-weight-bold" width="25%">タグ</th>
+            <td width="75%">
+              @foreach($plan->tags as $tag)
+                @if($loop->first)
+                @endif
+                  <a href="{{ route('tags.show', ['name' => $tag->name]) }}" class="border p-1 mr-1 mt-1 text-muted">
+                    {{ $tag->name }}
+                  </a>
+                @if($loop->last)
+                @endif
+              @endforeach
+            </td>
+          </tr>
+          <tr>
+            <th scorp="row" class="font-weight-bold" width="25%">年齢制限</th>
+            <td width="75%">{{ $plan->age }}</td>
+          </tr>
+          <tr>
+            <th scorp="row" class="font-weight-bold" width="25%">会費</th>
+            <td width="75%">{{ $plan->membership_fee }}</td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+    <div class="card-text mt-4" style="color: black;">
       {!! nl2br(e( $plan->body )) !!}
     </div>
   </div>
@@ -86,19 +124,5 @@
       </interest>
     </div>
   </div>
-
-  @foreach($plan->tags as $tag)
-    @if($loop->first)
-      <div class="card-body pt-0 pb-4 pl-3">
-        <div class="card-text line-height">
-    @endif
-          <a href="{{ route('tags.show', ['name' => $tag->name]) }}" class="border p-1 mr-1 mt-1 text-muted">
-            {{ $tag->name }}
-          </a>
-    @if($loop->last)
-        </div>
-      </div>
-    @endif
-  @endforeach
 
 </div>
