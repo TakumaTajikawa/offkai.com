@@ -55,6 +55,8 @@ export default {
   .vue-tags-input {
     max-width: inherit;
   }
+
+
 </style>
 <style lang="css">
   .vue-tags-input .ti-tag {

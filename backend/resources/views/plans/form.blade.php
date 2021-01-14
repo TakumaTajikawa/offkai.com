@@ -5,7 +5,7 @@
 </div>
 
 <div class="form-group">
-  <label>ジャンル</label>
+  <label>タグ</label>
   <plan-tags-input
     :initial-tags='@json($tagNames ?? [])'
     :autocomplete-items='@json($allTagNames ?? [])'

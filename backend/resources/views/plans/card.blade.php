@@ -89,7 +89,7 @@
               @foreach($plan->tags as $tag)
                 @if($loop->first)
                 @endif
-                  <a href="{{ route('tags.show', ['name' => $tag->name]) }}" class="border p-1 mr-1 mt-1 text-muted">
+                  <a href="{{ route('tags.show', ['name' => $tag->name]) }}" class="border p-1 mr-2 mt-1 text-muted" style="border-radius: 3px; color: rgb(88, 88, 88)!important; border-color: rgb(88, 88, 88)!important; background-color: rgb(243, 243, 243); font-size: 12px;" onmouseover="this.style.backgroundColor='rgb(222, 222, 222)'" onmouseout="this.style.backgroundColor='rgb(243, 243, 243)'">
                     {{ $tag->name }}
                   </a>
                 @if($loop->last)
@@ -126,3 +126,5 @@
   </div>
 
 </div>
+
+

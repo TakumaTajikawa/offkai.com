@@ -6658,7 +6658,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.vue-tags-input[data-v-2d74c5ad] {\n  max-width: inherit;\n}\n", ""]);
+exports.push([module.i, "\n.vue-tags-input[data-v-2d74c5ad] {\n  max-width: inherit;\n}\n\n\n", ""]);
 
 // exports
 

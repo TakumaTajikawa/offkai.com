@@ -14,7 +14,7 @@
       </div>
     </div>
     @foreach($tag->plans as $plan)
-      @include('plans.card')
+      @include('plans.smallcard')
     @endforeach
   </div>
 @endsection
