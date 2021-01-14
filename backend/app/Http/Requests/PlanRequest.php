@@ -25,13 +25,13 @@ class PlanRequest extends FormRequest
     {
         return [
             'title' => 'required|max:50',
-            'body' => 'required|max:500',
+            'body' => 'required|max:3000|min80',
             'prefecture' => 'required|max:10',
-            'cities' => 'max:30',
-            'meeting_date_time' => 'max:30',
-            'age' => 'max:20',
-            'venue' => 'max:30',
-            'membership_fee' => 'max:30',
+            'cities' => 'max:50',
+            'meeting_date_time' => 'max:50',
+            'age' => 'max:50',
+            'venue' => 'max:50',
+            'membership_fee' => 'max:50',
             'tags' => 'json|regex:/^(?!.*\s).+$/u|regex:/^(?!.*\/).*$/u',
         ];
     }
