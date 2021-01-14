@@ -72,20 +72,20 @@
       <table class="table table-striped table-bordered" width="100%">
         <tbody>
           <tr>
-            <th scorp="row" class="font-weight-bold" width="25%">都道府県</th>
-            <td width="75%">{{ $plan->prefecture }}</td>
+            <th scorp="row" class="font-weight-bold p-2 pl-3" width="25%">都道府県</th>
+            <td width="75%" class="p-2 pl-3">{{ $plan->prefecture }}</td>
           </tr>
           <tr>
-            <th scorp="row" class="font-weight-bold" width="25%">区市町村</th>
-            <td width="75%">{{ $plan->cities }}</td>
+            <th scorp="row" class="font-weight-bold p-2 pl-3" width="25%">区市町村</th>
+            <td width="75%" class="p-2 pl-3">{{ $plan->cities }}</td>
           </tr>
           <tr>
-            <th scorp="row" class="font-weight-bold" width="25%">会場</th>
-            <td width="75%">{{ $plan->venue }}</td>
+            <th scorp="row" class="font-weight-bold p-2 pl-3" width="25%">会場</th>
+            <td width="75%" class="p-2 pl-3">{{ $plan->venue }}</td>
           </tr>
           <tr>
-            <th scorp="row" class="font-weight-bold" width="25%">タグ</th>
-            <td width="75%">
+            <th scorp="row" class="font-weight-bold p-3" width="25%">タグ</th>
+            <td width="75%" class="p-3">
               @foreach($plan->tags as $tag)
                 @if($loop->first)
                 @endif
@@ -98,12 +98,12 @@
             </td>
           </tr>
           <tr>
-            <th scorp="row" class="font-weight-bold" width="25%">年齢制限</th>
-            <td width="75%">{{ $plan->age }}</td>
+            <th scorp="row" class="font-weight-bold p-2 pl-3" width="25%">年齢制限</th>
+            <td width="75%" class="p-2 pl-3">{{ $plan->age }}</td>
           </tr>
           <tr>
-            <th scorp="row" class="font-weight-bold" width="25%">会費</th>
-            <td width="75%">{{ $plan->membership_fee }}</td>
+            <th scorp="row" class="font-weight-bold p-2 pl-3" width="25%">会費</th>
+            <td width="75%" class="p-2 pl-3">{{ $plan->membership_fee }}</td>
           </tr>
           
         </tbody>

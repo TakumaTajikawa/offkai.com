@@ -2,10 +2,8 @@
 
 @section('title', 'オフ会プラン投稿')
 
-@include('nav')
-
-
 @section('content')
+  @include('nav')
   <div class="container">
     <div class="row">
       <div class="col-12">

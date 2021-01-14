@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand navbar-dark" style="background-color: rgb(0,200,179);">
+<nav class="navbar navbar-expand navbar-dark mb-4" style="background-color: rgb(0,200,179);">
 
   <a class="navbar-brand" href="/">オフ会.com</a>
 

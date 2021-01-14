@@ -19,7 +19,9 @@ class PlanController extends Controller
     public function index() 
     {
         $plans = Plan::all()->sortByDesc('created_at');
-        return view('plans.index', ['plans' => $plans]);
+        return view('plans.index', [
+            'plans' => $plans,
+        ]);
     }
 
     public function create(Plan $plan)

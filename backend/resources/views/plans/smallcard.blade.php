@@ -1,4 +1,4 @@
-<div class="card mt-3">
+<div class="card mb-4 smallcard">
   <div class="card-body d-flex flex-row">
     <a href="{{ route('users.show', ['name' => $plan->user->name]) }}" class="text-dark">
       <i class="fas fa-user-circle fa-3x mr-1"></i>
@@ -62,27 +62,65 @@
     @endif
   </div>
   <div class="card-body pt-0 pb-2">
-    <h3 class="h4 card-title">
-      <a class="text-dark" href="{{ route('plans.show', ['plan' => $plan]) }}">
+    <h4 class="card-title">
+      <a class="plan-title" href="{{ route('plans.show', ['plan' => $plan]) }}">
         {{ $plan->title }}
       </a>
-    </h3>
-    <div class="card-text">
-      {!! nl2br(e( $plan->body )) !!}
+    </h4>
+    <div class="table-responsive">
+      <table class="table table-bordered" width="100%">
+        <tbody>
+          <tr>
+            <th scorp="row" class="font-weight-bold p-2" width="25%" style="font-size: 14px;">
+              開催日時
+            </th>
+            <td  class="p-2" width="75%">
+              {{ $plan->meeting_date_time->format('Y年n月j日G:i') }}〜
+            </td>
+          </tr>
+          <tr>
+            <th scorp="row" class="font-weight-bold p-2" width="25%">
+              都道府県
+            </th>
+            <td  width="75%" class="p-2">
+              {{ $plan->prefecture }}
+            </td>
+          </tr>
+          <tr>
+            <th scorp="row" class="font-weight-bold p-2" width="25%">
+              区市町村
+            </th>
+            <td  width="75%" class="p-2">
+              {{ $plan->cities }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      @foreach($plan->tags as $tag)
+        @if($loop->first)
+          <div class="card-body pt-0 pb-4 pl-0">
+            <div class="card-text line-height">
+        @endif
+              <a href="{{ route('tags.show', ['name' => $tag->name]) }}" class="border p-1 mr-2 mt-1 text-muted" style="border-radius: 3px; color: rgb(88, 88, 88)!important; border-color: rgb(88, 88, 88)!important; background-color: rgb(243, 243, 243); font-size: 12px;" onmouseover="this.style.backgroundColor='rgb(222, 222, 222)'" onmouseout="this.style.backgroundColor='rgb(243, 243, 243)'">
+                {{ $tag->name }}
+              </a>
+        @if($loop->last)
+            </div>
+          </div>
+        @endif
+      @endforeach
+
+    </div>
+    <h6 class="my-4">
+    </h6>
+    <div class="card-text d-flex">
+      {{ Str::limit($plan->body, 80, '...') }}
+      <span class="pl-2">
+        <a href="{{ route('plans.show', ['plan' => $plan]) }}"  style="color: rgb(116,115,115);" class="read_more">
+          続きを見る
+        </a>
+      </span>
     </div>
   </div>
-
-  @foreach($plan->tags as $tag)
-    @if($loop->first)
-      <div class="card-body pt-0 pb-4 pl-3">
-        <div class="card-text line-height">
-    @endif
-          <a href="{{ route('tags.show', ['name' => $tag->name]) }}" class="border p-1 mr-2 mt-1 text-muted" style="border-radius: 3px; color: rgb(88, 88, 88)!important; border-color: rgb(88, 88, 88)!important; background-color: rgb(243, 243, 243); font-size: 12px;" onmouseover="this.style.backgroundColor='rgb(222, 222, 222)'" onmouseout="this.style.backgroundColor='rgb(243, 243, 243)'">
-            {{ $tag->name }}
-          </a>
-    @if($loop->last)
-        </div>
-      </div>
-    @endif
-  @endforeach
 </div>
