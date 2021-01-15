@@ -88,28 +88,28 @@
           </tr>
           <tr>
             <th scorp="row" class="font-weight-bold p-2" width="25%">
-              区市町村
+              タグ
             </th>
             <td  width="75%" class="p-2">
-              {{ $plan->cities }}
+              @foreach($plan->tags as $tag)
+                @if($loop->first)
+                  <div class="card-body p-0">
+                    <div class="card-text line-height">
+                @endif
+                      <a href="{{ route('tags.show', ['name' => $tag->name]) }}" class="border p-1 mr-2 mt-1 text-muted" style="border-radius: 3px; color: rgb(88, 88, 88)!important; border-color: rgb(88, 88, 88)!important; background-color: rgb(243, 243, 243); font-size: 12px;" onmouseover="this.style.backgroundColor='rgb(222, 222, 222)'" onmouseout="this.style.backgroundColor='rgb(243, 243, 243)'">
+                        {{ $tag->name }}
+                      </a>
+                @if($loop->last)
+                    </div>
+                  </div>
+                @endif
+              @endforeach
             </td>
           </tr>
         </tbody>
       </table>
 
-      @foreach($plan->tags as $tag)
-        @if($loop->first)
-          <div class="card-body pt-0 pb-4 pl-0">
-            <div class="card-text line-height">
-        @endif
-              <a href="{{ route('tags.show', ['name' => $tag->name]) }}" class="border p-1 mr-2 mt-1 text-muted" style="border-radius: 3px; color: rgb(88, 88, 88)!important; border-color: rgb(88, 88, 88)!important; background-color: rgb(243, 243, 243); font-size: 12px;" onmouseover="this.style.backgroundColor='rgb(222, 222, 222)'" onmouseout="this.style.backgroundColor='rgb(243, 243, 243)'">
-                {{ $tag->name }}
-              </a>
-        @if($loop->last)
-            </div>
-          </div>
-        @endif
-      @endforeach
+      
 
     </div>
     <h6 class="my-4">

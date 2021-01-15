@@ -39456,7 +39456,7 @@ var render = function() {
       _c("vue-tags-input", {
         attrs: {
           tags: _vm.tags,
-          placeholder: "ジャンルを５個まで入力できます",
+          placeholder: "タグを５個まで入力できます",
           "autocomplete-items": _vm.filteredItems,
           "add-on-key": [13, 32]
         },

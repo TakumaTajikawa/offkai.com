@@ -25,7 +25,7 @@ class PlanRequest extends FormRequest
     {
         return [
             'title' => 'required|max:50',
-            'body' => 'required|max:3000|min80',
+            'body' => 'required|max:3000|min:80',
             'prefecture' => 'required|max:10',
             'cities' => 'max:50',
             'meeting_date_time' => 'max:50',
@@ -40,12 +40,12 @@ class PlanRequest extends FormRequest
     {
         return [
             'title' => 'タイトル',
-            'body' => '本文',
+            'body' => '説明文',
             'prefecture' => '都道府県',
             'cities' => '区市町村',
             'meeting_date_time' => '開催日時',
             'image' => '画像',
-            'age' => '年齢',
+            'age' => '募集年齢',
             'venue' => '会場',
             'membership_fee' => '会費',
             'tags' => 'タグ',
