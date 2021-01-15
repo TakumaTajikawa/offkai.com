@@ -32,7 +32,7 @@ class PlanRequest extends FormRequest
             'age' => 'max:50',
             'venue' => 'max:50',
             'membership_fee' => 'max:50',
-            'capacity' => 'max:50',
+            'capacity' => 'integer|max:50',
             'tags' => 'json|regex:/^(?!.*\s).+$/u|regex:/^(?!.*\/).*$/u',
         ];
     }
