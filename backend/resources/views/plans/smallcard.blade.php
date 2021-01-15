@@ -3,7 +3,7 @@
     <a href="{{ route('users.show', ['name' => $plan->user->name]) }}" class="text-dark">
       <i class="fas fa-user-circle fa-3x mr-1"></i>
     </a>
-    <div>
+    <div class="ml-2">
       <div class="font-weight-bold">
         <a href="{{ route('users.show', ['name' => $plan->user->name]) }}" class="text-dark">
           {{ $plan->user->name }}

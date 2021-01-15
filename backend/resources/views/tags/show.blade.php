@@ -17,4 +17,5 @@
       @include('plans.smallcard')
     @endforeach
   </div>
+  @include('footer')
 @endsection
