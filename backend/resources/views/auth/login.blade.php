@@ -23,7 +23,7 @@
                                     <label for="email">
                                         メールアドレス
                                     </label>
-                                    <input class="form-control @error('email') is-invalid @enderror" type="text" id="email" name="email" required value="{{ old('email') }}" autofocus>
+                                    <input class="form-control @error('email') is-invalid @enderror" type="text" id="email" name="email" required  autocomplete="email" value="{{ old('email') }}" autofocus>
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
