@@ -67,10 +67,6 @@
       {{ $comment->created_at->format('Y-m-d H:i') }}
     </p>
   </li>
-
-  
-
-
 @empty
   <li class="list-group-item ">
     <p class="mb-0 text-secondary">コメントはまだありません。</p>

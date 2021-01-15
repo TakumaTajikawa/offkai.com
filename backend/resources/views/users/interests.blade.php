@@ -7,9 +7,15 @@
   <div class="container">
     @include('users.user')
     @include('users.tabs', ['hasPlans' => false, 'hasInterests' => true])
-    @foreach($plans as $plan)
+    @forelse($plans as $plan)
       @include('plans.smallcard')
-    @endforeach
+    @empty
+      <div class="card mb-4">
+        <div class="card-body text-center py-5" style="color: rgb(108,117,125);">
+          興味あり！のオフ会はありません
+        </div>
+      </div>
+    @endforelse
   </div>
   @include('footer')
 @endsection
