@@ -27,11 +27,12 @@ class PlanRequest extends FormRequest
             'title' => 'required|max:50',
             'body' => 'required|max:3000|min:80',
             'prefecture' => 'required|max:10',
-            'cities' => 'max:50',
+            'address' => 'required|max:100',
             'meeting_date_time' => 'max:50',
             'age' => 'max:50',
             'venue' => 'max:50',
             'membership_fee' => 'max:50',
+            'capacity' => 'max:50',
             'tags' => 'json|regex:/^(?!.*\s).+$/u|regex:/^(?!.*\/).*$/u',
         ];
     }
@@ -42,13 +43,14 @@ class PlanRequest extends FormRequest
             'title' => 'タイトル',
             'body' => '説明文',
             'prefecture' => '都道府県',
-            'cities' => '区市町村',
+            'address' => '住所',
             'meeting_date_time' => '開催日時',
             'image' => '画像',
             'age' => '募集年齢',
             'venue' => '会場',
             'membership_fee' => '会費',
             'tags' => 'タグ',
+            'capacity' => '定員',
         ];
     }
 

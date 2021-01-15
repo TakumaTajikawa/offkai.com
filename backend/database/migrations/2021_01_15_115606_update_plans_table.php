@@ -17,7 +17,6 @@ class UpdatePlansTable extends Migration
             $table->string('address')->nullable(false);
             $table->integer('capacity')->nullable();
             $table->dropColumn('cities');
-            
         });
     }
 

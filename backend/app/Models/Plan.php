@@ -15,12 +15,13 @@ class Plan extends Model
         'title',
         'body',
         'prefecture',
-        'cities',
+        'address',
         'meeting_date_time',
         'image',
         'age',
         'venue',
-        'membership_fee'
+        'membership_fee',
+        'capacity',
     ];
 
     protected $dates = ['meeting_date_time'];
