@@ -8,7 +8,7 @@
     <vue-tags-input
       v-model="tag"
       :tags="tags"
-      placeholder="ジャンルを５個まで入力できます"
+      placeholder="タグを５個まで入力できます"
       :autocomplete-items="filteredItems"
       :add-on-key="[13, 32]"
       @tags-changed="newTags => tags = newTags"
@@ -55,6 +55,8 @@ export default {
   .vue-tags-input {
     max-width: inherit;
   }
+
+
 </style>
 <style lang="css">
   .vue-tags-input .ti-tag {

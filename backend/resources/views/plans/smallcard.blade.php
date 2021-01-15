@@ -1,4 +1,4 @@
-<div class="card mt-3">
+<div class="card mb-4 smallcard">
   <div class="card-body d-flex flex-row">
     <a href="{{ route('users.show', ['name' => $plan->user->name]) }}" class="text-dark">
       <i class="fas fa-user-circle fa-3x mr-1"></i>
@@ -6,19 +6,21 @@
     <div class="ml-2">
       <div class="font-weight-bold">
         <a href="{{ route('users.show', ['name' => $plan->user->name]) }}" class="text-dark">
-          {{ $plan->user->name }}</div>
+          {{ $plan->user->name }}
         </a>
-      <div class="font-weight-lighter"style="font-size: 13px;">
+      </div> 
+      <div class="font-weight-lighter">
         {{ $plan->created_at->format('Y-m-d H:i') }}
       </div>
     </div>
-
     @if( Auth::id() === $plan->user_id )
       <!-- dropdown -->
       <div class="ml-auto card-text">
         <div class="dropdown">
           <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-ellipsis-v"></i>
+            <button type="button" class="btn btn-link text-muted m-0 p-2">
+              <i class="fas fa-ellipsis-v"></i>
+            </button>
           </a>
           <div class="dropdown-menu dropdown-menu-right">
             <a class="dropdown-item" href="{{ route('plans.edit', ['plan' => $plan]) }}">
@@ -59,75 +61,66 @@
       <!-- modal -->
     @endif
   </div>
-  <hr class="mt-0">
-
-  <div class="card-body pt-0">
-    <h3 class="card-title mt-3">
-      {{ $plan->title }}
-    </h3>
-    <h4 class="my-4">
-      {{ $plan->meeting_date_time->format('Y年n月j日' . "($week[$w])" . 'G:i') }}〜
+  <div class="card-body pt-0 pb-2">
+    <h4 class="card-title">
+      <a class="plan-title" href="{{ route('plans.show', ['plan' => $plan]) }}">
+        {{ $plan->title }}
+      </a>
     </h4>
     <div class="table-responsive">
-      <table class="table table-striped table-bordered" width="100%">
+      <table class="table table-bordered" width="100%">
         <tbody>
           <tr>
-            <th scorp="row" class="font-weight-bold p-2 pl-3" width="25%">会場</th>
-            <td width="75%" class="p-2 pl-3">{{ $plan->venue }}</td>
+            <th scorp="row" class="font-weight-bold p-2" width="25%" style="font-size: 14px;">
+              開催日時
+            </th>
+            <td  class="p-2" width="75%">
+              {{ $plan->meeting_date_time->format('Y年n月j日G:i') }}〜
+            </td>
           </tr>
           <tr>
-            <th scorp="row" class="font-weight-bold p-2 pl-3" width="25%">都道府県</th>
-            <td width="75%" class="p-2 pl-3">{{ $plan->prefecture }}</td>
+            <th scorp="row" class="font-weight-bold p-2" width="25%">
+              都道府県
+            </th>
+            <td  width="75%" class="p-2">
+              {{ $plan->prefecture }}
+            </td>
           </tr>
           <tr>
-            <th scorp="row" class="font-weight-bold p-2 pl-3" width="25%">住所</th>
-            <td width="75%" class="p-2 pl-3">{{ $plan->address }}</td>
-          </tr>
-          <tr>
-            <th scorp="row" class="font-weight-bold p-2 pl-3" width="25%">年齢制限</th>
-            <td width="75%" class="p-2 pl-3">{{ $plan->age }}</td>
-          </tr>
-          <tr>
-            <th scorp="row" class="font-weight-bold p-2 pl-3" width="25%">会費</th>
-            <td width="75%" class="p-2 pl-3">{{ $plan->membership_fee }}</td>
-          </tr>
-          <tr>
-            <th scorp="row" class="font-weight-bold p-2 pl-3" width="25%">定員</th>
-            <td width="75%" class="p-2 pl-3">{{ $plan->capacity }}</td>
-          </tr>
-          <tr>
-            <th scorp="row" class="font-weight-bold p-3" width="25%">タグ</th>
-            <td width="75%" class="p-3">
+            <th scorp="row" height="auto" class="font-weight-bold p-2" width="25%">
+              タグ
+            </th>
+            <td  width="75%" height="auto" class="p-2">
               @foreach($plan->tags as $tag)
                 @if($loop->first)
+                  <div class="card-body p-0">
+                    <div class="card-text line-height">
                 @endif
-                  <a href="{{ route('tags.show', ['name' => $tag->name]) }}" class="border p-1 mr-2 mt-1 text-muted" style="border-radius: 3px; color: rgb(88, 88, 88)!important; border-color: rgb(88, 88, 88)!important; background-color: rgb(243, 243, 243); font-size: 12px;" onmouseover="this.style.backgroundColor='rgb(222, 222, 222)'" onmouseout="this.style.backgroundColor='rgb(243, 243, 243)'">
-                    {{ $tag->name }}
-                  </a>
+                      <a href="{{ route('tags.show', ['name' => $tag->name]) }}" class="border p-1 mr-2 my-1 text-muted" style="border-radius: 3px; color: rgb(88, 88, 88)!important; border-color: rgb(88, 88, 88)!important; background-color: rgb(243, 243, 243); font-size: 12px; margin: 20px 5px !important;" onmouseover="this.style.backgroundColor='rgb(222, 222, 222)'" onmouseout="this.style.backgroundColor='rgb(243, 243, 243)'">
+                        {{ $tag->name }}
+                      </a>
                 @if($loop->last)
+                    </div>
+                  </div>
                 @endif
               @endforeach
             </td>
           </tr>
         </tbody>
       </table>
-    </div>
-    <div class="card-text mt-4" style="color: black;">
-      {!! nl2br(e( $plan->body )) !!}
-    </div>
-  </div>
-  <div class="card-body pt-0 pb-2 pl-3">
-    <div class="card-text">
-      <interest
-      :initial-is-interested-by='@json($plan->isInterestedBy(Auth::user()))'
-      :initial-count-interests='@json($plan->count_interests)'
-      :authorized='@json(Auth::check())'
-        endpoint="{{ route('plans.interest', ['plan' => $plan]) }}"
-      >
-      </interest>
-    </div>
-  </div>
 
+      
+
+    </div>
+    <h6 class="my-4">
+    </h6>
+    <div class="card-text d-flex part-body">
+      <span>
+        {{ Str::limit($plan->body, 80, '...') }}
+        <a href="{{ route('plans.show', ['plan' => $plan]) }}" style="color: rgb(116,115,115);" class="read_more">
+          続きを見る
+        </a>
+      </span>
+    </div>
+  </div>
 </div>
-
-

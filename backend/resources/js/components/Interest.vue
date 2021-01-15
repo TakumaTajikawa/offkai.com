@@ -2,17 +2,19 @@
   <div>
     <button
       type="button"
-      class="btn m-0 p-1 shadow-none"
+      class="btn m-0 p-1 shadow-none interest-btn"
     >
       <i class="fas fa-heart mr-1"
         :class="{'red-text':this.isInterestedBy, 'animated rubberBand fast':this.gotToInterest}"
         @click="clickInterest"
       />
-      <span :class="{'red-text':this.isInterestedBy}"
+      <span class="interest" :class="{'red-text':this.isInterestedBy}"
         @click="clickInterest"
       >興味あり！</span>
     </button>
-    {{ countInterests }}
+    <span class="interest-count" :class="{'red-text':this.isInterestedBy}">
+      {{ countInterests }}
+    </span>
   </div>
 </template>
 
@@ -70,3 +72,15 @@
     },
   }
 </script>
+
+<style lang="css" scoped>
+.fa-heart, .interest, .interest-count {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.interest-count {
+  position: relative;
+  top: 1px;
+}
+</style>

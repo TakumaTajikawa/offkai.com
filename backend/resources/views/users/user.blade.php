@@ -21,7 +21,6 @@
               <a class="dropdown-item" href="{{ route('users.edit', ['name' => $user->name]) }}">
                 <i class="fas fa-pen mr-1"></i>アカウントを編集する
               </a>
-              <div class="dropdown-divider"></div>
             </div>
           </div>
         </div>

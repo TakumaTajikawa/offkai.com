@@ -62,7 +62,7 @@ return [
     'image'                => ':attribute 画像は「jpg」「png」「bmp」「gif」「svg」のみ有効です',
     'in'                   => ':attribute 無効な値です',
     'in_array'             => ':attribute は :other と一致する必要があります',
-    'integer'              => ':attribute は整数のみ有効です',
+    'integer'              => ':attribute は半角整数のみ有効です',
     'ip'                   => ':attribute IPアドレスの書式のみ有効です',
     'ipv4'                 => ':attribute IPアドレス(IPv4)の書式のみ有効です',
     'ipv6'                 => ':attribute IPアドレス(IPv6)の書式のみ有効です',
@@ -156,7 +156,7 @@ return [
     */
 
     'attributes' => [
-        'name' => 'ユーザー名',
+        'name' => '名前',
         'email' => 'メールアドレス',
         'password' => 'パスワード',
         'gender' => '性別',
