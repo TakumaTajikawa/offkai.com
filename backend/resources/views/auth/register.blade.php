@@ -83,7 +83,7 @@
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-block mt-4 mb-2" style="background-color: rgb(	0,200,179); color: #fff;">
                                         登録
                                     </button>
                                 </div>
