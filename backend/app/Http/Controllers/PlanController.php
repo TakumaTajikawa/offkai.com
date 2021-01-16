@@ -5,8 +5,10 @@ use App\Models\Plan;
 use App\Models\Tag;
 use App\Models\Comment;
 use App\Models\User;
+use App\Models\Participation;
 use App\Http\Requests\PlanRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PlanController extends Controller
 {
@@ -14,6 +16,7 @@ class PlanController extends Controller
     public function __construct()
     {
         $this->authorizeResource(Plan::class, 'plan');
+        $this->middleware(['auth', 'verified'])->only(['partcipation', 'unpartcipation']);
     }
 
     public function index() 
@@ -90,6 +93,8 @@ class PlanController extends Controller
         $comments = $plan->comments()->orderBy('created_at', 'desc')->get();
         $w = $plan->meeting_date_time->format("w");
         $week = ["日", "月", "火", "水", "木", "金", "土"];
+        $today = date("Y-m-d H:i:s");
+        $meeting_date_time = $plan->meeting_date_time->format("Y-m-d H:i:s");
 
         return view('plans.show', [
             'plan' => $plan,
@@ -97,6 +102,8 @@ class PlanController extends Controller
             'user' => $user,
             'week' => $week,
             'w' => $w,
+            'today' => $today,
+            'meeting_date_time' => $meeting_date_time,
         ]);
     }
 
@@ -119,5 +126,49 @@ class PlanController extends Controller
             'id' => $plan->id,
             'countInterests' => $plan->count_interests,
         ];
+    }
+
+    /**
+  * 引数のIDに紐づくリプライにPARTICIPATIONする
+  *
+  * @param $id リプライID
+  * @return \Illuminate\Http\RedirectResponse
+  */
+    public function participation($id)
+    {
+
+        $participation = Participation::where('plan_id', $id)->where('user_id', Auth::id())->first();
+        if (Auth::check()) {
+            if (isset($participation)) {
+                return redirect()->back();
+            } else {
+                Participation::create([
+                    'plan_id' => $id,
+                    'user_id' => Auth::id(),
+                ]);
+                session()->flash('success', 'You Liked the Reply.');
+                return redirect()->back();
+            }
+        } else {
+            return redirect('login')->with('status', 'ログインしてください！');
+        }
+    }
+
+    /**
+     * 引数のIDに紐づくリプライにUNPARTICIPATIONする
+     *
+     * @param $id リプライID
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function unparticipation($id)
+    {
+        $participation = Participation::where('plan_id', $id)->where('user_id', Auth::id())->first();
+        if (isset($participation)) {
+            $participation->delete();
+            session()->flash('success', 'You Unliked the Reply.');
+            return redirect()->back();
+        } else {
+            return redirect()->back();
+        }
     }
 }

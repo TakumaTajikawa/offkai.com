@@ -2070,7 +2070,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   methods: {
     clickInterest: function clickInterest() {
       if (!this.authorized) {
-        alert('興味あり！機能はログイン中のみ使用できます');
+        alert('興味あり！はログイン中のみ押すことができます');
         return;
       }
 

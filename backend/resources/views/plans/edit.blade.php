@@ -2,9 +2,8 @@
 
 @section('title', 'プラン編集')
 
-@include('nav')
-
 @section('content')
+  @include('nav')
   <div class="container">
     <div class="row">
       <div class="col-12">

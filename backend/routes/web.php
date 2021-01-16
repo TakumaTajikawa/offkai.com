@@ -57,6 +57,6 @@ Route::resource('/comments', CommentController::class)->only(['store', 'destroy'
 #ホーム
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-
-
-
+#参加
+Route::get('/plan/participation/{id}', [PlanController::class, 'participation'])->name('plan.participation');
+Route::get('/plan/unparticipation/{id}', [PlanController::class, 'unparticipation'])->name('plan.unparticipation');
