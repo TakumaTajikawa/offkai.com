@@ -41,7 +41,15 @@
   </div>
   <div class="card-body">
     <div class="card-text">
-      <p style="white-space: pre-wrap;">{{ $user->introduction }}</p>
+      <a href="" class="text-muted">
+        {{ $user->count_followings }} フォロー {{-- この行を変更 --}}
+      </a>
+      <a href="" class="text-muted">
+        {{ $user->count_followers }} フォロワー {{-- この行を変更 --}}
+      </a>
+      <p style="white-space: pre-wrap;">
+        {{ $user->introduction }}
+      </p>
     </div>
   </div>
 </div>
