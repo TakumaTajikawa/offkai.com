@@ -5,8 +5,10 @@ use App\Models\Plan;
 use App\Models\Tag;
 use App\Models\Comment;
 use App\Models\User;
+use App\Models\Participation;
 use App\Http\Requests\PlanRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PlanController extends Controller
 {
@@ -14,6 +16,7 @@ class PlanController extends Controller
     public function __construct()
     {
         $this->authorizeResource(Plan::class, 'plan');
+        $this->middleware(['auth', 'verified'])->only(['partcipation', 'unpartcipation']);
     }
 
     public function index() 
@@ -119,5 +122,44 @@ class PlanController extends Controller
             'id' => $plan->id,
             'countInterests' => $plan->count_interests,
         ];
+    }
+
+    /**
+  * 引数のIDに紐づくリプライにPARTICIPATIONする
+  *
+  * @param $id リプライID
+  * @return \Illuminate\Http\RedirectResponse
+  */
+    public function participation($id)
+    {
+
+        if (Auth::check()) {
+            Participation::create([
+                'plan_id' => $id,
+                'user_id' => Auth::id(),
+            ]);
+    
+            session()->flash('success', 'You Liked the Reply.');
+    
+            return redirect()->back();
+        } else {
+            return redirect('login')->with('status', 'ログインしてください！');
+        }
+        
+    }
+
+    /**
+     * 引数のIDに紐づくリプライにUNPARTICIPATIONする
+     *
+     * @param $id リプライID
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function unparticipation($id)
+    {
+        $participation = Participation::where('plan_id', $id)->where('user_id', Auth::id())->first();
+        $participation->delete();
+
+        session()->flash('success', 'You Unliked the Reply.');
+        return redirect()->back();
     }
 }

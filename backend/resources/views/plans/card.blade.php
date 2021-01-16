@@ -68,6 +68,13 @@
     <h4 class="my-4">
       {{ $plan->meeting_date_time->format('Y年n月j日' . "($week[$w])" . 'G:i') }}〜
     </h4>
+    <div>
+      @if($plan->is_participationed_by_auth_user())
+        <a href="{{ route('plan.unparticipation', ['id' => $plan->id]) }}" class="btn btn-success btn-sm">参加予約済<span class="badge">{{ $plan->participations->count() }}</span></a>
+      @else
+        <a href="{{ route('plan.participation', ['id' => $plan->id]) }}" class="btn btn-secondary btn-sm">参加する<span class="badge">{{ $plan->participations->count() }}</span></a>
+      @endif
+    </div>
     <div class="table-responsive">
       <table class="table table-striped table-bordered" width="100%">
         <tbody>

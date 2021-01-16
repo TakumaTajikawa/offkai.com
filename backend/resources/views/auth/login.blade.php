@@ -13,6 +13,11 @@
                             ログイン
                         </span>
                     </div>
+                    @if (session('status'))
+                        <div class="alert alert-danger" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
                     <div class="card-body text-center">
                         @include('errors')
                         <div class="card-text">
