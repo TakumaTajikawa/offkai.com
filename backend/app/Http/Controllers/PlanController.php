@@ -93,6 +93,8 @@ class PlanController extends Controller
         $comments = $plan->comments()->orderBy('created_at', 'desc')->get();
         $w = $plan->meeting_date_time->format("w");
         $week = ["日", "月", "火", "水", "木", "金", "土"];
+        $today = date("Y-m-d H:i:s");
+        $meeting_date_time = $plan->meeting_date_time->format("Y-m-d H:i:s");
 
         return view('plans.show', [
             'plan' => $plan,
@@ -100,6 +102,8 @@ class PlanController extends Controller
             'user' => $user,
             'week' => $week,
             'w' => $w,
+            'today' => $today,
+            'meeting_date_time' => $meeting_date_time,
         ]);
     }
 

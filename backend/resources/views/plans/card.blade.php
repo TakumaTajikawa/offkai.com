@@ -60,7 +60,6 @@
     @endif
   </div>
   <hr class="mt-0">
-
   <div class="card-body pt-0">
     <h3 class="card-title mt-3">
       {{ $plan->title }}
@@ -69,14 +68,18 @@
       {{ $plan->meeting_date_time->format('Y年n月j日' . "($week[$w])" . 'G:i') }}〜
     </h4>
     <div class="my-4 d-flex">
-      @if( $plan->participations->count() >= $plan->capacity )
-        <div class="text-center rception_closed">定員に達したため<br>参加受付を終了しました</div>
-      @else
-        @if($plan->is_participationed_by_auth_user())
-          <a href="{{ route('plan.unparticipation', ['id' => $plan->id]) }}" class="unparticipation btn btn-sm font-weight-bold" onclick="return confirm('このオフ会をキャンセルしますか？')" style="font-size: 16px; background-color: rgb(2, 114, 103); color: #fff; border-radius: 8px;">参加予約済</a>
+      @if( $today < $meeting_date_time )
+        @if( $plan->participations->count() < $plan->capacity )
+          @if($plan->is_participationed_by_auth_user())
+            <a href="{{ route('plan.unparticipation', ['id' => $plan->id]) }}" class="unparticipation btn btn-sm font-weight-bold" onclick="return confirm('このイベントをキャンセルしますか？')" style="font-size: 16px; background-color: rgb(2, 114, 103); color: #fff; border-radius: 8px;">参加予約済</a>
+          @else
+            <a href="{{ route('plan.participation', ['id' => $plan->id]) }}" onclick="return confirm('このイベントに参加しますか？')" class="participation btn btn-sm font-weight-bold" style="font-size: 16px; background-color: rgb(255, 98, 0); color: #fff; border-radius: 8px;">参加する</a>
+          @endif
         @else
-          <a href="{{ route('plan.participation', ['id' => $plan->id]) }}" onclick="return confirm('このオフ会に参加しますか？')" class="participation btn btn-sm font-weight-bold" style="font-size: 16px; background-color: rgb(255, 98, 0); color: #fff; border-radius: 8px;">参加する</a>
+          <div class="text-center rception_closed">定員に達したため<br>参加受付を終了しました</div>
         @endif
+      @else
+        <div class="text-center rception_closed">このイベントは<br>終了しました</div>
       @endif
       <div class="number_of_participants py-2" >
         参加人数 <span class="font-weight-bold" style="color: rgb(255, 98, 0); font-size: 23px;">{{ $plan->participations->count() }}</span>
@@ -147,5 +150,3 @@
     </div>
   </div>
 </div>
-
-
