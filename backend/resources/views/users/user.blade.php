@@ -9,7 +9,15 @@
           {{ $user->name }}
         </a>
       </h6>
-      <p style="line-height: 49px; font-size: 12px; margin-left: 10px;">（{{ $user->gender }}性）</p>
+      <p style="line-height: 49px; font-size: 12px; margin-left: 10px;">
+        （{{ $user->gender }}性）
+      </p>
+      @if( Auth::id() !== $user->id )
+        <follow-button
+          class="ml-auto"
+        >
+        </follow-button>
+      @endif
       @if( Auth::id() === $user->id )
         <!-- dropdown -->
         <div class="ml-auto card-text">
