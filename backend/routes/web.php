@@ -49,6 +49,8 @@ Route::prefix('users')->name('users.')->group(function () {
     Route::delete('/{name}/follow', [UserController::class, 'unfollow'])->name('unfollow');
   });
   Route::get('/{name}/interests', [UserController::class, 'interests'])->name('interests');
+  Route::get('/{name}/followings', [UserController::class, 'followings'])->name('followings');
+  Route::get('/{name}/followers', [UserController::class, 'followers'])->name('followers');
   Route::get('/{name}/edit', [UserController::class, 'edit'])->name('edit')->middleware('auth');
   Route::patch('/{name}', [UserController::class, 'update'])->name('update')->middleware('auth'); 
 });
