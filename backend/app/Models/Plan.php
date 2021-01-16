@@ -57,4 +57,9 @@ class Plan extends Model
     {
         return $this->hasMany('App\Models\Comment');
     }
+
+    public function participations(): BelongsToMany
+    {
+        return $this->hasMany('App\Models\Participation', 'plan_id')->withTimestamps();
+    }
 }
