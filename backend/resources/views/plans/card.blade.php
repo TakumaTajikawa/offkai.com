@@ -68,12 +68,20 @@
     <h4 class="my-4">
       {{ $plan->meeting_date_time->format('Y年n月j日' . "($week[$w])" . 'G:i') }}〜
     </h4>
-    <div>
+    <div class="my-4 d-flex">
       @if($plan->is_participationed_by_auth_user())
-        <a href="{{ route('plan.unparticipation', ['id' => $plan->id]) }}" class="btn btn-success btn-sm">参加予約済<span class="badge">{{ $plan->participations->count() }}</span></a>
+        <a href="{{ route('plan.unparticipation', ['id' => $plan->id]) }}" class="unparticipation btn btn-sm font-weight-bold" style="font-size: 16px; background-color: rgb(2, 114, 103); color: #fff; border-radius: 8px;">参加予約済</a>
       @else
-        <a href="{{ route('plan.participation', ['id' => $plan->id]) }}" class="btn btn-secondary btn-sm">参加する<span class="badge">{{ $plan->participations->count() }}</span></a>
+        <a href="{{ route('plan.participation', ['id' => $plan->id]) }}" class="participation btn btn-sm font-weight-bold" style="font-size: 16px; background-color: rgb(255, 98, 0); color: #fff; border-radius: 8px;">参加する</a>
       @endif
+      <div class="number_of_participants" >
+        参加人数 <span class="font-weight-bold" style="color: rgb(255, 98, 0); font-size: 23px;">{{ $plan->participations->count() }}</span>
+        @empty($plan->capacity)
+          {{ null }}
+        @else
+          / {{ $plan->capacity }}人
+        @endempty
+      </div>
     </div>
     <div class="table-responsive">
       <table class="table table-striped table-bordered" width="100%">
@@ -100,7 +108,7 @@
           </tr>
           <tr>
             <th scorp="row" class="font-weight-bold p-2 pl-3" width="25%">定員</th>
-            <td width="75%" class="p-2 pl-3">{{ $plan->capacity }}</td>
+            <td width="75%" class="p-2 pl-3">{{ $plan->capacity }}人</td>
           </tr>
           <tr>
             <th scorp="row" class="font-weight-bold p-3" width="25%">タグ</th>
@@ -134,7 +142,6 @@
       </interest>
     </div>
   </div>
-
 </div>
 
 

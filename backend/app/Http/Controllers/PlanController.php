@@ -133,19 +133,21 @@ class PlanController extends Controller
     public function participation($id)
     {
 
+        $participation = Participation::where('plan_id', $id)->where('user_id', Auth::id())->first();
         if (Auth::check()) {
-            Participation::create([
-                'plan_id' => $id,
-                'user_id' => Auth::id(),
-            ]);
-    
-            session()->flash('success', 'You Liked the Reply.');
-    
-            return redirect()->back();
+            if (isset($participation)) {
+                return redirect()->back();
+            } else {
+                Participation::create([
+                    'plan_id' => $id,
+                    'user_id' => Auth::id(),
+                ]);
+                session()->flash('success', 'You Liked the Reply.');
+                return redirect()->back();
+            }
         } else {
             return redirect('login')->with('status', 'ログインしてください！');
         }
-        
     }
 
     /**
@@ -157,9 +159,12 @@ class PlanController extends Controller
     public function unparticipation($id)
     {
         $participation = Participation::where('plan_id', $id)->where('user_id', Auth::id())->first();
-        $participation->delete();
-
-        session()->flash('success', 'You Unliked the Reply.');
-        return redirect()->back();
+        if (isset($participation)) {
+            $participation->delete();
+            session()->flash('success', 'You Unliked the Reply.');
+            return redirect()->back();
+        } else {
+            return redirect()->back();
+        }
     }
 }
