@@ -60,3 +60,9 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 #参加
 Route::get('/plan/participation/{id}', [PlanController::class, 'participation'])->name('plan.participation');
 Route::get('/plan/unparticipation/{id}', [PlanController::class, 'unparticipation'])->name('plan.unparticipation');
+
+#フォロー機能
+Route::middleware('auth')->group(function () {
+  Route::put('/{name}/follow', [UserController::class, 'follow'])->name('follow');
+  Route::delete('/{name}/follow', [UserController::class, 'unfollow'])->name('unfollow');
+});
