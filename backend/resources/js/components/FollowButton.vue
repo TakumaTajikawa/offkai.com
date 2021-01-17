@@ -47,7 +47,7 @@
       buttonText() {
         return this.isFollowedBy
           ? 'フォロー中'
-          : 'フォロー'
+          : 'フォローする'
       },
     },
     methods: {
@@ -79,14 +79,14 @@
   background-color: rgb(0,200,179);
   border: 1px solid rgb(0,200,179);
   font-size: 13px;
-  padding: 5px 13px;
+  padding: 5px 7px;
   border-radius: 20px;
 }
 
 .follow-color {
   border: 1px solid black;
   font-size: 13px;
-  padding: 5px 8px;
+  padding: 5px 12px;
   border-radius: 20px;
 }
 

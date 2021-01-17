@@ -2015,7 +2015,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return this.isFollowedBy ? 'fas fa-user-check' : 'fas fa-user-plus';
     },
     buttonText: function buttonText() {
-      return this.isFollowedBy ? 'フォロー中' : 'フォロー';
+      return this.isFollowedBy ? 'フォロー中' : 'フォローする';
     }
   },
   methods: {
@@ -6763,7 +6763,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.unfollow-color[data-v-426ba0ae] {\n  background-color: rgb(0,200,179);\n  border: 1px solid rgb(0,200,179);\n  font-size: 13px;\n  padding: 5px 13px;\n  border-radius: 20px;\n}\n.follow-color[data-v-426ba0ae] {\n  border: 1px solid black;\n  font-size: 13px;\n  padding: 5px 8px;\n  border-radius: 20px;\n}\nbutton[data-v-426ba0ae]:focus {\n\toutline:0;\n}\n@media (max-width: 575.98px) {\n.unfollow-color[data-v-426ba0ae], .follow-color[data-v-426ba0ae] {\n    font-size: 8px !important;\n}\n}\n\n", ""]);
+exports.push([module.i, "\n.unfollow-color[data-v-426ba0ae] {\n  background-color: rgb(0,200,179);\n  border: 1px solid rgb(0,200,179);\n  font-size: 13px;\n  padding: 5px 7px;\n  border-radius: 20px;\n}\n.follow-color[data-v-426ba0ae] {\n  border: 1px solid black;\n  font-size: 13px;\n  padding: 5px 12px;\n  border-radius: 20px;\n}\nbutton[data-v-426ba0ae]:focus {\n\toutline:0;\n}\n@media (max-width: 575.98px) {\n.unfollow-color[data-v-426ba0ae], .follow-color[data-v-426ba0ae] {\n    font-size: 8px !important;\n}\n}\n\n", ""]);
 
 // exports
 
