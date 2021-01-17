@@ -4,21 +4,27 @@
 
   <ul class="navbar-nav ml-auto">
     @guest
-    <li class="nav-item">
-      <a class="nav-link" href="{{ route('register') }}">ユーザー登録</a>
-    </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('register') }}">ユーザー登録</a>
+      </li>
 
-    <li class="nav-item">
-      <a class="nav-link" href="{{ route('login') }}">ログイン</a>
-    </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('login') }}">ログイン</a>
+      </li>
     @endguest
 
     @auth
-    <li class="nav-item">
-      <a class="nav-link plans-create-link" href="{{ route('plans.create') }}">
-        <i class="fas fa-pen mr-1"> オフ会プランを投稿</i>
-      </a>
-    </li>
+      <li class="nav-item">
+        <a class="nav-link plans-create-link" href="{{ route('plans.search') }}">
+        <i class="fas fa-search">オフ会を検索</i>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link plans-create-link" href="{{ route('plans.create') }}">
+          <i class="fas fa-pen mr-1">オフ会プランを投稿</i>
+        </a>
+      </li>
     @endauth
 
     @auth

@@ -43,7 +43,7 @@ class SearchController extends Controller
         // $data1 = $query->paginate(5);
         // $data2 = $tagQuery->paginate(5);
 
-        return view('users.search',[
+        return view('plans.search',[
             'query' => $query,
             'tagQuery' => $tagQuery,
         ]);
