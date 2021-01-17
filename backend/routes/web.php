@@ -5,6 +5,7 @@ use App\Http\Controllers\PlanController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
 
@@ -69,4 +70,4 @@ Route::get('/plan/participation/{id}', [PlanController::class, 'participation'])
 Route::get('/plan/unparticipation/{id}', [PlanController::class, 'unparticipation'])->name('plan.unparticipation');
 
 #検索機能
-Route::get('/search', [SearchController::class, 'index'])->name('search');
+Route::get('/search', [SearchController::class, 'index'])->name('plans.search');
