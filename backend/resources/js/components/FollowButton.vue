@@ -1,12 +1,11 @@
 <template>
   <div>
     <button
-      class="btn-sm shadow-none border border-primary p-2"
+      class="btn-sm shadow-none py-2 px-3"
       :class="buttonColor"
       @click="clickFollow" 
     >
       <i
-        class="mr-1"
         :class="buttonIcon"
       ></i>
       {{ buttonText }}
@@ -37,8 +36,8 @@
     computed: {
       buttonColor() {
         return this.isFollowedBy
-          ? 'bg-primary text-white'
-          : 'bg-white'
+          ? 'follow-color bg-white'
+          : 'unfollow-color text-white px-4'
       },
       buttonIcon() {
         return this.isFollowedBy
@@ -64,7 +63,6 @@
       },
       async follow() {
         const response = await axios.put(this.endpoint)
-
         this.isFollowedBy = true
       },
       async unfollow() {
@@ -75,3 +73,23 @@
     },
   }
 </script>
+
+<style lang="css" scoped>
+.unfollow-color {
+  background-color: rgb(0,200,179);
+  border: 1px solid rgb(0,200,179);
+  font-size: 12px;
+  border-radius: 20px;
+}
+
+.follow-color {
+  border: 1px solid black;
+  font-size: 12px;
+  border-radius: 20px;
+}
+
+button:focus {
+	outline:0;
+}
+
+</style>
