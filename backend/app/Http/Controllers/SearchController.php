@@ -16,8 +16,7 @@ class SearchController extends Controller
         $search1 = $request->input('title');
         $search2 = $request->input('prefecture');
         // $search3 = $request->input('meeting_date_time');
-        $search4 = $request->input('address');
-        $search5 = $request->input('name');
+        $search4 = $request->input('name');
 
         // タイトル入力フォームで入力した文字列を含むカラムを取得します
         if ($request->has('title') && $search1 != '') {
@@ -29,23 +28,18 @@ class SearchController extends Controller
             $query->where('prefecture', $search2)->get();
         }
 
-        // 住所入力フォームで入力した文字列を含むカラムを取得します
-        if ($request->has('address') && $search4 != '') {
-            $query->where('address', 'like', '%'.$search4.'%')->get();
-        }
-
          // タグ入力フォームで入力した文字列を含むカラムを取得します
-        if ($request->has('name') && $search5 != '') {
-            $tagQuery->where('name', 'like', '%'.$search5.'%')->get();
+        if ($request->has('name') && $search4 != '') {
+            $tagQuery->where('name', 'like', '%'.$search4.'%')->get();
         }
 
         // //プランを1ページにつき5件ずつ表示
-        // $data1 = $query->paginate(5);
-        // $data2 = $tagQuery->paginate(5);
+        $data1 = $query->get();
+        $data2 = $tagQuery->get();
 
         return view('plans.search',[
-            'query' => $query,
-            'tagQuery' => $tagQuery,
+            'data1' => $data1,
+            'data2' => $data2,
         ]);
     }
 }
