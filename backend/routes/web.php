@@ -43,7 +43,14 @@ Route::get('/tags/{name}', [TagController::class, 'show'])->name('tags.show');
 #ユーザー詳細（投稿したプラン一覧・興味あり！を押したプラン一覧）
 Route::prefix('users')->name('users.')->group(function () {
   Route::get('/{name}', [UserController::class, 'show'])->name('show');
+  #フォロー機能
+  Route::middleware('auth')->group(function () {
+    Route::put('/{name}/follow', [UserController::class, 'follow'])->name('follow');
+    Route::delete('/{name}/follow', [UserController::class, 'unfollow'])->name('unfollow');
+  });
   Route::get('/{name}/interests', [UserController::class, 'interests'])->name('interests');
+  Route::get('/{name}/followings', [UserController::class, 'followings'])->name('followings');
+  Route::get('/{name}/followers', [UserController::class, 'followers'])->name('followers');
   Route::get('/{name}/edit', [UserController::class, 'edit'])->name('edit')->middleware('auth');
   Route::patch('/{name}', [UserController::class, 'update'])->name('update')->middleware('auth'); 
 });

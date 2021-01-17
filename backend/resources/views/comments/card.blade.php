@@ -69,6 +69,6 @@
   </li>
 @empty
   <li class="list-group-item ">
-    <p class="mb-0 text-secondary">コメントはまだありません。</p>
+    <p class="mb-0">コメントはまだありません</p>
   </li>
 @endforelse
