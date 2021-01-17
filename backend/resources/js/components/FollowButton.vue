@@ -1,7 +1,7 @@
 <template>
   <div>
     <button
-      class="btn-sm shadow-none py-2 px-3"
+      class="btn-sm shadow-none"
       :class="buttonColor"
       @click="clickFollow" 
     >
@@ -37,7 +37,7 @@
       buttonColor() {
         return this.isFollowedBy
           ? 'follow-color bg-white'
-          : 'unfollow-color text-white px-4'
+          : 'unfollow-color text-white'
       },
       buttonIcon() {
         return this.isFollowedBy
@@ -78,18 +78,26 @@
 .unfollow-color {
   background-color: rgb(0,200,179);
   border: 1px solid rgb(0,200,179);
-  font-size: 12px;
+  font-size: 13px;
+  padding: 5px 13px;
   border-radius: 20px;
 }
 
 .follow-color {
   border: 1px solid black;
-  font-size: 12px;
+  font-size: 13px;
+  padding: 5px 8px;
   border-radius: 20px;
 }
 
 button:focus {
 	outline:0;
+}
+
+@media (max-width: 575.98px) {
+  .unfollow-color, .follow-color {
+    font-size: 8px !important;
+  }
 }
 
 </style>

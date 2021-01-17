@@ -2009,7 +2009,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   computed: {
     buttonColor: function buttonColor() {
-      return this.isFollowedBy ? 'follow-color bg-white' : 'unfollow-color text-white px-4';
+      return this.isFollowedBy ? 'follow-color bg-white' : 'unfollow-color text-white';
     },
     buttonIcon: function buttonIcon() {
       return this.isFollowedBy ? 'fas fa-user-check' : 'fas fa-user-plus';
@@ -6763,7 +6763,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.unfollow-color[data-v-426ba0ae] {\n  background-color: rgb(0,200,179);\n  border: 1px solid rgb(0,200,179);\n  font-size: 12px;\n  border-radius: 20px;\n}\n.follow-color[data-v-426ba0ae] {\n  border: 1px solid black;\n  font-size: 12px;\n  border-radius: 20px;\n}\nbutton[data-v-426ba0ae]:focus {\n\toutline:0;\n}\n\n", ""]);
+exports.push([module.i, "\n.unfollow-color[data-v-426ba0ae] {\n  background-color: rgb(0,200,179);\n  border: 1px solid rgb(0,200,179);\n  font-size: 13px;\n  padding: 5px 13px;\n  border-radius: 20px;\n}\n.follow-color[data-v-426ba0ae] {\n  border: 1px solid black;\n  font-size: 13px;\n  padding: 5px 8px;\n  border-radius: 20px;\n}\nbutton[data-v-426ba0ae]:focus {\n\toutline:0;\n}\n@media (max-width: 575.98px) {\n.unfollow-color[data-v-426ba0ae], .follow-color[data-v-426ba0ae] {\n    font-size: 8px !important;\n}\n}\n\n", ""]);
 
 // exports
 
@@ -39515,7 +39515,7 @@ var render = function() {
     _c(
       "button",
       {
-        staticClass: "btn-sm shadow-none py-2 px-3",
+        staticClass: "btn-sm shadow-none",
         class: _vm.buttonColor,
         on: { click: _vm.clickFollow }
       },
