@@ -32,11 +32,11 @@
   </div>
   <div class="card-body pt-0">
     <div class="card-text">
-      <a href="{{ route('users.followings', ['name' => $user->name]) }}" class="text-muted">
-        {{ $user->count_followings }} フォロー
+      <a href="{{ route('users.followings', ['name' => $user->name]) }}" class="ml-4 font-weight-bold" style="color: black; font-size: 17px;">
+        {{ $user->count_followings }} <span class="font-weight-normal" style="font-size: 14px;">フォロー</span>
       </a>
-      <a href="{{ route('users.followers', ['name' => $user->name]) }}" class="text-muted ml-4">
-        {{ $user->count_followers }} フォロワー
+      <a href="{{ route('users.followers', ['name' => $user->name]) }}" class="ml-4 font-weight-bold" style="color: black; font-size: 17px;">
+        {{ $user->count_followers }} <span class="font-weight-normal" style="font-size: 14px;">フォロワー</span>
       </a>
       <p class="mb-0" style="white-space: pre-wrap;">
         {{ $user->introduction }}

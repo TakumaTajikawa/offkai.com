@@ -7,9 +7,15 @@
   <div class="container">
     @include('users.user')
     @include('users.tabs', ['hasPlans' => false, 'hasInterests' => false])
-    @foreach($followings as $person)
+    @forelse($followings as $person)
       @include('users.person')
-    @endforeach
+    @empty
+      <div class="card mb-4">
+        <div class="card-body text-center py-5" style="color: rgb(108,117,125);">
+          まだフォローしていません
+        </div>
+      </div>
+    @endforelse
   </div>
   @include('footer')
 @endsection
