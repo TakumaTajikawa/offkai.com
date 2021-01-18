@@ -6,12 +6,13 @@
 
 // require('./bootstrap');
 
-import './bootstrap';
-import Vue from 'vue';
-import ImagePreview from './components/ImagePreview';
-import Interest from './components/Interest';
-import PlanTagsInput from './components/PlanTagsInput';
-import FollowButton from './components/FollowButton';
+import './bootstrap'
+import './nav'
+import Vue from 'vue'
+import ImagePreview from './components/ImagePreview'
+import Interest from './components/Interest'
+import PlanTagsInput from './components/PlanTagsInput'
+import FollowButton from './components/FollowButton'
 
 const app = new Vue({
     el: '#app',
