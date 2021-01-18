@@ -7,6 +7,7 @@
 // require('./bootstrap');
 
 import './bootstrap';
+import './search';
 import Vue from 'vue';
 import ImagePreview from './components/ImagePreview';
 import Interest from './components/Interest';
