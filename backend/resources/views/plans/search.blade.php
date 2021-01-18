@@ -6,7 +6,7 @@
   @include('nav')
   <div class="container">
     <div class="row">
-      <div class="col-12">
+      <div class="mx-auto col col-12 col-sm-12 col-md-12 col-lg-10 col-xl-9">
         <div class="card mt-3 mb-4">
           <div class="card-header text-center">
             <span style="color: rgb(124,123,123); font-size: 18px;">
@@ -15,18 +15,27 @@
           </div>
           <div class="card-body pt-0">
             <div class="card-text pt-3">
+              <form method="GET" action="{{ route('plans.search') }}">
+                <div class="form-group">
+                  <label class="font-weight-bold mb-0" style="font-size: 15px;">プラン名</label>
+                  <input type="text" name="title" class="form-control" placeholder="指定なし" value="{{ $data1 ?? old(data1) }}">
+                </div>
 
-              {!! Form::open(['route' => 'plans.search', 'method' => 'get']) !!}
-                <div class="form-group">
-                  {!! Form::label('text', 'プラン名') !!}
-                  {!! Form::text('title' ,'', ['class' => 'form-control', 'placeholder' => '指定なし'] ) !!}
+                <div class="form-group mt-4">
+                  <label class="font-weight-bold mb-0" style="font-size: 15px;">都道府県</label>
+                  <select type="prefecture" class="form-control" name="prefecture" value="{{ old('prefecture') }}">
+                    <option disabled selected style="display: none;">指定なし</option>
+                    @foreach(config('pref') as $key => $value)
+                      <option value="{{ $value }}">
+                        {{ $value }}
+                      </option>
+                    @endforeach
+                  </select>
                 </div>
-                <div class="form-group">
-                  {!! Form::label('prefecture', '都道府県') !!}
-                  {!! Form::select('prefecture', ['指定なし' => '指定なし'] + Config::get('prefecture.todoufuken') ,'指定なし') !!}
-                </div>
-                {!! Form::submit('検索', ['class' => 'btn btn-primary btn-block']) !!}
-              {!! Form::close() !!}
+                <button type="submit" class="btn btn-block" style="margin-top: 40px; background-color: rgb(	0,200,179); color: #fff;">
+                  検索
+                </button>
+              </form>
             </div>
           </div>
         </div>
