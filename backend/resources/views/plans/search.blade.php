@@ -15,15 +15,15 @@
           </div>
           <div class="card-body pt-0">
             <div class="card-text pt-3">
-              <form method="GET" action="{{ route('plans.search') }}" name="searchform">
-                <div class="form-group">
+              <form method="GET" action="{{ route('plans.search') }}">
+                <div class="form-group mx-auto" style="width: 95%;">
                   <label class="font-weight-bold mb-0" style="font-size: 15px;">プラン名</label>
-                  <input type="text" name="title" class="form-control" id="textField" placeholder="指定なし" value="@if (isset($search1)) {{ $search1 }} @endif">
+                  <input type="text" name="title" class="form-control" placeholder="指定なし" value="@if (isset($search1)) {{ $search1 }} @endif">
                 </div>
 
-                <div class="form-group mt-4">
+                <div class="form-group mt-4 mx-auto" style="width: 95%;">
                   <label class="font-weight-bold mb-0" style="font-size: 15px;">都道府県</label>
-                  <select type="text" class="form-control" id="#selectField" name="prefecture">
+                  <select type="text" class="form-control" name="prefecture">
                     <option disabled selected style="display: none;">指定なし</option>
                     @foreach(config('pref') as $key => $value)
                       <option value="{{ $value }}" @if ($search2 == $value) selected @endif>
@@ -33,10 +33,10 @@
                   </select>
                 </div>
                 <div class="d-flex">
-                  <button type="submit" class="btn btn-block mx-5" style="margin-top: 40px; background-color: rgb(	0,200,179); color: #fff;">
+                  <button type="submit" class="btn btn-block mx-auto" style="margin-top: 40px; background-color: rgb(	0,200,179); color: #fff; width: 37%;">
                     検索
                   </button>
-                  <button type="button" id="resetButton" class="btn btn-block mx-5" style="margin-top: 40px; background-color: rgb(123,123,123); color: #fff;">
+                  <button type="button" class="btn btn-block mx-auto" style="margin-top: 40px; background-color: rgb(123,123,123); color: #fff; width: 37%;">
                     <a href="{{ route('plans.search') }}" style="color: #fff;">
                       クリア
                     </a>
