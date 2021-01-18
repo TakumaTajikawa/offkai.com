@@ -40,6 +40,8 @@ class SearchController extends Controller
         return view('plans.search',[
             'data1' => $data1,
             'data2' => $data2,
+            'search1' => $search1,
+            'search2' => $search2,
         ]);
     }
 }
