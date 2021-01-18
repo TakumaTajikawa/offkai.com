@@ -60,7 +60,7 @@
 
                                 <button class="btn btn-success btn-block mt-4 mb-2">
                                     <a href="{{ route('login.guest') }}" class="text-white" >
-                                        ゲストログイン
+                                        ゲストログイン（閲覧用）
                                     </a>
                                 </button>
 
