@@ -1,6 +1,6 @@
 @csrf
 <div class="md-form">
-  <label>タイトル <span style="font-size: 7px; color: #fff; background-color: #FF367F; border-radius: 5px; padding: 2px; position: relative; bottom: 2px;">※必須</span></label>
+  <label>プラン名 <span style="font-size: 7px; color: #fff; background-color: #FF367F; border-radius: 5px; padding: 2px; position: relative; bottom: 2px;">※必須</span></label>
   <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" required value="{{ $plan->title ?? old('title') }}" style="margin-top: 40px;">
   @error('title')
     <span class="invalid-feedback" role="alert">
