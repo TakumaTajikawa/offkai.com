@@ -108,9 +108,6 @@
           </tr>
         </tbody>
       </table>
-
-      
-
     </div>
     <h6 class="my-4">
     </h6>
