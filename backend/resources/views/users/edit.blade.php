@@ -6,7 +6,7 @@
   @include('nav')
   <div class="container">
     <div class="row">
-      <div class="mx-auto col col-12 col-sm-11 col-md-9 col-lg-7 col-xl-6">
+      <div class="mx-auto col col-12 col-sm-12 col-md-12 col-lg-10 col-xl-9">
         <div class="card mt-3 text-center">
           <div class="card-header">
             <span style="color: rgb(124,123,123); font-size: 18px;">
@@ -78,7 +78,7 @@
                   @enderror
                 </div>
 
-                <button type="submit" class="btn btn-block mt-5 mb-2" style="background-color: rgb(	0,200,179); color: #fff;">
+                <button type="submit" class="btn submit-btn mt-5 mb-2">
                   更新
                 </button>
               </form>

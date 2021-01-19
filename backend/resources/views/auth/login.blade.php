@@ -54,13 +54,13 @@
                                     <a href="{{ route('password.request') }}" class="card-text  atag_gray">パスワードを忘れた方はこちら</a>
                                 </div>
 
-                                <button class="btn btn-block mt-5 mb-2" type="submit" style="background-color: rgb(	0,200,179); color: #fff;">
+                                <button class="btn login-btn mt-5 mb-2" type="submit">
                                     ログイン
                                 </button>
 
-                                <button class="btn btn-success btn-block mt-4 mb-2">
+                                <button class="btn guest-login-btn mt-4 mb-2">
                                     <a href="{{ route('login.guest') }}" class="text-white" >
-                                        ゲストログイン
+                                        ゲストログイン（閲覧用）
                                     </a>
                                 </button>
 

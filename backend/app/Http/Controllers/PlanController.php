@@ -50,6 +50,7 @@ class PlanController extends Controller
             $plan->tags()->attach($tag);
         });
 
+        session()->flash('msg_success', 'オフ会プランを投稿しました');
         return redirect()->route('plans.index');
     }
 
@@ -78,12 +79,15 @@ class PlanController extends Controller
             $tag = Tag::firstOrCreate(['name' => $tagName]);
             $plan->tags()->attach($tag);
         });
+
+        session()->flash('msg_success', 'オフ会プランを編集しました');
         return redirect()->route('plans.index');
     }
 
     public function destroy(Plan $plan)
     {
         $plan->delete();
+        session()->flash('msg_success', 'オフ会プランを削除しました');
         return redirect()->route('plans.index');
     }
 
@@ -146,7 +150,8 @@ class PlanController extends Controller
                     'plan_id' => $id,
                     'user_id' => Auth::id(),
                 ]);
-                session()->flash('success', 'You Liked the Reply.');
+                session()->flash('msg_success', 'このオフ会への参加申し込みが完了しました');
+                
                 return redirect()->back();
             }
         } else {
@@ -165,7 +170,7 @@ class PlanController extends Controller
         $participation = Participation::where('plan_id', $id)->where('user_id', Auth::id())->first();
         if (isset($participation)) {
             $participation->delete();
-            session()->flash('success', 'You Unliked the Reply.');
+            session()->flash('msg_success', 'このオフ会の参加をキャンセルしました');
             return redirect()->back();
         } else {
             return redirect()->back();

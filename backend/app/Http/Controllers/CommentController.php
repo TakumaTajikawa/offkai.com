@@ -13,6 +13,7 @@ class CommentController extends Controller
         $comment->fill($request->all());
         $comment->user_id = $user->id;
         $comment->save();
+        session()->flash('msg_success', 'コメントを投稿しました');
 
         return back();
     }
@@ -20,6 +21,8 @@ class CommentController extends Controller
     public function destroy(Comment $comment)
     {
         $comment->delete();
+
+        session()->flash('msg_success', 'コメントを削除しました');
         return redirect()->route('plans.show', ['plan' => $comment->plan_id]);
     }
     

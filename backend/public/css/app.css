@@ -10903,3 +10903,248 @@ a.text-dark:focus {
   }
 }
 
+.nav-link-custom {
+  font-size: 14px !important;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.nav-link-custom:hover {
+  background-color: #fff;
+  color: #00c8b3 !important;
+}
+
+@media (min-width: 701px) {
+  .globalMenuSp,
+  .hamburger {
+    display: none !important;
+  }
+}
+
+@media (max-width: 700px) {
+  /*ハンバーガーボタン*/
+
+  .hamburger {
+    display: block;
+    z-index: 3;
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+    text-align: center;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+
+  .hamburger span {
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background: #fff;
+    transition: 0.3s ease-in-out;
+  }
+
+  .hamburger span:nth-child(1) {
+    top: 10px;
+  }
+
+  .hamburger span:nth-child(2) {
+    top: 20px;
+  }
+
+  .hamburger span:nth-child(3) {
+    top: 30px;
+  }
+
+  /* ナビ開いてる時のボタン */
+
+  .hamburger.active {
+    transition: all 0.3s ease-in-out;
+    transition-delay: 0.6s;
+    transform: rotate(45deg);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    width: 0px;
+  }
+
+  .hamburger.active span:nth-child(1),
+  .hamburger.active span:nth-child(3) {
+    background: #fff;
+    transition-delay: 0.3s;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: translateY(4px);
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: translateY(-16px) rotate(90deg);
+  }
+
+  .globalMenuSp {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    color: #fff;
+    background: rgba(0, 200, 179, 0.9);
+    text-align: center;
+    width: 100%;
+    transform: translateY(-100%);
+    transition: all 0.9s;
+  }
+
+  .globalMenuSp ul {
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+  }
+
+  .globalMenuSp ul li {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    transition: 0.4s all;
+  }
+
+  .globalMenuSp ul li:last-child {
+    padding-bottom: 0;
+  }
+
+  .globalMenuSp ul li:hover {
+    background: #ddd;
+  }
+
+  .globalMenuSp ul li a {
+    display: block;
+    color: #fff;
+    padding: 1em 0;
+    text-decoration: none;
+    font-weight: 100;
+    font-size: 14px;
+  }
+
+  /* このクラスを、jQueryで付与・削除する */
+
+  .globalMenuSp.active {
+    transform: translateY(0%);
+  }
+
+  .globalMenuSp .logout-link {
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: #fff;
+    font-size: 14px;
+    padding: 1em 0;
+  }
+
+  .logout-link:focus {
+    outline: 0 !important;
+  }
+
+  .normal-menu {
+    display: none !important;
+  }
+}
+
+.tag {
+  display: inline-block;
+  border: 1px solid black;
+  border-color: #585858;
+  border-radius: 3px;
+  color: #585858;
+  background-color: #f3f3f3;
+  font-size: 12px;
+  padding: 2px 5px;
+  margin: 3px 2px !important;
+  color: black;
+}
+
+.tag:hover {
+  background-color: #dedede;
+}
+
+.submit-btn {
+  background-color: #00c8b3 !important;
+  color: #fff !important;
+  display: block !important;
+  margin: 0 auto !important;
+  padding-right: 4rem !important;
+  padding-left: 4rem !important;
+}
+
+.submit-btn:hover {
+  background-color: #1ccfbd !important;
+}
+
+.search-btn {
+  background-color: #00c8b3 !important;
+  color: #fff !important;
+  width: 37% !important;
+  margin-top: 40px !important;
+}
+
+.search-btn:hover {
+  background-color: #1ccfbd !important;
+}
+
+.clear-btn {
+  margin-top: 40px !important;
+  background-color: #7b7b7b !important;
+  color: #fff !important;
+  width: 37% !important;
+}
+
+.clear-btn:hover {
+  background-color: #8b8888 !important;
+}
+
+.guest-login-btn {
+  background-color: #14be58 !important;
+}
+
+.guest-login-btn:hover {
+  background-color: #00c851 !important;
+}
+
+.login-btn {
+  background-color: #00c8b3 !important;
+  color: #fff !important;
+  display: block !important;
+  margin: 0 auto !important;
+  width: 223px;
+}
+
+.login-btn:hover {
+  background-color: #1ccfbd !important;
+}
+
+.participation-btn {
+  font-size: 16px !important;
+  background-color: #f16107 !important;
+  color: #fff !important;
+  border-radius: 8px !important;
+}
+
+.participation-btn:hover {
+  background-color: #f86e19 !important;
+}
+
+.unparticipation-btn {
+  font-size: 16px !important;
+  background-color: #027267 !important;
+  color: #fff !important;
+  border-radius: 8px !important;
+}
+
+.unparticipation-btn:hover {
+  background-color: #038376 !important;
+}
+

@@ -33,10 +33,10 @@
                   </select>
                 </div>
                 <div class="d-flex">
-                  <button type="submit" class="btn btn-block mx-auto" style="margin-top: 40px; background-color: rgb(	0,200,179); color: #fff; width: 37%;">
+                  <button type="submit" class="btn btn-block mx-auto search-btn">
                     検索
                   </button>
-                  <button type="button" class="btn btn-block mx-auto" style="margin-top: 40px; background-color: rgb(123,123,123); color: #fff; width: 37%;">
+                  <button type="button" class="btn btn-block mx-auto clear-btn">
                     <a href="{{ route('plans.search') }}" style="color: #fff;">
                       クリア
                     </a>

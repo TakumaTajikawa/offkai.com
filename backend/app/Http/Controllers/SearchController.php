@@ -37,6 +37,8 @@ class SearchController extends Controller
         $data1 = $query->get();
         $data2 = $tagQuery->get();
 
+        
+
         return view('plans.search',[
             'data1' => $data1,
             'data2' => $data2,

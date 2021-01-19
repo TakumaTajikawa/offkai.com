@@ -1,0 +1,95 @@
+// タグ
+.tag {
+  display: inline-block;
+  border: 1px solid black;
+  border-color: rgb(88, 88, 88);
+  border-radius: 3px;
+  color: rgb(88, 88, 88);
+  background-color: rgb(243, 243, 243);
+  font-size: 12px;
+  padding: 2px 5px;
+  margin: 3px 2px !important;
+  color: black;
+
+  &:hover {
+    background-color: rgb(222, 222, 222);
+  }
+}
+
+// 送信ボタン
+.submit-btn {
+  background-color: $base-color !important;
+  color: #fff !important;
+  display: block !important;
+  margin: 0 auto !important;
+  padding-right: 4rem !important;
+  padding-left: 4rem !important;
+  &:hover {
+    background-color: rgb(28, 207, 189) !important;
+  }
+}
+
+// 検索ボタン
+.search-btn {
+  background-color: $base-color !important;
+  color: #fff !important;
+  width: 37% !important;
+  margin-top: 40px !important;
+  &:hover {
+    background-color: rgb(28, 207, 189) !important;
+  }
+}
+
+// クリアボタン
+.clear-btn {
+  margin-top: 40px !important;
+  background-color: rgb(123,123,123) !important;
+  color: #fff !important;
+  width: 37% !important;
+  &:hover {
+    background-color: rgb(139, 136, 136) !important;
+  }
+}
+
+// ゲストログインボタン
+.guest-login-btn {
+  background-color: rgb(20, 190, 88) !important;
+  &:hover {
+    background-color: rgb(0,200,81) !important;
+  }
+}
+
+// ログインボタン
+.login-btn {
+  background-color: $base-color !important;
+  color: #fff !important;
+  display: block !important;
+  margin: 0 auto !important;
+  width: 223px;
+  &:hover {
+    background-color: rgb(28, 207, 189) !important;
+  }
+}
+
+// 参加ボタン
+.participation-btn {
+  font-size: 16px !important;
+  background-color: rgb(241, 97, 7) !important;
+  color: #fff !important;
+  border-radius: 8px !important;
+  &:hover {
+  background-color: rgb(248, 110, 25) !important;
+  }
+}
+
+// 参加解除ボタン
+.unparticipation-btn {
+  font-size: 16px !important;
+  background-color: rgb(2, 114, 103) !important;
+  color: #fff !important;
+  border-radius: 8px !important;
+  &:hover {
+  background-color: rgb(3, 131, 118) !important;
+  }
+}
+

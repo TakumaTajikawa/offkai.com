@@ -71,18 +71,27 @@
       @if( $today < $meeting_date_time )
         @if( $plan->participations->count() < $plan->capacity )
           @if($plan->is_participationed_by_auth_user())
-            <a href="{{ route('plan.unparticipation', ['id' => $plan->id]) }}" class="unparticipation btn btn-sm font-weight-bold" onclick="return confirm('このイベントをキャンセルしますか？')" style="font-size: 16px; background-color: rgb(2, 114, 103); color: #fff; border-radius: 8px;">参加予約済</a>
+            <a href="{{ route('plan.unparticipation', ['id' => $plan->id]) }}" class="unparticipation-btn btn btn-sm font-weight-bold" onclick="return confirm('このオフ会をキャンセルしますか？')">参加予約済</a>
           @else
-            <a href="{{ route('plan.participation', ['id' => $plan->id]) }}" onclick="return confirm('このイベントに参加しますか？')" class="participation btn btn-sm font-weight-bold" style="font-size: 16px; background-color: rgb(255, 98, 0); color: #fff; border-radius: 8px;">参加する</a>
+            <a href="{{ route('plan.participation', ['id' => $plan->id]) }}" onclick="return confirm('このオフ会に参加しますか？')" class="participation-btn btn btn-sm font-weight-bold">参加する</a>
           @endif
         @else
-          <div class="text-center rception_closed">定員に達したため<br>参加受付を終了しました</div>
+          <div class="text-center rception_closed">
+            定員に達したため<br>
+            参加受付を終了しました
+          </div>
         @endif
       @else
-        <div class="text-center rception_closed">このイベントは<br>終了しました</div>
+        <div class="text-center rception_closed">
+          このオフ会は<br>
+          終了しました
+        </div>
       @endif
       <div class="number_of_participants py-2" >
-        参加人数 <span class="font-weight-bold" style="color: rgb(255, 98, 0); font-size: 23px;">{{ $plan->participations->count() }}</span>
+        参加人数 
+        <span class="font-weight-bold" style="color: rgb(255, 98, 0); font-size: 23px;">
+          {{ $plan->participations->count() }}
+        </span>
         @empty($plan->capacity)
           {{ null }}
         @else
@@ -121,13 +130,9 @@
             <th scorp="row" class="font-weight-bold p-3" width="25%">タグ</th>
             <td width="75%" class="p-3">
               @foreach($plan->tags as $tag)
-                @if($loop->first)
-                @endif
-                  <a href="{{ route('tags.show', ['name' => $tag->name]) }}" class="border p-1 mr-2 mt-1 text-muted" style="border-radius: 3px; color: rgb(88, 88, 88)!important; border-color: rgb(88, 88, 88)!important; background-color: rgb(243, 243, 243); font-size: 12px;" onmouseover="this.style.backgroundColor='rgb(222, 222, 222)'" onmouseout="this.style.backgroundColor='rgb(243, 243, 243)'">
-                    {{ $tag->name }}
-                  </a>
-                @if($loop->last)
-                @endif
+                <a href="{{ route('tags.show', ['name' => $tag->name]) }}" class="tag">
+                  {{ $tag->name }}
+                </a>
               @endforeach
             </td>
           </tr>

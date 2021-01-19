@@ -92,25 +92,14 @@
             </th>
             <td  width="75%" height="auto" class="p-2">
               @foreach($plan->tags as $tag)
-                @if($loop->first)
-                  <div class="card-body p-0">
-                    <div class="card-text line-height">
-                @endif
-                      <a href="{{ route('tags.show', ['name' => $tag->name]) }}" class="border p-1 mr-2 my-1 text-muted" style="border-radius: 3px; color: rgb(88, 88, 88)!important; border-color: rgb(88, 88, 88)!important; background-color: rgb(243, 243, 243); font-size: 12px; margin: 20px 5px !important;" onmouseover="this.style.backgroundColor='rgb(222, 222, 222)'" onmouseout="this.style.backgroundColor='rgb(243, 243, 243)'">
-                        {{ $tag->name }}
-                      </a>
-                @if($loop->last)
-                    </div>
-                  </div>
-                @endif
+                <a href="{{ route('tags.show', ['name' => $tag->name]) }}" class="tag">
+                  {{ $tag->name }}
+                </a>
               @endforeach
             </td>
           </tr>
         </tbody>
       </table>
-
-      
-
     </div>
     <h6 class="my-4">
     </h6>
