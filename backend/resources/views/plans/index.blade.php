@@ -10,6 +10,7 @@
         @foreach($plans as $plan)
           @include('plans.smallcard')
         @endforeach
+        {{ $plans->links() }}
       </div>
     </div>
   </div>
