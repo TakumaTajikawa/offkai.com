@@ -10918,9 +10918,9 @@ a.text-dark:focus {
 }
 
 @media (min-width: 701px) {
-  .globalMenuSp > .globalMenuSp-ul,
+  .globalMenuSp,
   .hamburger {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -10929,22 +10929,22 @@ a.text-dark:focus {
 
   .hamburger {
     display: block;
-    position: fixed;
     z-index: 3;
-    right: 13px;
-    top: 12px;
     width: 42px;
     height: 42px;
     cursor: pointer;
     text-align: center;
+    position: absolute;
+    right: 10px;
+    top: 10px;
   }
 
   .hamburger span {
     display: block;
     position: absolute;
+    left: 0;
     width: 30px;
     height: 2px;
-    left: 6px;
     background: #fff;
     transition: 0.3s ease-in-out;
   }
@@ -10987,7 +10987,7 @@ a.text-dark:focus {
     transform: translateY(-16px) rotate(90deg);
   }
 
-  nav.globalMenuSp {
+  .globalMenuSp {
     position: fixed;
     z-index: 2;
     top: 0;
@@ -11000,28 +11000,28 @@ a.text-dark:focus {
     transition: all 0.9s;
   }
 
-  nav.globalMenuSp ul {
+  .globalMenuSp ul {
     margin: 0 auto;
     padding: 0;
     width: 100%;
   }
 
-  nav.globalMenuSp ul li {
+  .globalMenuSp ul li {
     list-style-type: none;
     padding: 0;
     width: 100%;
     transition: 0.4s all;
   }
 
-  nav.globalMenuSp ul li:last-child {
+  .globalMenuSp ul li:last-child {
     padding-bottom: 0;
   }
 
-  nav.globalMenuSp ul li:hover {
+  .globalMenuSp ul li:hover {
     background: #ddd;
   }
 
-  nav.globalMenuSp ul li a {
+  .globalMenuSp ul li a {
     display: block;
     color: #fff;
     padding: 1em 0;
@@ -11032,7 +11032,7 @@ a.text-dark:focus {
 
   /* このクラスを、jQueryで付与・削除する */
 
-  nav.globalMenuSp.active {
+  .globalMenuSp.active {
     transform: translateY(0%);
   }
 

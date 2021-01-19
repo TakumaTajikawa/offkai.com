@@ -10,16 +10,12 @@
         <div class="mb-3">
           @include('plans.card')
         </div>
-        <div class="mb-3">
-          <div class="card mt-3">
-            <div class="card-body" style="padding: 0;">
-              <ul style="padding: 0; margin: 0;">
-                @auth
-                  <!-- コメント投稿フォーム -->
-                  @include('comments.form')
-                @endauth
-              </ul>
-            </div>
+        <div class="card mt-3 mb-3">
+          <div class="card-body p-0">
+            @auth
+              <!-- コメント投稿フォーム -->
+              @include('comments.form')
+            @endauth
           </div>
         </div>
         <div class="mb-3">
