@@ -11054,3 +11054,20 @@ a.text-dark:focus {
   }
 }
 
+.tag {
+  display: inline-block;
+  border: 1px solid black;
+  border-color: #585858;
+  border-radius: 3px;
+  color: #585858;
+  background-color: #f3f3f3;
+  font-size: 12px;
+  padding: 2px 5px;
+  margin: 3px 2px !important;
+  color: black;
+}
+
+.tag:hover {
+  background-color: #dedede;
+}
+
