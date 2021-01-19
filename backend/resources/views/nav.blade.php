@@ -5,7 +5,13 @@
   <ul class="navbar-nav ml-auto normal-menu">
     @guest
       <li class="nav-item">
-        <a class="nav-link py-1 px-2 nav-link-custom" href="{{ route('register') }}"><i class="fas fa-user-plus"> ユーザー登録</i></a>
+        <a class="nav-link plans-create-link py-1 px-2 ml-3 nav-link-custom" href="{{ route('plans.search') }}">
+        <i class="fas fa-search"> オフ会を検索</i>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link py-1 px-2 ml-3 nav-link-custom" href="{{ route('register') }}"><i class="fas fa-user-plus"> ユーザー登録</i></a>
       </li>
 
       <li class="nav-item">

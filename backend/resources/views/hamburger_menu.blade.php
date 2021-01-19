@@ -2,6 +2,13 @@
   <ul class="globalMenuSp-ul">
     @guest
       <li>
+        <a href="{{ route('plans.search') }}">
+          <i class="fas fa-search"> 
+            オフ会を検索
+          </i>
+        </a>
+      </li>
+      <li>
         <a href="{{ route('register') }}">
           <i class="fas fa-user-plus"> 
             ユーザー登録
