@@ -36,14 +36,10 @@ class UserController extends Controller
     public function update(UserRequest $request, string $name)
     {
         $user = User::where('name', $name)->first();
-
         // UserPolicyのupdateメソッドでアクセス制限
         $this->authorize('update', $user);
-
-    
-
-	
         $user->fill($request->all())->save();
+        session()->flash('msg_success', 'アカウント情報を編集しました');
         return redirect()->route('users.show', ['name' => $user->name]);
     }
 
@@ -94,7 +90,6 @@ class UserController extends Controller
 
         $request->user()->followings()->detach($user);
         $request->user()->followings()->attach($user);
-
         return ['name' => $name];
     }
     
@@ -106,9 +101,7 @@ class UserController extends Controller
         {
             return abort('404', 'Cannot follow yourself.');
         }
-
         $request->user()->followings()->detach($user);
-
         return ['name' => $name];
     }
 }

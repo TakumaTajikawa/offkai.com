@@ -3,13 +3,17 @@
 @section('title', 'パスワード再設定')
 
 @section('content')
+    @include('nav')
     <div class="container">
         <div class="row">
             <div class="mx-auto col col-12 col-sm-11 col-md-9 col-lg-7 col-xl-6">
-                <h1 class="text-center"><a class="text-dark" href="/">オフ会.com</a></h1>
                 <div class="card mt-3">
+                    <div class="card-header text-center">
+                        <span style="color: rgb(124,123,123); font-size: 18px;">
+                            パスワード再設定
+                        </span>
+                    </div>
                     <div class="card-body text-center">
-                        <h2 class="h3 card-title text-center mt-2">パスワード再設定</h2>
                         @include('errors')
                         @if (session('status'))
                             <div class="card-text alert alert-success">
@@ -22,9 +26,9 @@
 
                                 <div class="md-form">
                                     <label for="email">メールアドレス</label>
-                                    <input class="form-control" type="text" id="email" name="email" required>
+                                    <input class="form-control submit" type="text" id="email" name="email" required>
                                 </div>
-                                <button class="btn btn-block mt-2 mb-2" type="submit"style="background-color: rgb(	0,200,179); color: #fff;" >メール送信</button>
+                                <button class="btn submit-btn my-2" type="submit"style="background-color: rgb(	0,200,179); color: #fff;" >メール送信</button>
                             </form>
                         </div>
                     </div>
@@ -32,4 +36,5 @@
             </div>
         </div>
     </div>
+    @include('footer')
 @endsection

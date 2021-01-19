@@ -7,6 +7,7 @@
   <div class="container">
     <div class="row">
       <div class="mx-auto col col-12 col-sm-12 col-md-12 col-lg-10 col-xl-9">
+        @include('flash_message')
         <div class="mb-3">
           @include('plans.card')
         </div>

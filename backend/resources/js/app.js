@@ -7,7 +7,8 @@
 // require('./bootstrap');
 
 import './bootstrap'
-import './nav'
+import './hamburgerMenu'
+import './toastrOpstion'
 import Vue from 'vue'
 import ImagePreview from './components/ImagePreview'
 import Interest from './components/Interest'
