@@ -71,18 +71,27 @@
       @if( $today < $meeting_date_time )
         @if( $plan->participations->count() < $plan->capacity )
           @if($plan->is_participationed_by_auth_user())
-            <a href="{{ route('plan.unparticipation', ['id' => $plan->id]) }}" class="unparticipation-btn btn btn-sm font-weight-bold" onclick="return confirm('このイベントをキャンセルしますか？')">参加予約済</a>
+            <a href="{{ route('plan.unparticipation', ['id' => $plan->id]) }}" class="unparticipation-btn btn btn-sm font-weight-bold" onclick="return confirm('このオフ会をキャンセルしますか？')">参加予約済</a>
           @else
-            <a href="{{ route('plan.participation', ['id' => $plan->id]) }}" onclick="return confirm('このイベントに参加しますか？')" class="participation-btn btn btn-sm font-weight-bold">参加する</a>
+            <a href="{{ route('plan.participation', ['id' => $plan->id]) }}" onclick="return confirm('このオフ会に参加しますか？')" class="participation-btn btn btn-sm font-weight-bold">参加する</a>
           @endif
         @else
-          <div class="text-center rception_closed">定員に達したため<br>参加受付を終了しました</div>
+          <div class="text-center rception_closed">
+            定員に達したため<br>
+            参加受付を終了しました
+          </div>
         @endif
       @else
-        <div class="text-center rception_closed">このイベントは<br>終了しました</div>
+        <div class="text-center rception_closed">
+          このオフ会は<br>
+          終了しました
+        </div>
       @endif
       <div class="number_of_participants py-2" >
-        参加人数 <span class="font-weight-bold" style="color: rgb(255, 98, 0); font-size: 23px;">{{ $plan->participations->count() }}</span>
+        参加人数 
+        <span class="font-weight-bold" style="color: rgb(255, 98, 0); font-size: 23px;">
+          {{ $plan->participations->count() }}
+        </span>
         @empty($plan->capacity)
           {{ null }}
         @else

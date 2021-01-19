@@ -11045,8 +11045,8 @@ a.text-dark:focus {
     padding: 1em 0;
   }
 
-  .globalMenuSp .logout-link:focus {
-    outline: 0;
+  .logout-link:focus {
+    outline: 0 !important;
   }
 
   .normal-menu {

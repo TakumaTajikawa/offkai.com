@@ -50,7 +50,7 @@
           <div class="dropdown-divider"></div>
           <form id="logout-button-1" method="POST" action="{{ route('logout') }}">
             @csrf
-            <button form="logout-button-1" class="dropdown-item" type="submit">
+            <button form="logout-button-1" class="dropdown-item logout-link" type="submit">
               ログアウト
             </button>
           </form>
