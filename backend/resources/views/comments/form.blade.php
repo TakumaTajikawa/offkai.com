@@ -1,6 +1,6 @@
 <div class="card">
-  <div class="py-3">
-    <div class="p-2 mb-3 text-center" style="background-color: rgb(254,87,33); color: #fff; border-radius: 5px;">
+  <div class="p-3">
+    <div class="p-2 mb-3 mx-4 text-center" style="background-color: rgb(254,87,33); color: #fff; border-radius: 5px;">
       <p class="mb-0" style="font-size: 14px;">聞きたいこと・伝えたいことなどをコメントしてみましょう</p>
     </div>
     <form method="POST" action="{{ route('comments.store') }}">
@@ -20,9 +20,9 @@
         @enderror
       </div>
       <div class="form-group mb-0">
-        <div class="col-md-12 text-right">
+        <div class="text-right">
           <p class="mb-4 text-danger" style="font-size: 12px;">200文字以内</p>
-          <button type="submit" class="btn" style="background-color: rgb(	0,200,179); color: #fff;">
+          <button type="submit" class="btn submit-btn">
             コメントする
           </button>
         </div>

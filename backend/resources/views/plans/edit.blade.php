@@ -14,7 +14,7 @@
               <form method="POST" action="{{ route('plans.update', ['plan' => $plan]) }}">
                 @method('PATCH')
                 @include('plans.form')
-                <button type="submit" class="btn btn-block" style="margin-top: 40px; background-color: rgb(	0,200,179); color: #fff;">更新する</button>
+                <button type="submit" class="btn submit-btn">更新する</button>
               </form>
             </div>
           </div>

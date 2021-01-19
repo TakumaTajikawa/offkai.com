@@ -78,7 +78,7 @@
                   @enderror
                 </div>
 
-                <button type="submit" class="btn btn-block mt-5 mb-2" style="background-color: rgb(	0,200,179); color: #fff;">
+                <button type="submit" class="btn submit-btn mt-5 mb-2">
                   更新
                 </button>
               </form>

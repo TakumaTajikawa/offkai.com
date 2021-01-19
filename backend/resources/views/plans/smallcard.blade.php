@@ -92,17 +92,9 @@
             </th>
             <td  width="75%" height="auto" class="p-2">
               @foreach($plan->tags as $tag)
-                @if($loop->first)
-                  <div class="card-body p-0">
-                    <div class="card-text line-height">
-                @endif
-                      <a href="{{ route('tags.show', ['name' => $tag->name]) }}" class="tag">
-                        {{ $tag->name }}
-                      </a>
-                @if($loop->last)
-                    </div>
-                  </div>
-                @endif
+                <a href="{{ route('tags.show', ['name' => $tag->name]) }}" class="tag">
+                  {{ $tag->name }}
+                </a>
               @endforeach
             </td>
           </tr>

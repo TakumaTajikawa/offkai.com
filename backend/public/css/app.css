@@ -11071,3 +11071,58 @@ a.text-dark:focus {
   background-color: #dedede;
 }
 
+.submit-btn {
+  background-color: #00c8b3 !important;
+  color: #fff !important;
+  display: block !important;
+  margin: 0 auto !important;
+  padding-right: 4rem !important;
+  padding-left: 4rem !important;
+}
+
+.submit-btn:hover {
+  background-color: #1ccfbd !important;
+}
+
+.search-btn {
+  background-color: #00c8b3 !important;
+  color: #fff !important;
+  width: 37% !important;
+  margin-top: 40px !important;
+}
+
+.search-btn:hover {
+  background-color: #1ccfbd !important;
+}
+
+.clear-btn {
+  margin-top: 40px !important;
+  background-color: #7b7b7b !important;
+  color: #fff !important;
+  width: 37% !important;
+}
+
+.clear-btn:hover {
+  background-color: #8b8888 !important;
+}
+
+.guest-login-btn {
+  background-color: #14be58 !important;
+}
+
+.guest-login-btn:hover {
+  background-color: #00c851 !important;
+}
+
+.login-btn {
+  background-color: #00c8b3 !important;
+  color: #fff !important;
+  display: block !important;
+  margin: 0 auto !important;
+  width: 223px;
+}
+
+.login-btn:hover {
+  background-color: #1ccfbd !important;
+}
+
