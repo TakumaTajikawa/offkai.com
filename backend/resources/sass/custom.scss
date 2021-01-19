@@ -70,3 +70,27 @@
     background-color: rgb(28, 207, 189) !important;
   }
 }
+
+// 参加ボタン
+.participation-btn {
+  font-size: 16px !important;
+  background-color: rgb(241, 97, 7) !important;
+  color: #fff !important;
+  border-radius: 8px !important;
+  &:hover {
+  background-color: rgb(248, 110, 25) !important;
+  }
+}
+
+// 参加解除ボタン
+.unparticipation-btn {
+  font-size: 16px !important;
+  background-color: rgb(2, 114, 103) !important;
+  color: #fff !important;
+  border-radius: 8px !important;
+  &:hover {
+  background-color: rgb(3, 131, 118) !important;
+  }
+}
+
+

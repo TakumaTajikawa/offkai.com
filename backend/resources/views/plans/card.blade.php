@@ -71,9 +71,9 @@
       @if( $today < $meeting_date_time )
         @if( $plan->participations->count() < $plan->capacity )
           @if($plan->is_participationed_by_auth_user())
-            <a href="{{ route('plan.unparticipation', ['id' => $plan->id]) }}" class="unparticipation btn btn-sm font-weight-bold" onclick="return confirm('このイベントをキャンセルしますか？')" style="font-size: 16px; background-color: rgb(2, 114, 103); color: #fff; border-radius: 8px;">参加予約済</a>
+            <a href="{{ route('plan.unparticipation', ['id' => $plan->id]) }}" class="unparticipation-btn btn btn-sm font-weight-bold" onclick="return confirm('このイベントをキャンセルしますか？')">参加予約済</a>
           @else
-            <a href="{{ route('plan.participation', ['id' => $plan->id]) }}" onclick="return confirm('このイベントに参加しますか？')" class="participation btn btn-sm font-weight-bold" style="font-size: 16px; background-color: rgb(255, 98, 0); color: #fff; border-radius: 8px;">参加する</a>
+            <a href="{{ route('plan.participation', ['id' => $plan->id]) }}" onclick="return confirm('このイベントに参加しますか？')" class="participation-btn btn btn-sm font-weight-bold">参加する</a>
           @endif
         @else
           <div class="text-center rception_closed">定員に達したため<br>参加受付を終了しました</div>

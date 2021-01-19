@@ -11126,3 +11126,25 @@ a.text-dark:focus {
   background-color: #1ccfbd !important;
 }
 
+.participation-btn {
+  font-size: 16px !important;
+  background-color: #f16107 !important;
+  color: #fff !important;
+  border-radius: 8px !important;
+}
+
+.participation-btn:hover {
+  background-color: #f86e19 !important;
+}
+
+.unparticipation-btn {
+  font-size: 16px !important;
+  background-color: #027267 !important;
+  color: #fff !important;
+  border-radius: 8px !important;
+}
+
+.unparticipation-btn:hover {
+  background-color: #038376 !important;
+}
+
