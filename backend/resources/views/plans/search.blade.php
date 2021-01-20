@@ -17,7 +17,7 @@
             <div class="card-text pt-3">
               <form method="GET" action="{{ route('plans.search') }}">
                 <div class="form-group mx-auto" style="width: 95%;">
-                  <label class="font-weight-bold mb-0" style="font-size: 15px;">プラン名</label>
+                  <label class="font-weight-bold mb-0" style="font-size: 15px;">オフ会名</label>
                   <input type="text" name="title" class="form-control" placeholder="指定なし" value="@if (isset($search1)) {{ $search1 }} @endif">
                 </div>
 
@@ -46,8 +46,7 @@
             </div>
           </div>
         </div>
-
-        @forelse($data1 as $plan)
+        @forelse($data as $plan)
           @include('plans.smallcard')
         @empty
           <div class="card mb-4">
