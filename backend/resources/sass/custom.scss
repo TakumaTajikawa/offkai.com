@@ -93,3 +93,16 @@
   }
 }
 
+li.active > a {
+  background-color: $base-color !important;
+  border-radius: 20px !important;
+}
+
+ul.pagination > li > a {
+  border-radius: 20px !important;
+  &:hover {
+  border-radius: 20px !important;
+  }
+}
+
+

@@ -33,9 +33,9 @@ class SearchController extends Controller
             $tagQuery->where('name', 'like', '%'.$search4.'%')->get();
         }
 
-        // //プランを1ページにつき5件ずつ表示
-        $data1 = $query->get();
-        $data2 = $tagQuery->get();
+        // //プランを1ページにつき3件ずつ表示
+        $data1 = $query->paginate(3);
+        $data2 = $tagQuery->paginate(3);
 
         
 

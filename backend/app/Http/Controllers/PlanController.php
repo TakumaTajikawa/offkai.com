@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Controllers\Controller;
 use App\Models\Plan;
 use App\Models\Tag;
 use App\Models\Comment;
@@ -9,6 +10,7 @@ use App\Models\Participation;
 use App\Http\Requests\PlanRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 
 class PlanController extends Controller
 {
@@ -21,7 +23,7 @@ class PlanController extends Controller
 
     public function index() 
     {
-        $plans = Plan::all()->sortByDesc('created_at');
+        $plans = Plan::orderBy('created_at', 'desc')->paginate(3);
         return view('plans.index', [
             'plans' => $plans,
         ]);

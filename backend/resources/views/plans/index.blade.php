@@ -10,6 +10,7 @@
         @foreach($plans as $plan)
           @include('plans.smallcard')
         @endforeach
+        {{ $plans->links('pagination::default') }}
       </div>
     </div>
   </div>
