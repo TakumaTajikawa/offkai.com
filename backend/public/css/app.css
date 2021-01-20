@@ -11148,3 +11148,16 @@ a.text-dark:focus {
   background-color: #038376 !important;
 }
 
+li.active > a {
+  background-color: #00c8b3 !important;
+  border-radius: 20px !important;
+}
+
+ul.pagination > li > a {
+  border-radius: 20px !important;
+}
+
+ul.pagination > li > a:hover {
+  border-radius: 20px !important;
+}
+
