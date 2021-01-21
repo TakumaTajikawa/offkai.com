@@ -2,8 +2,13 @@
   <div class="card-body">
     <div class="d-flex flex-row">
       <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark">
-        <i class="fas fa-user-circle fa-3x"></i>
+        @if($user->profile_img)
+          <img src="{{ $user->profile_img }}" alt="プロフィール画像">
+        @else
+          <i class="fas fa-user-circle fa-3x"></i>
+        @endif
       </a>
+      <p>{{ $user->profile_img }}</p>
       <h5 class="h5 card-title m-0 font-weight-bold" style="font-size: 18px; line-height: 49px;">
         <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark" style="margin-left: 15px;">
           {{ $user->name }}

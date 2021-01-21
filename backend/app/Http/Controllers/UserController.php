@@ -6,7 +6,7 @@ use App\Models\User;
 use App\Http\Requests\UserRequest;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Storage;
 class UserController extends Controller
 {
 
@@ -36,11 +36,14 @@ class UserController extends Controller
     public function update(UserRequest $request, string $name)
     {
         $user = User::where('name', $name)->first();
+        $image = $request->file('profile_img');
+        $path = Storage::disk('s3')->putFile('profileimag', $image, 'public');
+        $user->profile_img = Storage::disk('s3')->url($path);
         // UserPolicyのupdateメソッドでアクセス制限
         $this->authorize('update', $user);
         $user->fill($request->all())->save();
         session()->flash('msg_success', 'アカウント情報を編集しました');
-        return redirect()->route('users.show', ['name' => $user->name]);
+        return redirect()->route('users.show', ['name' => $user->name,]);
     }
 
     public function interests(string $name)

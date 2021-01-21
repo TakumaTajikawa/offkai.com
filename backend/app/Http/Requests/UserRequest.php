@@ -36,7 +36,7 @@ class UserRequest extends FormRequest
             return [
                 'name' => 'required|min:1|max:15' . Rule::unique('users')->ignore(Auth::id()),
                 'email' => 'required|max:255' . Rule::unique('users')->ignore(Auth::id()),
-                'profile_img' => 'file|image|mimes:jpeg,png|max:2048',
+                'profile_img' => 'file|image|mimes:jpg,jpeg,png|max:2048',
                 'introduction' => 'max:255',
             ];
         }

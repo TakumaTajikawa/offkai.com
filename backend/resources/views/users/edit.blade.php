@@ -68,14 +68,7 @@
                   <label for="profile_img" class="mb-0">
                     プロフィール画像
                   </label>
-                </div>
-                <div>
-                  <input type="file" name="profile_img" value="{{ $user->profile_img ?? old('profile_img') }}" accept="image/png, image/jpeg" class="@error('profile_img') is-invalid @enderror">
-                  @error('profile_img')
-                    <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                    </span>
-                  @enderror
+                  <input type="file" name="profile_img" accept="image/png, image/jpeg, image/jpg">
                 </div>
 
                 <button type="submit" class="btn submit-btn mt-5 mb-2">
