@@ -17,14 +17,20 @@
             <div class="card-text pt-3">
               <form method="GET" action="{{ route('plans.search') }}">
                 <div class="form-group mx-auto" style="width: 95%;">
-                  <label class="font-weight-bold mb-0" style="font-size: 15px;">オフ会名</label>
+                  <label class="font-weight-bold mb-0" style="font-size: 15px;">
+                    オフ会名
+                  </label>
                   <input type="text" name="title" class="form-control" placeholder="指定なし" value="@if (isset($search1)) {{ $search1 }} @endif">
                 </div>
 
                 <div class="form-group mt-4 mx-auto" style="width: 95%;">
-                  <label class="font-weight-bold mb-0" style="font-size: 15px;">都道府県</label>
+                  <label class="font-weight-bold mb-0" style="font-size: 15px;">
+                    都道府県
+                  </label>
                   <select type="text" class="form-control" name="prefecture">
-                    <option disabled selected style="display: none;">指定なし</option>
+                    <option disabled selected style="display: none;">
+                      指定なし
+                    </option>
                     @foreach(config('pref') as $key => $value)
                       <option value="{{ $value }}" @if ($search2 == $value) selected @endif>
                         {{ $value }}
@@ -55,7 +61,6 @@
             </div>
           </div>
         @endforelse
-
       </div>
     </div>
   </div>
