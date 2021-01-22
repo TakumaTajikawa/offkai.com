@@ -111,4 +111,17 @@ class UserController extends Controller
         $request->user()->followings()->detach($user);
         return ['name' => $name];
     }
+
+    public function editPassword(){
+        return view('users.user_password_edit');
+    }
+
+    public function updatePassword(UpdatePasswordRequest $request){
+        $user = \Auth::user();
+        $user->password = bcrypt($request->get('new-password'));
+        $user->save();
+
+        session()->flash('msg_success', 'パスワードを変更しました');
+        return redirect()->route('users.show', ['name' => $user->name,]);
+    }
 }
