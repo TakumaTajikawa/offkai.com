@@ -1,7 +1,11 @@
 <div class="card mb-4 smallcard">
   <div class="card-body d-flex flex-row">
     <a href="{{ route('users.show', ['name' => optional($plan->user)->name]) }}" class="text-dark">
-      <i class="fas fa-user-circle fa-3x mr-1"></i>
+      @if($plan->user->profile_img)
+        <img src="{{ $plan->user->profile_img }}" alt="プロフィール画像" style="width: 50px; height: 50px; border-radius: 30px;">
+      @else
+        <i class="fas fa-user-circle fa-3x"></i>
+      @endif
     </a>
     <div class="ml-2">
       <div class="font-weight-bold">
