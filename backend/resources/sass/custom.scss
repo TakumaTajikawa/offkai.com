@@ -106,8 +106,12 @@ ul.pagination > li > a {
 }
 
 // エラーメッセージ
-.alert-danger > ul > li {
-  list-style: none !important;
+.alert-danger > ul {
+  padding-left: 0;
+  margin-bottom: 0;
+  > li {
+    list-style: none !important;
+  }
 } 
 
 

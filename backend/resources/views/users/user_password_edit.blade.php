@@ -19,11 +19,11 @@
               <form method="POST" action="{{ route('user.password.update') }}">
                 @csrf
                 <div class="md-form mt-5">
-                  <label for="password">
+                  <label for="current_password">
                     現在のパスワード
                   </label>
-                  <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="current-password" required autofocus autocomplete="new-password">
-                  @error('password')
+                  <input id="current_password" type="password" class="form-control @error('current_password') is-invalid @enderror" name="current-password" required autofocus autocomplete="new-password">
+                  @error('current_password')
                     <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
                     </span>
@@ -43,21 +43,18 @@
                 </div>
 
                 <div class="md-form mt-5">
-                  <label for="password">
+                  <label for="password-confirm">
                     新しいパスワード（確認用）
                   </label>
-                  <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="new-password_confirmation" required autocomplete="new-password">
-                  @error('password')
-                    <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                    </span>
-                  @enderror
+                  <input id="password-confirm" type="password" class="form-control" name="new-password_confirmation" required autocomplete="new-password">
                 </div>
 
-              <button type="submit" class="btn submit-btn mt-5 mb-2">
+                <button type="submit" class="btn submit-btn mt-5 mb-2">
                   変更
-              </button> 
-          </form>
+                </button> 
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </div>
