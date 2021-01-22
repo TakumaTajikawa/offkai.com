@@ -62,12 +62,15 @@ Route::get('guest', [LoginController::class, 'guestLogin'])->name('login.guest')
 #コメント
 Route::resource('/comments', CommentController::class)->only(['store', 'destroy']);
 
-#ホーム
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-
 #参加ボタン
 Route::get('/plan/participation/{id}', [PlanController::class, 'participation'])->name('plan.participation');
 Route::get('/plan/unparticipation/{id}', [PlanController::class, 'unparticipation'])->name('plan.unparticipation');
 
 #検索機能
 Route::get('/search', [SearchController::class, 'index'])->name('plans.search');
+
+// パスワード変更機能
+Route::group(['middleware' => ['auth', 'web']], function () {
+  Route::get('/user/password/edit', [UserController::class, 'editPassword'])->name('user.password.edit');
+  Route::post('/user/password/', [UserController::class, 'updatePassword'])->name('user.password.update');
+});

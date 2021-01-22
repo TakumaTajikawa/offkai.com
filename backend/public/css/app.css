@@ -11161,3 +11161,12 @@ ul.pagination > li > a:hover {
   border-radius: 20px !important;
 }
 
+.alert-danger > ul {
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.alert-danger > ul > li {
+  list-style: none !important;
+}
+

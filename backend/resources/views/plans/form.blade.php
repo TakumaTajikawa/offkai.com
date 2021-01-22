@@ -111,4 +111,4 @@
     </span>
   @enderror
 </div>
-<img id="preview" src="{{ $plan->img ? $plan->img : '/storage/noimage.png' }}" alt="プロフィール画像" style="width: 120px; height: 120px;" class="mb-4">
+<img id="preview" src="{{ $plan->img ? $plan->img : '/storage/plannoimage.jpg' }}" alt="プロフィール画像" style="width: 120px; height: 120px;" class="mb-4">

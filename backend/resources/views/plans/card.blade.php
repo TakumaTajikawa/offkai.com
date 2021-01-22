@@ -2,7 +2,7 @@
   <div class="card-body d-flex flex-row">
     <a href="{{ route('users.show', ['name' => $plan->user->name]) }}" class="text-dark">
       @if($plan->user->profile_img)
-        <img src="{{ $user->profile_img }}" alt="プロフィール画像" style="width: 50px; height: 50px; border-radius: 30px;">
+        <img src="{{ $plan->user->profile_img }}" alt="プロフィール画像" style="width: 50px; height: 50px; border-radius: 30px;">
       @else
         <i class="fas fa-user-circle fa-3x"></i>
       @endif

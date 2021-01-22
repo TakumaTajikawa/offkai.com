@@ -159,6 +159,7 @@ return [
         'name' => '名前',
         'email' => 'メールアドレス',
         'password' => 'パスワード',
+        'new-password' => '新しいパスワード',
         'gender' => '性別',
     ],
 
