@@ -68,3 +68,9 @@ Route::get('/plan/unparticipation/{id}', [PlanController::class, 'unparticipatio
 
 #検索機能
 Route::get('/search', [SearchController::class, 'index'])->name('plans.search');
+
+// パスワード変更機能
+Route::group(['middleware' => ['auth', 'web']], function () {
+  Route::get('/user/password/edit', 'UserController@editPassword')->name('user.password.edit');
+  Route::post('/user/password/', 'UserController@updatePassword')->name('user.password.update');
+});

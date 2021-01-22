@@ -80,6 +80,11 @@
                   更新
                 </button>
               </form>
+              <div class="text-center mt-5 mb-3">
+                <a href="{{ route('user.password.edit') }}" class="card-text atag_gray">
+                  パスワードの変更はこちら
+                </a>
+              </div>
             </div>
           </div>
         </div>
