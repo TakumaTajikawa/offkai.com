@@ -64,13 +64,18 @@
                   @enderror
                 </div>
 
-                <div class="form-group mt-5">
-                  <label for="profile_img" class="mb-0">
+                <div class="form-group mt-5 d-flex flex-column">
+                  <label for="profile_img" class="mb-2">
                     プロフィール画像
                   </label>
-                  <input type="file" name="profile_img" accept="image/png, image/jpeg, image/jpg">
+                  <input type="file" name="profile_img" accept="image/png, image/jpeg, image/jpg" class="@error('profile_img') is-invalid @enderror">
+                  @error('profile_img')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
                 </div>
-
+                <img id="preview" src="{{ $user->profile_img ? $user->profile_img : '/storage/noimage.png' }}" alt="プロフィール画像" style="width: 120px; height: 120px;">
                 <button type="submit" class="btn submit-btn mt-5 mb-2">
                   更新
                 </button>
