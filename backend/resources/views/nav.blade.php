@@ -26,7 +26,7 @@
     @auth
       <li class="nav-item">
         <a class="nav-link plans-create-link py-1 px-2 ml-3 nav-link-custom" href="{{ route('plans.create') }}">
-          <i class="fas fa-pen mr-1"> オフ会プランを投稿</i>
+          <i class="fas fa-pen mr-1"> オフ会を投稿</i>
         </a>
       </li>
 

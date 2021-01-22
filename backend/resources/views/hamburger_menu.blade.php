@@ -34,7 +34,7 @@
       <li>
         <a href="{{ route('plans.create') }}">
           <i class="fas fa-pen mr-1"> 
-            オフ会プランを投稿
+            オフ会を投稿
           </i>
         </a>
       </li>

@@ -18,7 +18,6 @@ class Plan extends Model
         'prefecture',
         'address',
         'meeting_date_time',
-        'image',
         'age',
         'venue',
         'membership_fee',

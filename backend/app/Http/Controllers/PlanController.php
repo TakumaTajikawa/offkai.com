@@ -10,6 +10,7 @@ use App\Models\Participation;
 use App\Http\Requests\PlanRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 
 class PlanController extends Controller
@@ -45,6 +46,11 @@ class PlanController extends Controller
     {
         $plan->fill($request->all());
         $plan->user_id = $request->user()->id;
+
+        if ($image = $request->file('img')) {
+            $path = Storage::disk('s3')->putFile('planimage', $image, 'public');
+            $plan->img = Storage::disk('s3')->url($path);
+        }
         $plan->save();
 
         $request->tags->each(function ($tagName) use ($plan) {
@@ -75,6 +81,10 @@ class PlanController extends Controller
 
     public function update(PlanRequest $request, Plan $plan)
     {
+        if ($image = $request->file('img')) {
+            $path = Storage::disk('s3')->putFile('planimage', $image, 'public');
+            $plan->img = Storage::disk('s3')->url($path);
+        }
         $plan->fill($request->all())->save();
         $plan->tags()->detach();
         $request->tags->each(function ($tagName) use ($plan) {

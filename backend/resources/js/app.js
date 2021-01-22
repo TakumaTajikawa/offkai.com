@@ -9,8 +9,9 @@
 import './bootstrap'
 import './hamburgerMenu'
 import './toastrOpstion'
+import './imagePreview'
+import './planImagePreview'
 import Vue from 'vue'
-import ImagePreview from './components/ImagePreview'
 import Interest from './components/Interest'
 import PlanTagsInput from './components/PlanTagsInput'
 import FollowButton from './components/FollowButton'
@@ -18,7 +19,6 @@ import FollowButton from './components/FollowButton'
 const app = new Vue({
     el: '#app',
     components: {
-        ImagePreview,
         Interest,
         PlanTagsInput,
         FollowButton,

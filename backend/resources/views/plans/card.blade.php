@@ -1,7 +1,11 @@
 <div class="card mt-3">
   <div class="card-body d-flex flex-row">
     <a href="{{ route('users.show', ['name' => $plan->user->name]) }}" class="text-dark">
-      <i class="fas fa-user-circle fa-3x mr-1"></i>
+      @if($plan->user->profile_img)
+        <img src="{{ $user->profile_img }}" alt="プロフィール画像" style="width: 50px; height: 50px; border-radius: 30px;">
+      @else
+        <i class="fas fa-user-circle fa-3x"></i>
+      @endif
     </a>
     <div class="ml-2">
       <div class="font-weight-bold">
@@ -99,7 +103,11 @@
         @endempty
       </div>
     </div>
-    <div class="table-responsive">
+
+    @if($plan->img)
+      <img class="plan-img" src="{{ $plan->img }}" alt="プラン画像" style="width: 100%;" class="mb-3">
+    @endif
+    <div class="table-responsive mt-3">
       <table class="table table-striped table-bordered" width="100%">
         <tbody>
           <tr>

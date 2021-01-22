@@ -11,7 +11,7 @@
           <div class="card-body pt-0">
             @include('errors')
             <div class="card-text">
-              <form method="POST" action="{{ route('plans.update', ['plan' => $plan]) }}">
+              <form method="POST" action="{{ route('plans.update', ['plan' => $plan]) }}" enctype="multipart/form-data">
                 @method('PATCH')
                 @include('plans.form')
                 <button type="submit" class="btn submit-btn">更新する</button>
