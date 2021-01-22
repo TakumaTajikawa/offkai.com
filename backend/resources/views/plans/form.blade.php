@@ -99,3 +99,16 @@
     </span>
   @enderror
 </div>
+
+<div class="form-group mt-5 d-flex flex-column">
+  <label for="img" class="mb-2">
+    プロフィール画像
+  </label>
+  <input type="file" name="img" accept="image/png, image/jpeg, image/jpg" class="@error('img') is-invalid @enderror">
+  @error('img')
+    <span class="invalid-feedback" role="alert">
+      <strong>{{ $message }}</strong>
+    </span>
+  @enderror
+</div>
+<img id="preview" src="{{ $plan->img ? $plan->img : '/storage/noimage.png' }}" alt="プロフィール画像" style="width: 120px; height: 120px;">

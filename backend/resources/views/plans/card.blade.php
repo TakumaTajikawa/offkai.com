@@ -103,6 +103,10 @@
         @endempty
       </div>
     </div>
+
+    @if($plan->img)
+      <img src="{{ $plan->img }}" alt="プラン画像" style="width: auto; height: auto;">
+    @endif
     <div class="table-responsive">
       <table class="table table-striped table-bordered" width="100%">
         <tbody>

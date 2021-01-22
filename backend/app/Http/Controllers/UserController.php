@@ -39,9 +39,10 @@ class UserController extends Controller
     public function update(UserRequest $request, string $name)
     {
         $user = User::where('name', $name)->first();
-        $image = $request->file('profile_img');
-        $path = Storage::disk('s3')->putFile('profileimage', $image, 'public');
-        $user->profile_img = Storage::disk('s3')->url($path);
+        if ($image = $request->file('profile_img')) {
+            $path = Storage::disk('s3')->putFile('profileimage', $image, 'public');
+            $user->profile_img = Storage::disk('s3')->url($path);
+        }
         // UserPolicyのupdateメソッドでアクセス制限
         $this->authorize('update', $user);
         $user->fill($request->all())->save();

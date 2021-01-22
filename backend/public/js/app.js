@@ -51778,11 +51778,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _toastrOpstion__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_toastrOpstion__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _imagePreview__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./imagePreview */ "./resources/js/imagePreview.js");
 /* harmony import */ var _imagePreview__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_imagePreview__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _components_Interest__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Interest */ "./resources/js/components/Interest.vue");
-/* harmony import */ var _components_PlanTagsInput__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/PlanTagsInput */ "./resources/js/components/PlanTagsInput.vue");
-/* harmony import */ var _components_FollowButton__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/FollowButton */ "./resources/js/components/FollowButton.vue");
+/* harmony import */ var _planImagePreview__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./planImagePreview */ "./resources/js/planImagePreview.js");
+/* harmony import */ var _planImagePreview__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_planImagePreview__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _components_Interest__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/Interest */ "./resources/js/components/Interest.vue");
+/* harmony import */ var _components_PlanTagsInput__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/PlanTagsInput */ "./resources/js/components/PlanTagsInput.vue");
+/* harmony import */ var _components_FollowButton__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/FollowButton */ "./resources/js/components/FollowButton.vue");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -51797,16 +51799,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var app = new vue__WEBPACK_IMPORTED_MODULE_4___default.a({
+
+var app = new vue__WEBPACK_IMPORTED_MODULE_5___default.a({
   el: '#app',
   components: {
-    Interest: _components_Interest__WEBPACK_IMPORTED_MODULE_5__["default"],
-    PlanTagsInput: _components_PlanTagsInput__WEBPACK_IMPORTED_MODULE_6__["default"],
-    FollowButton: _components_FollowButton__WEBPACK_IMPORTED_MODULE_7__["default"]
+    Interest: _components_Interest__WEBPACK_IMPORTED_MODULE_6__["default"],
+    PlanTagsInput: _components_PlanTagsInput__WEBPACK_IMPORTED_MODULE_7__["default"],
+    FollowButton: _components_FollowButton__WEBPACK_IMPORTED_MODULE_8__["default"]
   }
 });
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-vue__WEBPACK_IMPORTED_MODULE_4___default.a.config.productionTip = false;
+vue__WEBPACK_IMPORTED_MODULE_5___default.a.config.productionTip = false;
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -51817,7 +51820,7 @@ vue__WEBPACK_IMPORTED_MODULE_4___default.a.config.productionTip = false;
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-vue__WEBPACK_IMPORTED_MODULE_4___default.a.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_5___default.a.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -52249,6 +52252,27 @@ $(function () {
 
 $(function () {
   $("[name='profile_img']").on('change', function (e) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      $("#preview").attr('src', e.target.result);
+    };
+
+    reader.readAsDataURL(e.target.files[0]);
+  });
+});
+
+/***/ }),
+
+/***/ "./resources/js/planImagePreview.js":
+/*!******************************************!*\
+  !*** ./resources/js/planImagePreview.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(function () {
+  $("[name='img']").on('change', function (e) {
     var reader = new FileReader();
 
     reader.onload = function (e) {
