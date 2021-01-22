@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Http\Requests\UserRequest;
+use App\Http\Requests\UpdatePasswordRequest;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;

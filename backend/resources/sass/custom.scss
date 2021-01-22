@@ -105,6 +105,11 @@ ul.pagination > li > a {
   }
 }
 
+// エラーメッセージ
+.alert-danger > ul > li {
+  list-style: none !important;
+} 
+
 
 
 
