@@ -105,9 +105,9 @@
     </div>
 
     @if($plan->img)
-      <img src="{{ $plan->img }}" alt="プラン画像" style="width: auto; height: auto;">
+      <img class="plan-img" src="{{ $plan->img }}" alt="プラン画像" style="width: 100%;" class="mb-3">
     @endif
-    <div class="table-responsive">
+    <div class="table-responsive mt-3">
       <table class="table table-striped table-bordered" width="100%">
         <tbody>
           <tr>
