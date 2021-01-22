@@ -7,6 +7,9 @@ use App\Http\Requests\UserRequest;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+
+use Debugbar;
+
 class UserController extends Controller
 {
 
