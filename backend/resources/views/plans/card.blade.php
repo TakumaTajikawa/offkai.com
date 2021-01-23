@@ -7,7 +7,7 @@
         <i class="fas fa-user-circle fa-3x"></i>
       @endif
     </a>
-    <div class="ml-2">
+    <div class="ml-3">
       <div class="font-weight-bold">
         <a href="{{ route('users.show', ['name' => $plan->user->name]) }}" class="text-dark">
           {{ $plan->user->name }}</div>
