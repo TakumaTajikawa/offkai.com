@@ -2,11 +2,11 @@
   <li class="list-group-item">
     <div class="pt-3 w-100 d-flex">
       <a href="{{ route('users.show', ['name' => $comment->user->name]) }}" class="in-link text-dark">
-      @if($comment->user->profile_img)
-        <img src="{{ $comment->user->profile_img }}" alt="プロフィール画像" style="width: 50px; height: 50px; border-radius: 30px;">
-      @else
-        <i class="fas fa-user-circle fa-3x"></i>
-      @endif
+        @if($comment->user->profile_img)
+          <img src="{{ $comment->user->profile_img }}" alt="プロフィール画像" style="width: 50px; height: 50px; border-radius: 30px;">
+        @else
+          <i class="fas fa-user-circle fa-3x"></i>
+        @endif
       </a>
       <div class="ml-3 d-flex flex-column p-2 pr-4  comment-flame" style="background-color: rgb(239,242,245); border-radius: 10px">
         <div class="d-flex">
