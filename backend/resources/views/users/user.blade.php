@@ -43,7 +43,7 @@
         {{ $user->count_followers }} <span class="font-weight-normal" style="font-size: 14px;">フォロワー</span>
       </a>
       <p class="mb-0" style="white-space: pre-wrap;">
-        {{ $user->introduction }}
+        {!! nl2br(e( $user->introduction )) !!}
       </p>
       @if( Auth::id() !== $user->id )
         <follow-button
