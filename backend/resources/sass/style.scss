@@ -1,0 +1,130 @@
+body, html {
+  height: 100%;
+}
+
+.comment-flame {
+  position: relative;
+}
+
+.hide-d {
+  display: none;
+  position: absolute;
+  top: 7px;
+  right: 8px;
+}
+
+.comment-flame:hover .hide-d {
+  display: inline;
+}
+
+.tag-display:hover {
+  background-color: #888888;
+  color: #9138;
+}
+
+/* プラン一覧のページのプランタイトル */
+.plan-title {
+  color: rgb(2, 114, 103);
+}
+
+.plan-title:hover {
+  color:  rgb(3, 180, 163);;
+}
+
+#app, footer {
+  background-color:  rgb(237, 248, 246) !important;
+}
+
+#app {
+  width: 100%;
+  position: relative;
+  min-height: 100%;
+}
+
+.read_more:hover {
+  color: black !important;
+}
+
+/* グレーのリンクの文字 */
+.atag_gray:hover {
+  color: black !important;
+}
+
+/* フッター分の高さを確保 */
+.container {
+  padding-bottom: 70px;
+}
+
+/* フッター */
+footer {
+  height:70px;
+  position:absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  line-height: 70px;
+  color: rgb(2, 114, 103);
+}
+
+.gender-select-m {
+  position: relative;
+  top: 12px;
+  right: 30px;
+  font-size: 16px;
+}
+
+.gender-select-f {
+  position: relative;
+  top: 12px;
+  left: 30px;
+  font-size: 16px;
+}
+
+.number_of_participants {
+  font-size: 1rem !important;
+}
+
+/* イベントの終了アナウンス */
+.rception_closed {
+  background-color: rgb(189,195,199);
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 12px;
+  margin-right: 15px;
+}
+
+.nav-link-custom {
+  font-size: 8px !important;
+  border: 1px solid #fff;
+}
+
+@media (min-width: 992px) {
+  .plans-create-link {
+    font-size: 1rem;
+  }
+}
+
+/* 中デバイス（タブレット, 992px 未満） */
+@media (max-width: 991.98px) {
+  .plans-create-link {
+    font-size: 1rem;
+  }
+}
+
+/* 小デバイス（横向きモバイル, 768px 未満） */
+@media (max-width: 767.98px) {
+  .plans-create-link {
+    font-size: 1rem;
+  }
+}
+
+/* 極小デバイス（縦向きモバイル, 576px 未満） */
+@media (max-width: 575.98px) {
+  .plans-create-link {
+    font-size: 0.8rem;
+  }
+
+  .tab-text {
+    font-size: 0.9rem;
+  }
+}
