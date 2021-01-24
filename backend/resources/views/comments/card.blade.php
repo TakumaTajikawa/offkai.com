@@ -24,7 +24,7 @@
                   <i class="fas fa-ellipsis-v"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                  <a class="dropdown-item text-danger" data-toggle="modal" data-target="#modal-delete-{{ $comment->id }}">
+                  <a class="dropdown-item text-danger" data-toggle="modal" data-target="#modal-delete-comment{{ $comment->id }}">
                     <i class="fas fa-trash-alt mr-1"></i>コメントを削除する
                   </a>
                 </div>
@@ -33,7 +33,7 @@
             <!-- dropdown -->
 
             <!-- modal -->
-            <div id="modal-delete-{{ $comment->id }}" class="modal fade" tabindex="-1" role="dialog">
+            <div id="modal-delete-comment{{ $comment->id }}" class="modal fade" tabindex="-1" role="dialog">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
