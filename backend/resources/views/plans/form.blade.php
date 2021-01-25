@@ -102,7 +102,7 @@
 
 <div class="form-group mt-5 d-flex flex-column">
   <label for="img" class="mb-2">
-    プロフィール画像
+    プランイメージ画像
   </label>
   <input type="file" name="img" accept="image/png, image/jpeg, image/jpg" class="@error('img') is-invalid @enderror">
   @error('img')
@@ -111,4 +111,4 @@
     </span>
   @enderror
 </div>
-<img id="preview" src="{{ $plan->img ? $plan->img : '/storage/plannoimage.jpg' }}" style="width: 120px; height: 120px;" class="mb-4">
+<img id="preview" src="{{ $plan->img ? $plan->img : null }}" style="width: 120px; height: 120px;" class="mb-4">
