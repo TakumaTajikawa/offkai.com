@@ -29,7 +29,7 @@
               <i class="fas fa-pen mr-1"></i>プランを編集する
             </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item text-danger" data-toggle="modal" data-target="#modal-delete-{{ $plan->id }}">
+            <a class="dropdown-item text-danger" data-toggle="modal" data-target="#modal-delete-plan{{ $plan->id }}">
               <i class="fas fa-trash-alt mr-1"></i>プランを削除する
             </a>
           </div>
@@ -38,7 +38,7 @@
       <!-- dropdown -->
 
       <!-- modal -->
-      <div id="modal-delete-{{ $plan->id }}" class="modal fade" tabindex="-1" role="dialog">
+      <div id="modal-delete-plan{{ $plan->id }}" class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
