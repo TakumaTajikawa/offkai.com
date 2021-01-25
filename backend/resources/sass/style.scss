@@ -53,6 +53,7 @@ body, html {
 /* フッター分の高さを確保 */
 .container {
   padding-bottom: 70px;
+  padding-top: 90px;
 }
 
 /* フッター */
@@ -127,4 +128,11 @@ footer {
   .tab-text {
     font-size: 0.9rem;
   }
+}
+
+header {
+  background-color: rgb(0,200,179);
+  position: fixed !important;
+  width: 100%;
+  z-index: 3;
 }

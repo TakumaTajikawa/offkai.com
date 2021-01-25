@@ -1,4 +1,4 @@
-<header class="navbar navbar-expand navbar-dark mb-4" style="background-color: rgb(0,200,179); position: relative;">
+<header class="navbar navbar-expand navbar-dark mb-4">
 
   <a class="nvn navbar-brand font-weight-bold" href="/" style="font-size: 18px;">オフ会<span style="font-size: 23px; font-weight: normal;">.c</span><i class="far fa-smile" style="font-size: 16px;"></i><span style="font-size: 23px; font-weight: normal;">m</span></a>
   
