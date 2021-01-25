@@ -75,7 +75,7 @@
                     </span>
                   @enderror
                 </div>
-                <img id="preview" src="{{ $user->profile_img ? $user->profile_img : '/storage/noimage.png' }}" style="width: 120px; height: 120px;">
+                <img id="preview" src="{{ $user->profile_img ? $user->profile_img : null }}" style="width: 120px; height: 120px;">
                 <button type="submit" class="btn submit-btn mt-5 mb-2">
                   更新
                 </button>
