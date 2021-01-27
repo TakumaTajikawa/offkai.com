@@ -33,7 +33,7 @@ https://o-ff-kai.com
 - JavaScript
 - Vue.js
 - jQuery
-- Bootstrap  
+- MDBootstrap  
 ### バックエンド
 - PHP 7.3.23
 - Laravel 8.24.0  
@@ -85,7 +85,7 @@ https://o-ff-kai.com
 - 検索機能
 - フラッシュメッセージ (Toastrを使用)
 - バリデーションエラーメッセージ (日本語化)
-- レスポンシブ対応 (Bootstrap)
+- レスポンシブ対応
 - 以下のページにてページネーションを採用
   + オフ会一覧ページ 
 
