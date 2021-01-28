@@ -46,7 +46,7 @@ class UserController extends Controller
         }
         // UserPolicyのupdateメソッドでアクセス制限
         $this->authorize('update', $user);
-        $user->fill($request->all())->save();
+        $user->fill($request->validated())->save();
         session()->flash('msg_success', 'アカウント情報を編集しました');
         return redirect()->route('users.show', ['name' => $user->name,]);
     }

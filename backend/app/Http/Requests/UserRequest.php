@@ -31,6 +31,7 @@ class UserRequest extends FormRequest
         if(Auth::user()->email == self::GUEST_USER_EMAIL) {
             return [
                 'introduction' => 'max:255',
+                'profile_img' => 'file|image|mimes:jpg,jpeg,png|max:2048',
             ];
         } else {
             return [
