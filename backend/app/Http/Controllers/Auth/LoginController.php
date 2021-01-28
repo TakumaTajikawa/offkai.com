@@ -69,7 +69,7 @@ class LoginController extends Controller
         return $this->loggedOut($request) ?: redirect('/');
     }
 
-    private const GUEST_USER_ID = 2;
+    private const GUEST_USER_ID = 1;
 
     public function guestLogin()
     {
