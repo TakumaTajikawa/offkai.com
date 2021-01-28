@@ -26,11 +26,14 @@ class UserRequest extends FormRequest
 
     private const GUEST_USER_EMAIL = 'guestuser@example.com';
 
+    private const GUEST_USER_ID = 1;
+    
     public function rules()
     {
-        if(Auth::user()->email == self::GUEST_USER_EMAIL) {
+        if(Auth::id() == self::GUEST_USER_ID) {
             return [
                 'introduction' => 'max:255',
+                'profile_img' => 'file|image|mimes:jpg,jpeg,png|max:2048',
             ];
         } else {
             return [

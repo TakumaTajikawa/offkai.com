@@ -20,6 +20,9 @@
                 @method('PATCH')
                 @csrf
 
+                @if (Auth::id() == 1)
+                  <p class="text-danger">※ゲストユーザーは、名前とメールアドレスを変更できません</p>
+                @endif
                 <div class="md-form mt-5">
                   <label for="name">
                     {{ __('Name') }}
@@ -27,12 +30,16 @@
                       ※必須
                     </span>
                   </label>
-                  <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $user->name ?? old('name') }}" required autocomplete="name" autofocus>
-                  @error('name')
-                    <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                    </span>
-                  @enderror
+                  @if (Auth::id() == 1)
+                    <input id="name" type="text" class="form-control" name="name" value="{{ $user->name }}" readonly>
+                  @else
+                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $user->name ?? old('name') }}" required autocomplete="name" autofocus>
+                    @error('name')
+                      <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                      </span>
+                    @enderror
+                  @endif
                 </div>
 
                 <div class="md-form mt-5">
@@ -42,12 +49,16 @@
                       ※必須
                     </span>
                   </label>
-                  <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $user->email ?? old('email') }}" required autocomplete="email">
-                  @error('email')
-                    <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                    </span>
-                  @enderror
+                  @if (Auth::id() == 1)
+                    <input id="email" type="email" class="form-control" name="email" value="{{ $user->email }}" readonly>
+                  @else
+                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $user->email ?? old('email') }}" required autocomplete="email">
+                    @error('email')
+                      <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                      </span>
+                    @enderror
+                  @endif
                 </div>
 
                 <div class="form-group mt-5">
