@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', 'ユーザー登録')
+@section('title', 'ユーザー登録 - オフ会.com')
 
 @section('content')
     @include('nav')

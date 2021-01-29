@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', 'パスワード変更')
+@section('title', 'パスワード変更 - オフ会.com')
 
 @section('content')
   @include('nav')

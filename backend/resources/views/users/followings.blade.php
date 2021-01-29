@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', $user->name . 'のフォロー中')
+@section('title', $user->name . 'のフォロー中 - オフ会.com')
 
 @section('content')
   @include('nav')

@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', $tag->name)
+@section('title', $tag->name . '- オフ会.com')
 
 @section('content')
   @include('nav')
