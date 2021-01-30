@@ -44,7 +44,7 @@ class PlanController extends Controller
 
     public function store(PlanRequest $request, Plan $plan)
     {
-        $plan->fill($request->all());
+        $plan->fill($request->validated());
         $plan->user_id = $request->user()->id;
 
         if ($image = $request->file('img')) {
@@ -85,7 +85,7 @@ class PlanController extends Controller
             $path = Storage::disk('s3')->putFile('planimage', $image, 'public');
             $plan->img = Storage::disk('s3')->url($path);
         }
-        $plan->fill($request->all())->save();
+        $plan->fill($request->validated())->save();
         $plan->tags()->detach();
         $request->tags->each(function ($tagName) use ($plan) {
             $tag = Tag::firstOrCreate(['name' => $tagName]);

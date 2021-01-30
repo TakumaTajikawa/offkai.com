@@ -34,6 +34,7 @@ class PlanRequest extends FormRequest
             'membership_fee' => 'max:50',
             'capacity' => 'integer|max:50',
             'tags' => 'json|regex:/^(?!.*\s).+$/u|regex:/^(?!.*\/).*$/u',
+            'image' => 'file|image|mimes:jpg,jpeg,png|max:2048',
         ];
     }
 

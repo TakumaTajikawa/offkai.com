@@ -57,8 +57,8 @@
 </div>
 
 <div class="md-form">
-  <label>定員 <span style="font-size: 11px;">※半角数字を入力</span></label>
-  <input type="text" name="capacity" class="form-control @error('capacity') is-invalid @enderror" value="{{ $plan->capacity ?? old('capacity') }}">
+  <label>定員 <span style="font-size: 11px;">※半角数字を入力</span><span style="font-size: 7px; color: #fff; background-color: #FF367F; border-radius: 5px; padding: 2px; position: relative; bottom: 2px; margin-left: 5px;">※必須</span></label>
+  <input type="text" name="capacity" class="form-control @error('capacity') is-invalid @enderror" required value="{{ $plan->capacity ?? old('capacity') }}">
   @error('capacity')
     <span class="invalid-feedback" role="alert">
       <strong>{{ $message }}</strong>
