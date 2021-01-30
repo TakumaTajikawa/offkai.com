@@ -15,8 +15,16 @@ class User extends TestCase
      */
     public function test_example()
     {
-        $response = $this->get('/');
+        $user = new \App\Models\User;
+        $user->name = "山田";
+        $user->gender = "男性";
+        $user->email = "yamada@test.com";
+        $user->password = \Hash::make('password');
+        $user->save();
 
-        $response->assertStatus(200);
+        $readUser = \App\Models\User::where('name', '山田')->first();
+        $this->assertNotNull($readUser);
+        $this->assertTrue(\Hash::check('password', $readUser->password));
+        \App\Models\User::where('email', 'yamada@test.com')->delete();
     }
 }
