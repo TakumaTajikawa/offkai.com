@@ -42,7 +42,7 @@
       <a href="{{ route('users.followers', ['name' => $user->name]) }}" class="ml-4 font-weight-bold" style="color: black; font-size: 17px;">
         {{ $user->count_followers }} <span class="font-weight-normal" style="font-size: 14px;">フォロワー</span>
       </a>
-      <p class="mb-0">
+      <p class="mb-0 mt-3">
         {!! nl2br(e( $user->introduction )) !!}
       </p>
       @if( Auth::id() !== $user->id )

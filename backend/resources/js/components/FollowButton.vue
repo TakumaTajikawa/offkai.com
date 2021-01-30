@@ -81,6 +81,7 @@
   font-size: 13px;
   padding: 5px 7px;
   border-radius: 20px;
+  margin-top: 20px;
 }
 
 .follow-color {
@@ -88,6 +89,7 @@
   font-size: 13px;
   padding: 5px 12px;
   border-radius: 20px;
+  margin-top: 20px;
 }
 
 button:focus {
