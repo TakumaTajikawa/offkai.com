@@ -6,14 +6,15 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class Plan extends TestCase
+class PlanTest extends TestCase
 {
+
     /**
      * A basic feature test example.
      *
      * @return void
      */
-    public function test_example()
+    public function testPlanCreateTest()
     {
         $plan = new \App\Models\Plan;
         $plan->title = "オフラインもくもく会";
@@ -25,7 +26,7 @@ class Plan extends TestCase
         $plan->capacity = 5;
         $plan->age = "20代限定";
         $plan->body = str_repeat('a', 80);
-        $plan->user_id = 1;
+        $plan->user_id = 2;
         $plan->save();
 
         $readPlan = \App\Models\Plan::where('title', 'オフラインもくもく会')->first();
