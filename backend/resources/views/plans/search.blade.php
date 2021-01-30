@@ -61,6 +61,7 @@
             </div>
           </div>
         @endforelse
+        {{ $data->links('pagination::default') }}
       </div>
     </div>
   </div>

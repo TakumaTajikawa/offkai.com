@@ -26,7 +26,7 @@ class SearchController extends Controller
         }
 
         // //プランを1ページにつき3件ずつ表示
-        $data = $query->paginate(3);
+        $data = $query->orderBy('created_at', 'desc')->paginate(3);
 
         return view('plans.search',[
             'data' => $data,
