@@ -162,4 +162,9 @@
       </interest>
     </div>
   </div>
+  @if( $plan->address )
+    <div class="mx-3">
+      <iframe id="map" src="https://www.google.com/maps/embed/v1/place?key={{ config('services.google-map.apikey') }}&q={{ $plan->address }}" width="100%" height="300" frameborder="0"></iframe>
+    </div>
+  @endif
 </div>
