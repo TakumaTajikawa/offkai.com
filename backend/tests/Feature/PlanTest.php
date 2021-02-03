@@ -27,7 +27,7 @@ class PlanTest extends TestCase
         $plan->capacity = 5;
         $plan->age = "20代限定";
         $plan->body = str_repeat('a', 80);
-        $plan->user_id = 2;
+        $plan->user_id = 1;
         $plan->save();
 
         $readPlan = Plan::where('title', 'オフラインもくもく会')->first();
