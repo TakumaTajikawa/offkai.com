@@ -9,7 +9,7 @@ use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 
-class UserSaveRequestTest extends TestCase
+class UserRequestTest extends TestCase
 {
     /**
      * @test
@@ -38,7 +38,6 @@ class UserSaveRequestTest extends TestCase
         $this->assertEquals($expectedFailed, $validator->failed());
     }
 
-    
     /**
      * @test
      * @return void
