@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use App\Models\Plan;
 
 class PlanTest extends TestCase
 {
@@ -16,7 +17,7 @@ class PlanTest extends TestCase
      */
     public function testPlanCreateTest()
     {
-        $plan = new \App\Models\Plan;
+        $plan = new Plan;
         $plan->title = "オフラインもくもく会";
         $plan->venue = "山田珈琲";
         $plan->meeting_date_time = "2021-03-27 18:00:00";
@@ -26,12 +27,12 @@ class PlanTest extends TestCase
         $plan->capacity = 5;
         $plan->age = "20代限定";
         $plan->body = str_repeat('a', 80);
-        $plan->user_id = 2;
+        $plan->user_id = 1;
         $plan->save();
 
-        $readPlan = \App\Models\Plan::where('title', 'オフラインもくもく会')->first();
+        $readPlan = Plan::where('title', 'オフラインもくもく会')->first();
         $this->assertNotNull($readPlan);
 
-        \App\Models\Plan::where('title', 'オフラインもくもく会')->delete();
+        Plan::where('title', 'オフラインもくもく会')->delete();
     }
 }
