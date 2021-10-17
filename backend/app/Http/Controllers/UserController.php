@@ -8,6 +8,7 @@ use App\Http\Requests\UpdatePasswordRequest;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Crypt;
 
 use Debugbar;
 
@@ -15,10 +16,18 @@ class UserController extends Controller
 {
 
     public function show(string $name)
-    {
+    {   
+        $name = decrypt($name);
         $user = User::where('name', $name)->first();
 
         $plans = $user->plans->sortByDesc('created_at');
+
+        $book = collect(['id' => 1, 'title' => 'キングダム', 'author' => '原泰久']);
+
+        $enc_book = encrypt($book);
+
+        $dec_book = decrypt($enc_book);
+
         
         return view('users.show', [
             'user' => $user,

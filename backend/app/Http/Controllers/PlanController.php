@@ -6,11 +6,14 @@ use App\Models\Plan;
 use App\Models\Tag;
 use App\Models\Comment;
 use App\Models\User;
+use App\Mail\ParticipationMail; 
 use App\Models\Participation;
 use App\Http\Requests\PlanRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Mail;
+
 
 
 class PlanController extends Controller
@@ -150,8 +153,9 @@ class PlanController extends Controller
   * @param $id リプライID
   * @return \Illuminate\Http\RedirectResponse
   */
-    public function participation($id)
+    public function participation(int $id)
     {
+        $authUser = Auth::user();
 
         $participation = Participation::where('plan_id', $id)->where('user_id', Auth::id())->first();
         if (Auth::check()) {
@@ -163,7 +167,7 @@ class PlanController extends Controller
                     'user_id' => Auth::id(),
                 ]);
                 session()->flash('msg_success', 'このオフ会への参加申し込みが完了しました');
-                
+                Mail::send(new ParticipationMail($authUser));
                 return redirect()->back();
             }
         } else {
